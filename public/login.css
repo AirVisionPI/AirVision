@@ -1,0 +1,476 @@
+/* ========================================== */
+/*    1. Default Selectors                    */
+/*    2. Container                            */
+/*      - 2.1 Container Box                   */
+/*      - 2.2 Content Box                     */
+/*      - 2.3 Login Box                       */
+/*         > 2.3.1 Button Style               */
+/*         > 2.3.2 Checkbox Style             */
+/*    3. Media Query                          */
+/* ========================================== */
+
+/* ====================================== */
+/*          1. Default Selectors          */
+/* ====================================== */
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+/* ====================================== */
+/*       - 2. Container                   */
+/*         > 2.1 Container Box            */
+/* ====================================== */
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 850px;
+  height: 500px;
+}
+
+.bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+
+  top: 45px;
+  width: 100%;
+  height: 410px;
+
+  background: #000;
+  border-radius: 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 4px,
+    rgba(0, 0, 0, 0.3) 0px 12px 13px -8px, rgba(0, 0, 0, 0.2) 0px -4px 0px inset;
+}
+
+.bg .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bg .box h2 {
+  margin-bottom: 4%;
+  color: white;
+  font-size: 1.5em;
+}
+
+.bg .box button {
+  border: 2px solid white;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background: transparent;
+  padding: 10px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  pointer-events: visible;
+  transition: 0.5s;
+}
+
+.bg .box button:hover {
+  box-shadow: 2px 2px #1a1c20, 3px 3px #1a1c20, 4px 4px #1a1c20;
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
+}
+
+/* ====================================== */
+/*           2.2 Content box              */
+/* ====================================== */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: 0.5s ease-in-out;
+  z-index: 10;
+  overflow: hidden;
+
+  width: 50%;
+  height: 105%;
+  border-radius: 10px;
+  background: white;
+  left: 0;
+  top: -14px;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 8px 4px,
+    rgba(0, 0, 0, 0.3) 0px 12px 13px -8px, rgba(0, 0, 0, 0.2) 0px -4px inset;
+
+  transition: 0.5s;
+}
+
+.content.active {
+  left: 50%;
+}
+
+/* ====================================== */
+/*         2.3 Login/Sign-Up box          */
+/* ====================================== */
+
+.logo {
+  position: fixed;
+
+  margin-bottom: 300px;
+}
+
+.sign {
+  position: absolute;
+  width: 100%;
+  padding: 50px;
+  top: 120px;
+  left: 0;
+}
+
+.sign .inputBox {
+  position: relative;
+  width: 100%;
+  margin-top: 15px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.content.active .login-box {
+  left: -130%;
+  transition-delay: 0s;
+}
+
+.content .signup-box {
+  left: 100%;
+}
+
+.content.active .signup-box {
+  left: 0;
+}
+
+.sign .inputBox input {
+  padding: 5px 8px;
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+
+  border: 1px solid #1a1c20;
+  border-radius: 6px;
+  background: #fff;
+  color: #1a1c20;
+  outline: none;
+}
+
+.sign .inputBox .inputTxt {
+  position: relative;
+  color: rgb(26, 26, 26);
+  font-size: 16px;
+  font-weight: 600;
+
+  left: 0;
+  padding: 0 5px;
+}
+
+.pwdBtn {
+  color: #1a1c20;
+  text-decoration: underline;
+}
+
+.inputBox .eye {
+  position: absolute;
+  display: inline;
+  margin-top: 12px;
+  margin-left: -30px;
+
+  cursor: pointer;
+
+  color: #1a1c20;
+}
+
+#show,
+#show-r,
+#show-cr {
+  display: none;
+}
+
+/* ====================================== */
+/*           2.3 Login/Sign-Up box        */
+/*            2.3.1 Button style          */
+/* ====================================== */
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: #000;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  transition: 0.5s;
+
+  cursor: pointer;
+}
+
+.login-box .btn {
+  margin-top: 30px;
+  padding: 2.5%;
+  width: 30%;
+}
+
+.signup-box .btn {
+  padding: 3%;
+  margin-top: 25px;
+  width: 35%;
+}
+
+.btn:hover {
+  box-shadow: 2px 2px rgb(26, 26, 26), 3px 3px rgb(26, 26, 26),
+    4px 4px rgb(26, 26, 26);
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
+}
+
+/* ====================================== */
+/*           2.3 Login Box                */
+/*            2.3.2 Checkbox Style        */
+/* ====================================== */
+
+.inputCheck {
+  display: inline-flex;
+  margin-top: 20px;
+}
+
+.inputCheck input[type="checkbox"] {
+  border: none;
+  border-radius: 6px;
+  background: #d5d5d5;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  height: 17px;
+  width: 17px;
+
+  margin-left: 5px;
+}
+
+.inputCheck label {
+  color: #1a1c20;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.inputCheck input[type="checkbox"]::after {
+  font-family: "Font Awesome 5 Free";
+  text-align: center;
+  font-weight: 900;
+  font-size: 10px;
+  color: #fff;
+  display: none;
+  margin-top: 3px;
+  content: "\f00c";
+}
+
+.inputCheck input[type="checkbox"]:hover {
+  background: #a5a5a5;
+}
+
+.inputCheck input[type="checkbox"]:checked {
+  background: #142194;
+}
+
+.inputCheck input[type="checkbox"]:checked::after {
+  display: block;
+}
+
+/* ====================================== */
+/*           3. Media Query               */
+/* ====================================== */
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 310px;
+  }
+
+  .container .bg {
+    top: 0;
+    height: 610px;
+  }
+
+  .content {
+    top: 0;
+    width: 100%;
+    height: 500px;
+    box-shadow: none;
+  }
+
+  .content.active {
+    left: 0;
+    top: 110px;
+  }
+
+  .bg .box {
+    position: absolute;
+    width: 100%;
+    height: 110px;
+    bottom: 0;
+    font-size: 13px;
+  }
+
+  .box.signin-btn {
+    top: 5px;
+  }
+
+  .signup-box {
+    margin-top: -15px;
+  }
+
+  /* Buttons */
+
+  .btn {
+    font-size: 0.9em;
+  }
+
+  .login-box .btn {
+    margin-top: 30px;
+    padding: 4%;
+    width: 40%;
+  }
+
+  .signup-box .btn {
+    padding: 4%;
+    margin-top: 15px;
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 360px;
+  }
+
+  .container .bg {
+    top: 10px;
+    height: 610px;
+  }
+
+  .content {
+    top: 0;
+    width: 100%;
+    height: 500px;
+    box-shadow: none;
+  }
+
+  .content.active {
+    left: 0;
+    top: 125px;
+  }
+
+  .bg .box {
+    position: absolute;
+    width: 100%;
+    height: 110px;
+    bottom: 0;
+    font-size: 13px;
+  }
+
+  .box.signin-btn {
+    top: 0;
+  }
+
+  .signup-box {
+    margin-top: -15px;
+  }
+
+  /* Buttons */
+
+  .btn {
+    font-size: 1em;
+  }
+
+  .login-box .btn {
+    margin-top: 25px;
+    padding: 3%;
+    width: 40%;
+  }
+
+  .signup-box .btn {
+    font-size: 0.9em;
+    padding: 3.5%;
+    margin-top: 15px;
+    width: 40%;
+  }
+}
+
+/* ERROR/SUCCESS ALERTS */
+
+.alert {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+
+  margin-top: -100px;
+  width: 550px;
+  padding: 10px;
+}
+
+.alert-danger {
+  background-color: rgb(216, 43, 43);
+}
+
+.alert-success {
+  background-color: rgb(37, 172, 66);
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  #msg {
+    margin-top: -425px;
+    z-index: 20;
+  }
+
+  .alert {
+    width: 300px;
+
+    text-align: center;
+    font-size: 0.75em;
+  }
+}
