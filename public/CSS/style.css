@@ -1,0 +1,228 @@
+.firstline {
+  height: 550px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+.nossaline {
+  height: 550px;
+  display: flex;
+  justify-items: center;
+  font-weight: normal;
+}
+
+.nossalineImg {
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.nossaline p {
+  margin-top: 3%;
+}
+.nossaline h1 {
+  margin-top: 10%;
+}
+.calculadoraliner {
+  height: 550px;
+  display: flex;
+  align-items: center;
+  padding-top: 8%;
+  background-image: url("https://www.cummins.com/sites/default/files/styles/newsroom_hero_image/public/images/newsroom_article/alt%20Fuels_0.png?itok=f-GM6u5D");
+  background-size: 100%;
+  background-position-y: 44%;
+  background-repeat: no-repeat;
+}
+.calculadoraliner p {
+  margin-top: 5%;
+}
+.teamliner {
+  height: 550px;
+  display: flex;
+  justify-items: center;
+  background-image: url(../assets/fundo_pessoas_computador.png);
+  background-position: 50%;
+  background-position-y: 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-weight: bold;
+}
+.textofirstline {
+  width: 75%;
+}
+.textofirstline #mel {
+  color: var(--black-main);
+}
+.textofirstline #ciaa {
+  color: #3a75b4;
+}
+
+.textofirstline h3 {
+  display: flex;
+  justify-content: center;
+  font-weight: normal;
+  font-size: 70px;
+  margin-top: 5%;
+}
+.textofirstline h4 {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+.textofirstline p {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.textostart {
+  width: 45%;
+  height: 550px;
+  display: flex;
+  justify-items: flex-end;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 1%;
+  margin-top: 4%;
+  font-size: 25px;
+}
+.textoSobreNos {
+  width: 45%;
+  height: 550px;
+  display: flex;
+  justify-items: flex-end;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 4%;
+  font-size: 25px;
+}
+.textoend {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-items: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 15%;
+  font-size: 30px;
+}
+.textocenter {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 15%;
+  font-size: 50px;
+  color: white;
+}
+
+.calculadoraliner button {
+  margin-top: 9%;
+}
+.teamliner .btn_b {
+  margin-top: 5%;
+}
+.nossaline .bntcomp {
+  margin-top: 9%;
+}
+
+/* BOTÃO TEAM */
+button {
+  border-radius: 4px;
+  background-color: white;
+  border: none;
+  text-align: center;
+  font-size: 28px;
+  padding: 16px;
+  width: 300px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 36px;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+}
+
+button {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 14px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+/* BOTÃO VERDE */
+.bntcomp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: #000;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  transition: 0.5s;
+
+  cursor: pointer;
+}
+
+.bntcomp {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.bntcomp:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 14px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.bntcomp:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.bntcomp:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+.btn_1 {
+  color: white;
+}
