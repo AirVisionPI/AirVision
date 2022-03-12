@@ -226,3 +226,22 @@ button:hover:after {
 .btn_1 {
   color: white;
 }
+/* ------------------------- animação container ------------------------ */
+
+[data-container] {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+[data-container="left"] {
+  transform: translate3d(-50px, 0, 0);
+}
+
+[data-container="right"] {
+  transform: translate3d(50px, 0px, 0);
+}
+
+[data-container].animate {
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+}

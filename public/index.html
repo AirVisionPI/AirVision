@@ -48,7 +48,7 @@
   </div>
   <!-- Inovação -->
   </div>
-  <div class="calculadoraliner">
+  <div class="calculadoraliner" data-container="left">
     <div class="textostart">
       <h1>Conheça nossa Inovação</h1>
       <p>
@@ -58,7 +58,7 @@
     </div>
   </div>
   <!-- NOSSA EMPRESA -->
-  <div class="nossaline">
+  <div class="nossaline" data-container="right" >
     <img src="../public/assets/fotoTrab.svg" class="nossalineImg" alt="">
     <div class="textoSobreNos">
       <h1>Nossa empresa</h1>
@@ -99,3 +99,29 @@
 
 
 </html>
+<script>
+
+  const target = document.querySelectorAll('[data-container]');
+    const animationClass = 'animate';
+
+    function animeScroll() {
+        const windowTop = window.pageYOffset + ((window.innerHeight * 3) / 4);
+        target.forEach(function (element){
+            if(windowTop > element.offsetTop){
+                element.classList.add(animationClass);
+            }else{
+                element.classList.remove(animationClass);
+            }
+
+        })
+    }
+
+    animeScroll();
+
+    if(target.length){
+      window.addEventListener('scroll', function () {
+         animeScroll();
+      })
+    }
+
+</script>
