@@ -28,6 +28,18 @@ body {
   font-size: 16px;
   /* filter: blur(15px); */
 }
+.imgVoltInicio {
+  height: 45px;
+  margin-bottom: 570px;
+  margin-left: 0;
+  margin-right: 0;
+}
+a {
+  height: 45px;
+  margin-bottom: 570px;
+  margin-left: 0;
+  margin-right: 0;
+}
 
 /* ====================================== */
 /*       - 2. Container                   */
