@@ -3,6 +3,7 @@
 	<head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
 		<title>AirVision</title>
 		<link rel="stylesheet" type="text/css" href="./CSS/login.css">
 	</head>
@@ -33,7 +34,9 @@
                 </figure>
             </div>
 
+
 			<!-- Área de login do usuário para acesso a plataforma -->
+			<form id="form_login" method="post" onsubmit="return entrar()">
 				<div class="sign login-box">
 
 					<div class="inputBox">
@@ -54,10 +57,11 @@
 						<a href="recover.php" class="pwdBtn">Esqueceu a senha?</a>
 					</div>
 
-					<button class="btn" onclick="login()">Login</button>
+					<button class="btn" type="submit">Login</button>
 				</div>
 
 			<!-- Área de registro do usuário para acesso a plataforma -->
+			
 				<div class="sign signup-box">
 						<div class="inputBox">
 							<span class="inputTxt">Nome de usuário</span>
@@ -80,14 +84,12 @@
 							<input type="password" id="cpwd-r" name="cpwd" placeholder="Confirme sua senha" required minlength="6" maxlength="50">
 						</div>
 
-                    
-
-						<input type="submit" class="btn" onclick="register()" value="Registre-se"></button>
+                    <input type="button" class="btn" onclick="register()" value="Registre-se"></button>
 				</div>
 		</div>
 
 	</div>
 </section>
-<script src="./jsLogin/login.js"></script>
+<script defer src="./jsLogin/login.js"></script>
 </body>
 </html>
