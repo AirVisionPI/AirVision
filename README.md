@@ -48,13 +48,6 @@ Nosso principal desafio é manter a máquina funcionando perfeitamente, para evi
 
 ![header](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/navbar.jpg?raw=true)
 
-#### Banner
-
-![banner](https://user-images.githubusercontent.com/53584199/135952126-7e2daa70-3b3a-4f78-a4c7-c059979903b0.png)
-
-#### Propósito (MVV)
-
-![proposito](https://user-images.githubusercontent.com/53584199/135952133-0699c6b8-9a99-4a77-ae25-821891879511.png)
 
 #### Footer
 
