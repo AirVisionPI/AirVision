@@ -9,7 +9,7 @@
 
 #
 
-![AirVision-banner](https://web.whatsapp.com/699270b7-f93d-444d-8e97-f0a18c26e0d8)
+![AirVision-banner](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/Air%20Vision%20-%202%20Semestre.png?raw=true)
 
 #
 ### Descrição do projeto:
@@ -42,11 +42,11 @@ Nosso principal desafio é manter a máquina funcionando perfeitamente, para evi
 
 ### Início
 
-![home](https://user-images.githubusercontent.com/53584199/135952317-d56062fc-fd27-4b85-9164-8b0bb93adc3d.png)
+![home](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/inicio.jpg?raw=true)
 
 #### Navbar (Header)
 
-![header](https://user-images.githubusercontent.com/53584199/135952132-d7ccbbbc-d94f-4c28-8658-81b45c39ae05.png)
+![header](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/navbar.jpg?raw=true)
 
 #### Banner
 
@@ -58,13 +58,13 @@ Nosso principal desafio é manter a máquina funcionando perfeitamente, para evi
 
 #### Footer
 
-![footer](https://user-images.githubusercontent.com/53584199/135952274-3acbe832-59e0-49cf-a138-a3ec72a5190a.png)
+![footer](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/Footer.jpg?raw=true)
 
 #
 
 ### Login
 
-![login](https://user-images.githubusercontent.com/53584199/135952551-429f7d6d-ca17-4d4e-8671-fa4a9559e241.png)
+![login](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/login.jpg?raw=true)
 
 # 
 
