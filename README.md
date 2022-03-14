@@ -65,5 +65,5 @@ Nosso principal desafio é manter a máquina funcionando perfeitamente, para evi
 - @joaoavictor (joao.asantos@bandtec.com.br)
 - @luanahamaishi (luana.hamaishi@bandtec.com.br)
 - @jhalvarenga (joao.piza@bandtec.com.br)
-- @alexandre-gavazzi ()
+- @alexandre-gavazzi (alexandre.gavazzi@bandtec.com.br)
 - @ ()
