@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AirVision</title>
+  <link rel="stylesheet" href="CSS/inovacao.css">
+  <link rel="stylesheet" href="./CSS/navbar.css">
+   <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+   <div class="header">
+    <nav class="stroke">
+      <span id="top"></span>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Sobrenos.html">Sobre nós</a></li>
+        <li><a href="Suporte.html">Suporte</a></li>
+        <li><a href="inovacao.html">Inovação</a></li>
+        <li><a href="login.html">Acesso</a></li>
+      </ul>
+    </nav>
+    </section>
+  </div>
+  <!-- CALCULADORA -->
+  <div class="firstline">
+    <div class="textofirstline">
+
+      <h3><span id="mel">Ino</span><span id="ciaa">vação</span></h3> <br>
+
+
+      <p>
+       Por mais que os aeroportos sempre estão cheios os totens ficam em media 1/4 do dia parado sem uso porém consumindo energia, e pensando nisso nos criamos uma solução para que o sistema dos totens possam  detectar ociosidade de 10 minutos. Logo todas as funções que são possíveis entram em modo de descanso, o brilho da tela é reduzido gerando uma grande economia!
+      </p>
+
+    </div>
+  </div>
+  <div class="calculadora">
+    <div class="bloco" id="bloco1" style="display: block;">
+      <h4>Valor gasto com energia:</h4> 
+      <input type="text" id="inp_gasto" placeholder="R$ 00,00">
+      <button class="bntcomp" onclick="bt_cal()" id="cal"><span>Calcular</span></button>
+      <div class="div_desconto" id="div_inner"></div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+   <div class="footerline">
+    <div class="imgFooter">
+      <img class="imgAirVision" src="assets/AirVisionM.png" alt="">
+    </div>
+    <div class="caixafooter">
+      <h1>Mapa do site</h1>
+      <ul>
+        <li><a href="Sobrenos.html">Sobre nós</a></li>
+        <li><a href="inovacao.html">Inovação</a></li>
+        <li><a href="login.html">Acesso</a></li>
+      </ul>
+    </div>
+    <div class="caixafooter">
+      <h1>Contato</h1>
+      <p>
+        <img src="" src="./assets/icons/envelope.png"> AirVision@gmail.com <br><br>
+        <img src="./assets/icons/phone-receiver-silhouette.png"> 55 (11)93207-7271 <br><br>
+       <a href="https://github.com/AirVisionPI/AirVision"> <img  src="./assets/icons/github.png"> AirVision</a>
+      </p>
+    </div>
+  </div>
+  <div class="icons">
+    <p>
+      AirVision Copyright © 2022 grupo-3 Company All rights reserved.
+    </p>
+  </div>
+
+</html>
+<script>
+  
+  function bt_cal() {
+      var desconto = Number(inp_gasto.value);
+      var valTotalDesconto = (desconto - 0.15) / 100;
+
+        div_inner.innerHTML = `<b>Com a nossa solução você poupa ${valTotalDesconto} <br/> e <span style="color:green"> economiza 15% </span> do gasto atual <br/> nas contas de luz</b>`;
+
+    }
+   
+
+
+
+
+
+
+
+</script>
