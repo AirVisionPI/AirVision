@@ -29,13 +29,13 @@ Nosso principal desafio é manter a máquina funcionando perfeitamente, para evi
     <ul>
       <li>Navbar</li>
       <li>Banner</li>
-      <li>Propósito (MVV)</li>
       <li>Footer</li>
     </ul>
   </li>
-  <li>Simulador (fake)</li>
-  <li>Login</li>
-  <li>Cadastro (desenvolvido por vocês)</li>
+  <li>Sobre</li>
+  <li>Suporte</li>
+  <li>Inovação</li>  
+  <li>Acesso(Login/Cadastro)</li>
 </ol>
 
 #
