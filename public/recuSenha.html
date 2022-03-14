@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>AirVision</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./CSS/menu.css" />
+    <link rel="stylesheet" type="text/css" href="./CSS/recover.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icons/AirVisionIcon3.webp"
+    />
+    <meta name="msapplication-TileColor" content="#d39a44" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="favicon/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Font Awesome -->
+  </head>
+
+  <body>
+    <main>
+      <figure>
+        <img src="assets/AirVisionM.png" alt="Logo" />
+      </figure>
+
+      <form action="conf_recover.php" method="POST">
+        <div class="inputBox">
+          <i class="fas fa-at"></i>
+          <label for="email">Email</label>
+        </div>
+        <input
+          type="email"
+          name="email"
+          placeholder="Digite o email de recuperação"
+        />
+
+        <div class="cbtn">
+          <input type="submit" id="btnConfirm" value="Confirmar" />
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

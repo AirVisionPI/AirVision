@@ -1,0 +1,113 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  margin-top: 35px;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid #3a75b4;
+  background: transparent;
+  border-radius: 5px;
+
+  font-size: 1em;
+
+  width: 15vw;
+  width: 260px;
+  padding: 4px 10px;
+  margin: 0 0 25px 0;
+}
+
+input:focus {
+  outline: none;
+  background: transparent;
+}
+
+.inputBox {
+  margin: 0 0 15px 0;
+
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.inputBox i {
+  color: #3a75b4;
+}
+
+.inputBox label {
+  color: #1a1c20;
+}
+
+.inputBox .eye {
+  position: absolute;
+  display: inline;
+  margin-top: 32px;
+  margin-left: 105px;
+
+  cursor: pointer;
+}
+
+.inputBox .eye i {
+  color: #1a1c20;
+}
+
+#show {
+  display: none;
+}
+
+.cbtn {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 10px;
+}
+
+#btnConfirm {
+  border: none;
+  border-bottom-left-radius: 18px;
+  border-top-right-radius: 18px;
+  border: 2px solid #000;
+  background: transparent;
+  color: #1a1c20;
+
+  font-weight: 600;
+  font-size: 1em;
+
+  padding: 12px;
+  width: 110px;
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#btnConfirm:hover {
+  border: none;
+  background-color: #3a75b4;
+  color: #fff;
+
+  box-shadow: 2px 2px rgb(0, 0, 0), 3px 3px rgb(0, 0, 0), 4px 4px rgb(0, 0, 0);
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
+}
