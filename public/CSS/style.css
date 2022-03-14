@@ -129,56 +129,43 @@
   color: white;
 }
 
-.calculadoraliner button {
-  margin-top: 9%;
-}
-.teamliner .btn_b {
-  margin-top: 5%;
-}
-.nossaline .bntcomp {
-  margin-top: 9%;
-}
-
 /* BOTÃO TEAM */
 button {
-  border-radius: 4px;
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: none;
-  text-align: center;
-  font-size: 28px;
-  padding: 16px;
-  width: 300px;
-  transition: all 0.5s;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: #000;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  transition: 0.5s;
+
   cursor: pointer;
-  margin: 36px;
-  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
 }
 
 button {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+  margin-top: 20px;
+  padding: 2.5%;
+  width: 40%;
 }
 
 button:after {
-  content: "»";
-  position: absolute;
-  opacity: 0;
-  top: 14px;
-  right: -20px;
-  transition: 0.5s;
+  padding: 3%;
+  margin-top: 20px;
+  width: 35%;
 }
 
 button:hover {
-  padding-right: 24px;
-  padding-left: 8px;
+  box-shadow: 2px 2px rgb(26, 26, 26), 3px 3px rgb(26, 26, 26),
+    4px 4px rgb(26, 26, 26);
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
 }
 
-button:hover:after {
-  opacity: 1;
-  right: 10px;
-}
 /* BOTÃO VERDE */
 .bntcomp {
   display: flex;
@@ -201,15 +188,6 @@ button:hover:after {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  transition: 0.5s;
-}
-
-.bntcomp:after {
-  content: "»";
-  position: absolute;
-  opacity: 0;
-  top: 14px;
-  right: -20px;
   transition: 0.5s;
 }
 
