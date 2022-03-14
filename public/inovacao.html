@@ -44,7 +44,7 @@
   <div class="calculadora">
     <div class="bloco" id="bloco1" style="display: block;">
       <h4>Valor gasto com energia:</h4> 
-      <input type="text" id="inp_gasto" placeholder="R$ 00,00">
+      <input type="number" id="inp_gasto" placeholder="R$ 00,00">
       <button class="bntcomp" onclick="bt_cal()" id="cal"><span>Calcular</span></button>
       <div class="div_desconto" id="div_inner"></div>
     </div>
@@ -84,9 +84,21 @@
   
   function bt_cal() {
       var desconto = Number(inp_gasto.value);
-      var valTotalDesconto = (desconto - 0.15) / 100;
+      var valTotalDesconto = Number(desconto * 0.15).toFixed(2) ;
+      var ax_anoDesconto = Number(valTotalDesconto*12).toFixed(2);
 
-        div_inner.innerHTML = `<b>Com a nossa solução você poupa  <span style="color:green"> ${valTotalDesconto} </span>  <br/> e <span style="color:green"> economiza 15% </span> do gasto atual <br/> nas contas de luz</b>`;
+        div_inner.innerHTML = `<b> Com a nossa solução você 
+
+          <span style="color:green"> economiza 15% desse 
+          </span>
+          <br>
+           
+          valor nas contas de luz o que equivale a 
+          <br><br>
+          <span style="color:green"> R$ ${valTotalDesconto} por MÊS </span>  <br/> 
+          <span style="color:green"> R$ ${ax_anoDesconto} por ANO </span>  <br/>
+          </b> 
+          `
 
     }
    
