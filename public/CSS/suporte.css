@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap'); 
+
+*{
+padding: 0;
+margin: 0;
+font-family: 'Spartan', sans-serif; 
+}
+
+:root{
+--red-main: #000000;
+--red-main-darker: #BF211E;
+--green-main: #3a75b4;
+--green-main-darker: #3a75b4;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.container .info {
+    flex-direction: column;
+
+}
+
+.bloco{
+border-radius: 2%;
+border: var(--green-main-darker) 5px outset;
+width: 40%;
+height: 550px;
+padding-top: 3%;
+padding-left: 3%;
+margin-left: 5%;
+margin-bottom: 5%;
+}
+
+.iframe {
+    width: 450px;
+    height: 461px;
+}
+
+
+.sup {
+    justify-content: left;
+    background-image: url(../assets/Active\ Support-cuate.svg);
+    background-size: 118%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 550px;
+    width: 100%;
+}
+
+.textostart {
+    width: 45;
+
+    display: flex;
+    justify-items: flex-end;
+    flex-direction: column;
+    font-size: 15px;
+  }
+  
+.calculadoraliner button {
+    margin-top: 9%;
+  }

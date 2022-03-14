@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/sha256.min.js"></script>
+        <link rel="stylesheet" href="./CSS/sobre.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
+        <link rel="stylesheet" href="./CSS/navbar.css">
+        <title>Sobre Nós </title>
+      </head>
+
+<body>
+  <!-- NAVBAR -->
+  <div class="header">
+    <nav class="stroke">
+      <span id="top"></span>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobrenos.html">Sobre nós</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+        <li><a href="Inovação.html">Inovação</a></li>
+        <li><a href="login.html">Acesso</a></li>
+      </ul>
+    </nav>
+  <!-- INICIO DA PAGINA -->
+  <div class="firstline">
+    <div class="textocenter">
+    </div>
+  </div>
+  <!-- BLOCOS OQUE, COMO, -->
+  
+  <div class="blocoline" >
+    <div class="oqueline" >
+      <div class="dicas">
+        <h1>O QUE</h1>
+        <h2>FAZEMOS</h2>
+        <p>
+          Somos especializados em sensores para temperatura e umidade em plantios, coletando dados da sua plantação a
+          todo momento, dando a você o poder da escolha do que fazer e quando quiser fazer para a melhora do seu
+          plantio
+          e diminuição de perdas.
+        </p>
+      </div>
+    </div>
+    <div class="cadline">
+      <div class="dicas">
+        <h1>COMO</h1>
+        <h2>CADASTRAR</h2>
+        <p>
+          Para fazer parte do nosso time você pode começar usando nossa calculadora de perda para ver a porcentagem
+          de ganhos que teria com os nossos sensores, após é só cadastrar no nosso site e ler nosso manual que
+          será disponibilizado a você.
+        </p>
+        <button class="btn" data-container="left"><span>Cadastro</span></button>
+      </div>
+    </div>
+    <div class="porqueline">
+      <div class="dicas">
+        <h1>PORQUE</h1>
+        <h2>NOS ESCOLHER?</h2>
+        <p>
+          Sabemos que a melancia é uma fruta muito delicada, que precisa de umidade e temperatura certas para não acabar
+          secando, rachando e pegando pragas e doenças, com isso vem as perdas nos plantios e no seu lucro, com os
+          sensores implantados você terá pelo seu cadastro total acesso aos gráficos 24h por dia, assim você pode ter a
+          melhor tomada de decisão para seu plantio, aumentando seu lucro, melhorando sua plantação e alimentando
+          pessoas.
+        </p>
+      </div>
+    </div>
+  </div>        
+<!-- FOOTER -->
+<div class="footerline">
+  <div class="imgFooter">
+    <img class="imgAirVision" src="assets/AirVisionM.png" alt="">
+  </div>
+  <div class="caixafooter">
+    <h1>Mapa do site</h1>
+    <ul>
+      <li><a href="Sobrenos.html">Sobre nós</a></li>
+      <li><a href="Calculadora.html">Calculadora</a></li>
+      <li><a href="Acesso.html">Acesso</a></li>
+    </ul>
+  </div>
+  <div class="caixafooter">
+    <h1>Contato</h1>
+    <p>
+      <img src="" src="./assets/icons/envelope.png"> AirVision@gmail.com <br><br>
+      <img src="./assets/icons/phone-receiver-silhouette.png"> 55 (11)93207-7271 <br><br>
+     <a href="https://github.com/AirVisionPI/AirVision"> <img  src="./assets/icons/github.png"> AirVision</a>
+    </p>
+  </div>
+</div>
+<div class="icons">
+  <p>
+    AirVision Copyright © 2022 Company All rights reserved.
+  </p>
+</div>
+
+
+</html>
+<script>
+
+  const target = document.querySelectorAll('[data-container]');
+    const animationClass = 'animate';
+
+    function animeScroll() {
+        const windowTop = window.pageYOffset + ((window.innerHeight * 3) / 4);
+        target.forEach(function (element){
+            if(windowTop > element.offsetTop){
+                element.classList.add(animationClass);
+            }else{
+                element.classList.remove(animationClass);
+            }
+
+        })
+    }
+
+    animeScroll();
+
+    if(target.length){
+      window.addEventListener('scroll', function () {
+         animeScroll();
+      })
+    }
+
+</script>
