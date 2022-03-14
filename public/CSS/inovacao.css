@@ -24,15 +24,15 @@
 }
 .bloco {
   border: #3a75b4 5px outset;
-  width: 40%;
+  width: 100%;
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 10%;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 20%;
+  padding-right: 5%;
   margin-left: 5%;
   margin-bottom: 5%;
 }
@@ -171,4 +171,15 @@ button {
 .div_desconto {
   display: flex;
   margin-left: 0;
+}
+.img_Inovacao {
+  width: 50%;
+  margin-left: 350px;
+}
+.firstlineInovacao {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
 }
