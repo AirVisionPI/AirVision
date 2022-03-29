@@ -1,6 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
 .firstline {
   height: 550px;
-  
+
   display: flex;
   justify-content: center;
   margin-top: 3%;
@@ -27,20 +33,20 @@
   margin-top: 10%;
 }
 .calculadoraliner {
-  height: 550px;
+  height: 75vh;
   display: flex;
   align-items: center;
   padding-top: 8%;
+  margin-right: 0;
   background-image: url("https://www.cummins.com/sites/default/files/styles/newsroom_hero_image/public/images/newsroom_article/alt%20Fuels_0.png?itok=f-GM6u5D");
   background-size: 100%;
-  background-position-y: 44%;
   background-repeat: no-repeat;
 }
 .calculadoraliner p {
   margin-top: 5%;
 }
 .teamliner {
-  height: 550px;
+  height: 75vh;
   display: flex;
   justify-items: center;
   background-image: url(../assets/fundo_pessoas_computador.png);
@@ -60,6 +66,25 @@
   color: #3a75b4;
 }
 
+.title-h1 {
+  font-size: 5vh;
+}
+
+.text-h4 {
+  font-size: 2vh;
+}
+
+.text-li {
+  font-size: 2.9vh;
+}
+
+.text-p-footer {
+  font-size: 2.9vh;
+}
+
+.text-p {
+  font-size: 3vh;
+}
 .textofirstline h3 {
   display: flex;
   justify-content: center;
@@ -206,7 +231,7 @@ button:hover {
 }
 /* ------------------------- animação container ------------------------ */
 
-[data-container] {
+/* [data-container] {
   opacity: 0;
   transition: 0.3s;
 }
@@ -222,4 +247,4 @@ button:hover {
 [data-container].animate {
   opacity: 1;
   transform: translate3d(0px, 0px, 0px);
-}
+} */

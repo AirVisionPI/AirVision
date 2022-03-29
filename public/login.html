@@ -1,96 +1,151 @@
 <!DOCTYPE html>
-<html>
-	<head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
-		<title>AirVision</title>
-		<link rel="stylesheet" type="text/css" href="./css/login.css">
-	</head>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/acesso.css">
+  <title>AirVision </title>
+</head>
+
 <body>
-	<a href="index.html"><img class="imgVoltInicio" src="./assets/imgInicio.png" alt=""></a>
-	
-	<section class="login">
-	
-	<div class="container">
-		<div id="msg"></div>    
+<!-- NAVBAR -->
+<div class="header">
+  <nav class="stroke">
+    <span id="top"></span>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sobrenos.html">Sobre nós</a></li>
+      <li><a href="suporte.html">Suporte</a></li>
+      <li><a href="inovacao.html">Inovação</a></li>
+      <li><a href="login.html">Acesso</a></li>
+    </ul>
+  </nav>
+</div>
 
-		<div class="bg">
-			<div class="box signin-btn">
-				<h2>Já possui uma conta?</h2>
-				<button class="login-btn">Entrar</button>
-			</div>
-			<div class="box signup-btn">
-				<h2>Ainda não possui uma conta?</h2>
-				<button class="signup-btn">Registre-se</button>
-			</div>
+
+<!-- Login e Cadastro -->
+
+<div class="cont-login">
+	<div class="container" id="container">
+	  <div class="form-container sign-up-container">
+		<form action="#">
+		  <h1 class="title">Criar Conta</h1>
+
+		  <input type="text" placeholder="Nome" />
+		  <input type="email" placeholder="Email" />
+		  <input type="password" placeholder="Senha" />
+		  <input type="password" placeholder="Confirme sua senha" />
+		  <input type="text" placeholder="Razão social" />
+		  <input
+			type="number"
+			data-mask="000.000.000/0000-00"
+			data-mask-selectonfocus="true"
+			maxlength="14"
+			placeholder="CNPJ (000.000.000/0000-00)"
+		  />
+		  <input type="text" placeholder="Localização (Aeroporto)" />
+		  <button class="button">Cadastrar</button>
+		</form>
+	  </div>
+	  <div class="form-container sign-in-container">
+		<form action="#">
+		  <h1 class="title">Enter</h1>
+
+		  <input type="email" placeholder="Email" />
+		  <input type="password" placeholder="Senha" />
+		  <a class="link"href="#">Esqueceu sua senha?</a>
+		  <button class="button">Entrar</button>
+		</form>
+	  </div>
+	  <div class="overlay-container">
+		<div class="overlay">
+		  <div class="overlay-panel overlay-left">
+			<div class="logo"></div>
+			<p class="paragrafo">Para continuar conectado conosco, realize seu login</p>
+			<button class="ghost" id="signIn">Entrar</button>
+		  </div>
+		  <div class="overlay-panel overlay-right">
+			<div class="logo"></div>
+			<p class="paragrafo">Entre com as suas informações para realizar o orçamento</p>
+			<button  class="ghost" id="signUp">Cadastrar</button>
+		  </div>
 		</div>
-
-        
-		<div class="content">
-
-            <div class="logo">
-                <figure>
-                    <embed src="./img/AirVisionM.png">
-                </figure>
-            </div>
-
-
-			<!-- Área de login do usuário para acesso a plataforma -->
-			<form id="form_login" method="post" onsubmit="return entrar()">
-				<div class="sign login-box">
-
-					<div class="inputBox">
-						<span class="inputTxt">E-mail</span>
-						<input type="text" id="email" name="email" placeholder="Digite seu e-mail" required="required">
-					</div>
-
-					<div class="inputBox">
-						<span class="inputTxt">Senha</span>
-						<input type="password" id="pwd" name="pwd" placeholder="Digite sua senha" required>
-						<span class="eye" onclick="hide()">
-							<i id="show" class="fas fa-eye" title="Esconder senha"></i>
-							<i id="hide" class="fas fa-eye-slash" title="Mostrar senha"></i>
-						</span>
-					</div>
-
-					<div class="inputBox">
-						<a href="recuSenha.html" class="pwdBtn">Esqueceu a senha?</a>
-					</div>
-
-					<button class="btn" type="submit">Login</button>
-				</div>
-
-			<!-- Área de registro do usuário para acesso a plataforma -->
-			
-				<div class="sign signup-box">
-						<div class="inputBox">
-							<span class="inputTxt">Nome de usuário</span>
-							<input type="text" id="namer" name="name" placeholder="Digite seu nome de usuário" pattern="^[a-zA-Z][a-zA-Z-_\.]{1,20}$" required>
-						</div>
-						
-						<div class="inputBox">
-							<span class="inputTxt">E-mail</span>
-							<input type="text" id="emailr" name="emailr" placeholder="Digite seu e-mail" required>
-						</div>
-
-						<div class="inputBox">
-							<span class="inputTxt">Senha</span>
-							<input type="password" id="pwd-r" name="pwd-r" placeholder="Digite sua senha" minlength="6" maxlength="50" required>
-							
-						</div>
-
-						<div class="inputBox">
-							<span class="inputTxt">Confirmar senha</span>
-							<input type="password" id="cpwd-r" name="cpwd" placeholder="Confirme sua senha" required minlength="6" maxlength="50">
-						</div>
-
-                    <input type="button" class="btn" onclick="register()" value="Registre-se"></button>
-				</div>
-		</div>
-
+	  </div>
 	</div>
-</section>
-<script defer src="./jsLogin/login.js"></script>
-</body>
+  </div>
+  
+  <!-- FOOTER -->
+
+
+  <div class="footerline">
+    <div class="imgFooter">
+      <img class="imgAirVision" src="assets/AirVisionM.png" alt="">
+    </div>
+    <div class="caixafooter">
+      <h1 class="title-h1">Mapa do site</h1>
+      <ul>
+        <li class="text-li"><a href="sobrenos.html">Sobre nós</a></li>
+        <li class="text-li"><a href="inovacao.html">Inovação</a></li>
+        <li class="text-li"><a href="login.html">Acesso</a></li>
+      </ul>
+    </div>
+    <div class="caixafooter">
+      <h1 class="title-h1">Contato</h1>
+      <p class="text-p-footer">
+        <img src="" src="./assets/icons/envelope.png"> AirVision@gmail.com <br><br>
+        <img src="./assets/icons/phone-receiver-silhouette.png"> 55 (11)93207-7271 <br><br>
+       <a href="https://github.com/AirVisionPI/AirVision"> <img  src="./assets/icons/github.png"> AirVision</a>
+      </p>
+    </div>
+  </div>
+  <div class="icons">
+    <p>
+      AirVision Copyright © 2022 All rights reserved.
+    </p>
+  </div>
+
+
 </html>
+<script>
+
+  const target = document.querySelectorAll('[data-container]');
+    const animationClass = 'animate';
+
+    function animeScroll() {
+        const windowTop = window.pageYOffset + ((window.innerHeight * 3) / 4);
+        target.forEach(function (element){
+            if(windowTop > element.offsetTop){
+                element.classList.add(animationClass);
+            }else{
+                element.classList.remove(animationClass);
+            }
+
+        })
+    }
+
+    animeScroll();
+
+    if(target.length){
+      window.addEventListener('scroll', function () {
+         animeScroll();
+      })
+    }
+
+	const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+
+</script>

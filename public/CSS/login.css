@@ -28,23 +28,16 @@ body {
   font-size: 16px;
   /* filter: blur(15px); */
 }
-.imgVoltInicio {
-  height: 45px;
-  margin-bottom: 570px;
-  margin-left: 0;
-  margin-right: 0;
-}
-a {
-  height: 45px;
-  margin-bottom: 570px;
-  margin-left: 0;
-  margin-right: 0;
-}
 
 /* ====================================== */
-/*       - 2. Container                   */
+/*       - 2. Container2                  */
 /*         > 2.1 Container Box            */
 /* ====================================== */
+
+.container {
+  height: 100vh;
+  display: flex;
+}
 
 .login {
   display: flex;
@@ -54,7 +47,7 @@ a {
   height: 100vh;
 }
 
-.container {
+.container2 {
   position: relative;
   width: 850px;
   height: 500px;
@@ -153,6 +146,9 @@ a {
   position: fixed;
 
   margin-bottom: 300px;
+}
+figure {
+  position: static;
 }
 
 .sign {

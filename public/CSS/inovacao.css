@@ -12,11 +12,10 @@
   --green-main-darker: #008000;
 }
 .calculadora {
-  height: 700px;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(../assets/moça1.png);
   background-size: 30%;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -37,24 +36,35 @@
 }
 input {
   height: 45px;
-  width: 60%;
   border: none;
   border-bottom: #3a75b4 2px solid;
   font-size: 20px;
   outline: none;
+  margin: 5vh 1vh 0 1vh;
+}
+
+.inputs {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-left: -7vw;
+}
+.insert-data {
+  margin-left: -7vw;
+  margin-top: -7vh;
 }
 
 h4 {
-  font-size: 30px;
+  font-size: 4vh;
   margin-bottom: 4%;
 }
 h2 {
-  font-size: 30px;
+  font-size: 4.5vh;
   margin-top: 8%;
   margin-bottom: 4%;
 }
 h1 {
-  font-size: 30px;
   text-align: center;
   padding-right: 26%;
 }
@@ -169,7 +179,11 @@ button {
 
 .div_desconto {
   display: flex;
-  margin-left: 0;
+  height: 50%;
+  width: 100%;
+  background-color: #beb9b9;
+  margin-left: -7vw;
+  margin-top: -5vh;
 }
 .img_Inovacao {
   width: 50%;

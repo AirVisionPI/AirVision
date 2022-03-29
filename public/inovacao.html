@@ -46,9 +46,13 @@
   <img class="img_Inovacao" src="assets/innovation.svg" alt="">
   <div class="calculadora">
     <div class="bloco" id="bloco1" style="display: block;">
-      <h4>Valor gasto com energia:</h4>
-      <input type="number" id="inp_gasto" placeholder="R$ 00,00">
+      <h4 class="insert-data">Insira os dados:</h4>
+     <div class="inputs">
+      <input type="number" id="totens" placeholder="Quantidade de totens" >
+      <input type="number" id="horas" placeholder="Total de horas ligadas">
+      <input type="number" id="energia" placeholder="Valor gasto com energia/mês">
       <button class="bntcomp" onclick="bt_cal()" id="cal"><span>Calcular</span></button>
+     </div>
       <div class="div_desconto" id="div_inner"></div>
     </div>
 
@@ -85,7 +89,7 @@
 </html>
 <script>
 
-  function bt_cal() {
+ /*  function bt_cal() {
 
     if (inp_gasto.value != "") {
 
@@ -111,6 +115,6 @@
 
     else alert("Digite um valor para ser calculado");
 
-  }
+  } */
 
 </script>
