@@ -48,12 +48,32 @@
     <div class="bloco" id="bloco1" style="display: block;">
       <h4 class="insert-data">Insira os dados:</h4>
      <div class="inputs">
-      <input type="number" id="totens" placeholder="Quantidade de totens" >
-      <input type="number" id="horas" placeholder="Total de horas ligadas">
-      <input type="number" id="energia" placeholder="Valor gasto com energia/mês">
-      <button class="bntcomp" onclick="bt_cal()" id="cal"><span>Calcular</span></button>
+
+      <input type="number" title="Quantidade total dos totens" class="inpCalc" 
+      id="totens" placeholder="Quantidade de totens" >
+
+      <input type="number" title="Insira o tempo em média que o totem fica em espera"
+       class="inpCalc" id="horas" placeholder="Tempo ocioso">
+
+      <input type="number" title="Preço da energia por kWh"
+      class="inpCalc" id="energia" placeholder="Valor da energia">
+
+      <button class="bntcomp" title="Cálculo de consumo:
+      (P)Potência do totem = 200 Watts
+      (H)Horas do dia = 24h
+      (O)Horas ociosas = x
+      (D)Dias do mês = 30
+      
+      Consumo por totem = (P x (H - O) x D)/ 1000
+      Consumo total = Consumo por totem x Quantidade de totens." onclick="bt_cal()" id="cal">Calcular 💡
+    </button>
+   
+    
+  
      </div>
-      <div class="div_desconto" id="div_inner"></div>
+      <div class="div_desconto" id="div_inner">
+        
+      </div>
     </div>
 
   </div>
@@ -89,32 +109,41 @@
 </html>
 <script>
 
- /*  function bt_cal() {
 
-    if (inp_gasto.value != "") {
+  function bt_cal() {
+    if(totens.value == "" || horas.value == "" || energia.value == ""){
+      alert("Ops, parece que você não inseriu todos os valores solicitados. Complete os campos para prosseguir");
 
-      var desconto = Number(inp_gasto.value);
-      var valTotalDesconto = Number(desconto * 0.15).toFixed(2);
-      var ax_anoDesconto = Number(valTotalDesconto * 12).toFixed(2);
+    } else {
+      const potencia = 200;
+      const hora = horas.value;
+      const horaTot = 24;
+      const dias = 30;
+      const gastoEnerg = energia.value;
+      const qtdTotens = totens.value;
 
-      div_inner.innerHTML = `<b> Com a nossa solução você 
-
-          <span style="color:green"> economiza 15% desse 
-          </span>
+      const calculo = (potencia * (horaTot - hora) * dias) / 1000;  
+      const consumoTot = calculo * qtdTotens;
+      const calcSem = ((potencia * 24 * dias)/1000) * qtdTotens;
+      const calcSemTot = ((potencia * 24 * dias)/1000) ;
+      div_inner.innerHTML = `<b>
+          Mensalmente o consumo dos seus ${qtdTotens} totens é:<span style="color:red"> R$${calcSemTot}</span>
+           por totem! <br>
+          e um gasto de valor de consumo energético real <span style="color:red"> R$${calcSem}</span> por mês. <br>
+            <br>
+          Utilizando nossa solução, você tera uma economia de:
           <br>
-           
-          valor nas contas de luz o que equivale a 
-          <br><br>
-          <span style="color:green"> R$ ${valTotalDesconto} por MÊS </span>  <br>
-          <span style="color:green"> R$ ${ax_anoDesconto} por ANO </span>  <br/>
+          <span style="color: green;">R$${calculo}</span> por totem e, <br>
+          <span style="color:green;">R$${consumoTot}</span> por mês.
           </b> 
-         
           `
-        inp_gasto.value = "";
-    }
+          
 
-    else alert("Digite um valor para ser calculado");
+  
+}
+}
 
-  } */
+          
+
 
 </script>

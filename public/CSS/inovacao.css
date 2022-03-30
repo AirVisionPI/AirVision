@@ -3,7 +3,7 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: "Spartan", sans-serif;
+  font-family: "Spartan", sans-serif !important;
 }
 :root {
   --red-main: #ff0000;
@@ -23,8 +23,8 @@
 }
 .bloco {
   border: #3a75b4 5px outset;
-  width: 70%;
-  height: 400px;
+  width: 70vw;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,12 +43,20 @@ input {
   margin: 5vh 1vh 0 1vh;
 }
 
+.inpCalc {
+  height: 7vh;
+  width: 20vw;
+  color: #224b77;
+  font-weight: 500;
+}
+
 .inputs {
   height: 40%;
   width: 100%;
   display: flex;
   align-items: flex-start;
   margin-left: -7vw;
+  margin-top: -2vh;
 }
 .insert-data {
   margin-left: -7vw;
@@ -69,55 +77,20 @@ h1 {
   padding-right: 26%;
 }
 
-/* BOTÃO VERDE ANIMADO */
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: none;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  background: #000;
-  color: #fff;
-  font-size: 1em;
-  font-weight: 600;
-  transition: 0.5s;
-
-  cursor: pointer;
-}
-
-.btn svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.btn svg rect {
-  stroke-width: 2;
-  stroke-dasharray: 353, 0;
-  -webkit-transition: all 600ms ease;
-}
-.btn:hover {
-  box-shadow: 2px 2px rgb(26, 26, 26), 3px 3px rgb(26, 26, 26),
-    4px 4px rgb(26, 26, 26);
-  -webkit-transform: translateX(-3px);
-  transform: translateX(-3px);
-}
-
 /* BOTÃO TEAM */
-button {
+/* button {
   border-radius: 4px;
   background-color: var(--green-main-darker);
   border: none;
   text-align: center;
-  font-size: 28px;
+  font-size: medium;
   padding: 16px;
-  width: 300px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 36px;
   box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+  height: 7vh;
+  width: 12vw;
 }
 
 button {
@@ -125,29 +98,23 @@ button {
   display: inline-block;
   position: relative;
   transition: 0.5s;
-}
-.btn:hover {
-  box-shadow: 2px 2px rgb(26, 26, 26), 3px 3px rgb(26, 26, 26),
-    4px 4px rgb(26, 26, 26);
-  -webkit-transform: translateX(-3px);
-  transform: translateX(-3px);
-}
+} */
 
 /* BOTÃO VERDE */
 .bntcomp {
-  border: none;
   text-align: center;
-  font-size: 32px;
-  padding: 16px;
-  width: 220px;
+  font-size: 1vh;
+  padding: 0;
+  width: 13vw;
+  height: 6.3vh;
   transition: all 0.5s;
-  cursor: pointer;
-  margin: 36px;
-  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
-  display: flex;
+  margin: 0;
+  margin-top: 6vh;
+  margin-left: 1vw;
+  box-shadow: 0 0.5vh 0.6vw 0 rgba(0, 0, 0, 0.7);
+  display: inline-block;
   align-items: center;
   justify-content: center;
-
   border: none;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -155,35 +122,25 @@ button {
   color: #fff;
   font-size: 1em;
   font-weight: 600;
-  transition: 0.5s;
-
-  cursor: pointer;
-}
-
-.bntcomp {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.bntcomp:hover {
-  padding-right: 24px;
-  padding-left: 8px;
-}
-
-.bntcomp:hover:after {
-  opacity: 1;
-  right: 10px;
+  transition: 0.5s !important;
+  cursor: help !important;
 }
 
 .div_desconto {
   display: flex;
-  height: 50%;
-  width: 100%;
-  background-color: #beb9b9;
+  height: 30vh;
+  width: 63vw;
+  background-color: transparent;
   margin-left: -7vw;
   margin-top: -5vh;
+  padding: 2vh 2vw;
+}
+
+#btnJS {
+  margin-top: -45px;
+  height: 7vh;
+  width: 12vw;
+  font-size: smaller;
 }
 .img_Inovacao {
   width: 50%;

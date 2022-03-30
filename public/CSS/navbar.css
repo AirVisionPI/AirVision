@@ -6,20 +6,13 @@
   font-family: "Spartan", sans-serif;
 }
 
-/*  Variaveis para as cores*/
-:root {
-  --red-main: #ff4b4b;
-  --red-main-darker: #e20501;
-  --green-main: #61c443;
-  --green-main-darker: #008000;
-}
 a {
   color: #000;
 }
 nav {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 98vw;
   background: #fff;
   padding-top: 1%;
   padding-bottom: 1%;
@@ -65,39 +58,42 @@ nav.fill ul li a:after {
 nav.stroke ul li a:hover:after {
   width: 100%;
 }
-.footerline #ciaa {
-  font-size: 30px;
-  color: var(--green-main);
-}
-.footerline #mel {
-  font-size: 30px;
-  color: var(--red-main);
-}
+
 .footerline {
   display: flex;
-  height: 290px;
+  height: 17vh;
   padding: 4%;
   border-top: black 1px solid;
 }
 .caixafooter {
-  width: 24%;
-  padding-left: 6%;
+  padding-left: 6vw;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 .caixafooter li {
-  height: 35px;
+  height: 5vh;
+}
+
+li {
+  font-size: 1.2vw !important;
+}
+
+h1 {
+  font-size: 2vw !important ;
+}
+.cxfooter {
+  margin-top: -1vh;
 }
 .caixafooter h1 {
   margin-bottom: 5%;
-  margin-bottom: 3%;
 }
-.caixafooter h3 {
+.caixafooter p {
+  font-size: 1.2vw;
   margin-bottom: 5%;
 }
 .caixafooter img {
-  height: 20px;
+  height: 2.6vh;
 }
 .imgFooter {
   width: 24%;
@@ -107,8 +103,8 @@ nav.stroke ul li a:hover:after {
   justify-content: space-evenly;
 }
 .imgAirVision {
-  width: 150px;
-  height: 150px;
+  height: 14vh;
+  width: 9vw;
 }
 li,
 a {
@@ -117,11 +113,10 @@ a {
   margin-bottom: 3%;
 }
 .icons {
-  height: 90px;
+  height: 9vh;
   border-top: black 1px solid;
-}
-.icons p {
   display: flex;
   justify-content: center;
-  margin-top: 3%;
+  align-items: center;
+  font-size: 1.2vw;
 }
