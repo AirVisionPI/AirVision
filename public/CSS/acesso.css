@@ -9,20 +9,28 @@
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
-  margin: -20px 0 50px;
+  width: 60vw;
+  /* margin: -20px 0 50px; */
+  margin-left: 20vw;
 }
 
 .title {
   font-weight: bold;
+  font-size: 3vw;
   margin-bottom: 6vh;
 }
 
 .paragrafo {
-  font-size: 14px;
+  font-size: 1.4vw;
   font-weight: 100;
   line-height: 20px;
-  letter-spacing: 0.5px;
-  margin: 20px 0 30px;
+  letter-spacing: 0.1vw;
+  margin: 2vw 0 3vw;
+}
+
+button {
+  cursor: pointer !important;
+  font-size: 1vw !important;
 }
 
 .link {
@@ -36,24 +44,27 @@
   border: 1px solid #6394ff;
   background-color: #000000;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 1vw;
+
   font-weight: bold;
-  padding: 12px 45px;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  width: 10vw;
+  height: 5vh !important;
 }
 .button {
   border-radius: 20px;
   border: 1px solid #6394ff;
   background-color: #000000;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 1vw;
   font-weight: bold;
-  padding: 12px 45px;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  height: 5vh !important;
+  width: 10vw;
 }
 
 .button:active {
@@ -196,6 +207,9 @@ input {
 }
 
 .overlay-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   transform: translateX(-20%);
 }
 
@@ -204,6 +218,9 @@ input {
 }
 
 .overlay-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   right: 0;
   transform: translateX(0);
 }
@@ -211,9 +228,10 @@ input {
 .overlay .logo {
   background-image: url("../assets/imgInicio.png");
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 150px;
-  width: 150px;
+  background-size: contain;
+  height: 15vh;
+  width: 15vw;
+  margin-left: 8vw;
 }
 
 .overlay p {
@@ -242,15 +260,22 @@ input {
 
 .footerline {
   display: flex;
-  height: 28vh;
+  height: 34vh;
   padding: 4%;
   border-top: black 1px solid;
 }
 .caixafooter {
   padding-left: 6vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
+}
+
+.mapaSite {
+  margin-left: 6vw;
+}
+.contato {
+  margin-left: 6vw;
 }
 .caixafooter li {
   height: 5vh;
@@ -262,9 +287,6 @@ li {
 
 h1 {
   font-size: 2vw !important ;
-}
-.cxfooter {
-  margin-top: -1vh;
 }
 .caixafooter h1 {
   margin-bottom: 5%;
@@ -284,8 +306,7 @@ h1 {
   justify-content: space-evenly;
 }
 .imgAirVision {
-  height: 14vh;
-  width: 9vw;
+  width: 10vw;
 }
 li,
 a {
