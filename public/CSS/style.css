@@ -28,6 +28,8 @@ p {
   justify-items: row;
   align-items: center;
   font-weight: normal;
+  text-align: right;
+  margin-left: 5vw;
 }
 
 .nossalineImg {

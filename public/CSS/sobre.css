@@ -38,8 +38,10 @@
 }
 .blocoline {
   display: flex;
-  height: 70vh;
+  height: 80vh;
   padding: 5%;
+  flex-direction: row;
+  justify-content: space-around;
 }
 .oqueline {
   width: 25vw;
