@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DashBoard</title>
+  <link rel="stylesheet" type="text/css" href="./css/styleDash.css">
+</head>
+
+<body>
+  <!--=======================================================================================================================-->
+  <!----------------------------------------------------------NavBar----------------------------------------------------------->
+  <!--=======================================================================================================================-->
+
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="icon"><img class="icons" src="imgDash/icons/airplane.png"></span>
+            <span class="title">
+              <h2>AirVision</h2>
+            </span> </span>
+          </a>
+        </li>
+        <li>
+          <a href="./index.html">
+            <span class="icon"><img class="icons" src="imgDash/icons/bandeira.png"></span>
+            <span class="title">Home</span> </span>
+          </a>
+        </li>
+        <li>
+          <a href="#" >
+            <span class="icon"><img class="icons" src="imgDash/icons/pagina-inicial.png"></i></span>
+            <span class="title ativo">DashBoard</span> </span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"> <img class="icons" src="imgDash/icons/billboard.png"></i></span>
+            <span class="title">Cadastro de Totem</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><img class="icons" src="imgDash/icons/email.png"></i> </span>
+            <span class="title">Mensagem</span> </span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"> <img class="icons" src="imgDash/icons/setting-gears.png"></i></span>
+            <span class="title">Configurações</span> </span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"> <img class="icons" src="imgDash/icons/exit.png"></span>
+            <span class="title">Sair</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle" onclick="toggleMenu()">
+          <img class="iconMenu" src="./imgDash/icons/menu.png">
+        </div>
+        <div class="search">
+          <label>
+            <input type="text" placeholder="Search here">
+            <img class="iconSearch" src="imgDash/icons/search.png">
+          </label>
+        </div>
+        <div class="user">
+          <img class="imgUser" src="./imgDash/icons/profile-user.png">
+        </div>
+      </div>
+
+      <!--=======================================================================================================================-->
+      <!----------------------------------------------------------CardsTotens------------------------------------------------------>
+      <!--=======================================================================================================================-->
+
+      <div class="cardBox">
+        <div class="card">
+          <div>
+            <div class="cardName">01</div>
+            <div class="numbers"></div>
+          </div>
+          <span class="statusTotem peding"></span>  
+
+          <div class="iconBox">
+            <img class="cardIcon" src="./imgDash/icons/billboard.png">
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="cardName">02</div>
+            <div class="numbers"></div>
+          </div>
+          <span class="statusTotem peding"></span>  
+          <div class="iconBox">
+            <img class="cardIcon" src="./imgDash/icons/billboard.png">
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="cardName">03</div>
+            <div class="numbers"></div>
+          </div>
+          <span class="statusTotem peding"></span>  
+
+          <div class="iconBox">
+            <img class="cardIcon" src="./imgDash/icons/billboard.png">
+          </div>
+        </div>
+
+        <!--=======================================================================================================================-->
+        <!--------------------------------------------------Detales Dos Totens------------------------------------------------------->
+        <!--=======================================================================================================================-->
+        <div class="details">
+          <div class="recentOrders">
+            <div class="cardHeader ">
+              <h2>Totens</h2>
+              <a href="#" class="btn">View All</a>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <td>Id</td>
+                  <td>Nome Totem</td>
+                  <td>Porcentagem CPU</td>
+                  <td>Status</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td></td>
+                  <td>15%</td>
+                  <td><span class="status peding">offline</td></span></td>
+                </tr>
+
+                <tr>
+                  <td>02</td>
+                  <td></td>
+                  <td>20%</td>
+                  <td><span class="status peding">offline</td></span></td>
+                </tr>
+
+                <tr>
+                  <td>03</td>
+                  <td></td>
+                  <td>30%</td>
+                  <td><span class="status return">offline</td></span></td>
+                </tr>     
+                <tr>
+                  <td>04</td>
+                  <td></td>
+                  <td>100%</td>
+                  <td><span class="status delivered">online</td></span></td>
+                </tr>
+
+                <tr>
+                  <td>05</td>
+                  <td></td>
+                  <td>100%</td>
+                  <td><span class="status delivered">online</td></span></td>
+                </tr>
+
+                <tr>
+                  <td>06</td>
+                  <td></td>
+                  <td>100%</td>
+                  <td><span class="status delivered">online</td></span></td>
+                </tr>
+                 <tr>
+                  <td>07</td>
+                  <td></td>
+                  <td>100%</td>
+                  <td><span class="status delivered">online</td></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <script>
+      function toggleMenu() {
+        let toggle = document.querySelector(".toggle");
+        let navigation = document.querySelector(".navigation");
+        let main = document.querySelector(".main");
+        toggle.classList.toggle("active");
+        navigation.classList.toggle("active");
+        main.classList.toggle("active");
+      }
+    </script>
+</body>
+
+</html>

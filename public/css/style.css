@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+h3 {
+  font-size: 2vw;
+}
+
+h4 {
+  font-size: 1.4vw;
+}
+p {
+  font-size: 1, 3vw;
+}
+
+.firstline {
+  height: 550px;
+
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+.nossaline {
+  height: 80vh;
+  display: flex;
+  justify-items: row;
+  align-items: center;
+  font-weight: normal;
+}
+
+.nossalineImg {
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 60vh;
+}
+.calculadoraliner {
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  padding-top: 8%;
+  margin-right: 0;
+  background-image: url("https://www.cummins.com/sites/default/files/styles/newsroom_hero_image/public/images/newsroom_article/alt%20Fuels_0.png?itok=f-GM6u5D");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.calculadoraliner p {
+  margin-top: 5%;
+}
+.teamliner {
+  height: 75vh;
+  display: flex;
+  justify-items: center;
+  background-image: url(../assets/fundo_pessoas_computador.png);
+  background-position: 50%;
+  background-position-y: 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-weight: bold;
+}
+.textofirstline {
+  width: 75%;
+}
+.textofirstline #mel {
+  color: var(--black-main);
+}
+.textofirstline #ciaa {
+  color: #3a75b4;
+}
+
+.title-h1 {
+  font-size: 5vh;
+}
+
+.text-h4 {
+  font-size: 2vh;
+}
+
+.text-li {
+  font-size: 2.9vh;
+}
+
+.text-p-footer {
+  font-size: 2.9vh;
+}
+
+.text-p {
+  font-size: 3vh;
+}
+.textofirstline h3 {
+  display: flex;
+  justify-content: center;
+  font-weight: normal;
+  font-size: 70px;
+  margin-top: 5%;
+}
+.textofirstline h4 {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+.textofirstline p {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.textostart {
+  width: 45%;
+  height: 550px;
+  display: flex;
+  justify-items: flex-end;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 1%;
+  margin-top: 4%;
+  font-size: 25px;
+}
+.textoSobreNos {
+  height: 70vh;
+  display: flex;
+  justify-items: flex-end;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 50vh;
+  font-size: 25px;
+}
+.textoend {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-items: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 15%;
+  font-size: 30px;
+}
+.textocenter {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 15%;
+  font-size: 50px;
+  color: white;
+}
+
+/* BOTÕES */
+
+button {
+  height: 7vh;
+  width: 14vw;
+  background-color: #000;
+  font-weight: 600;
+  border-top-right-radius: 1vw;
+  border-bottom-left-radius: 1vw;
+  margin-top: 1.5vh;
+  transition: 0.5s;
+  cursor: pointer;
+}
+button a {
+  color: #fff;
+  font-size: 1.5vw;
+}
+
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.575) 2px 4px;
+}

@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Spartan", sans-serif !important;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  width: 98vw;
+  background: #fff;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all 0.5s;
+}
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: ".";
+  color: transparent;
+  background: #3a75b4;
+  height: 1px;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+h3 {
+  font-size: 2vw;
+}
+
+.textofirstline {
+  width: 75vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.textofirstline p {
+  font-size: 1.5vw;
+  display: grid;
+}
+
+.calculadora {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-position-x: left;
+}
+.bloco {
+  border: #3a75b4 1vh outset;
+  width: 70vw;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10%;
+  padding-left: 20%;
+  padding-right: 5%;
+  margin-bottom: 5%;
+}
+input {
+  height: 45px;
+  border: none;
+  border-bottom: #3a75b4 0.1vw solid;
+  font-size: 20px;
+  outline: none;
+  margin: 5vh 1vh 0 1vh;
+}
+
+.inpCalc {
+  height: 7vh;
+  width: 20vw;
+  color: #224b77;
+  font-weight: 500;
+}
+
+.inputs {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: baseline;
+
+  margin-left: -7vw;
+  margin-top: -2vh;
+}
+.insert-data {
+  margin-left: -7vw;
+  margin-top: -7vh;
+}
+
+h4 {
+  font-size: 4vh;
+  margin-bottom: 4%;
+}
+h2 {
+  font-size: 4.5vh;
+  margin-top: 8%;
+  margin-bottom: 4%;
+}
+h1 {
+  text-align: center;
+  padding-right: 26%;
+}
+
+/* BOTÃO VERDE */
+.btncomp {
+  text-align: center;
+  font-size: 1vh;
+  padding: 0;
+  height: 6.3vh !important;
+  width: 13vw !important;
+  transition: all 0.5s;
+  margin-left: 1vw;
+  box-shadow: 0 0.5vh 0.6vw 0 rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-top-right-radius: 1vw;
+  border-bottom-left-radius: 1vw;
+  background: #000;
+  color: #fff;
+  font-size: 1.4vw;
+  font-weight: 600;
+  transition: 0.5s !important;
+  cursor: help !important;
+}
+
+.div_desconto {
+  display: flex;
+  height: 30vh;
+  width: 63vw;
+  background-color: transparent;
+  margin-left: -7vw;
+  margin-top: -5vh;
+  padding: 2vh 2vw;
+}
+
+.imagem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img_Inovacao {
+  width: 50vw;
+}
+.firstlineInovacao {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.footerline {
+  display: flex;
+  height: 17vh;
+  padding: 4%;
+  border-top: black 1px solid;
+}
+.caixafooter {
+  padding-left: 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.caixafooter li {
+  height: 5vh;
+}
+
+li {
+  font-size: 1.2vw !important;
+}
+
+h1 {
+  font-size: 2vw !important ;
+}
+.cxfooter {
+  margin-top: -1vh;
+}
+.caixafooter h1 {
+  margin-bottom: 5%;
+  width: 15vw;
+}
+.caixafooter p {
+  font-size: 1.2vw;
+  margin-bottom: 5%;
+}
+.caixafooter img {
+  height: 2.6vh;
+}
+.imgFooter {
+  width: 24%;
+  padding-left: 6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.imgAirVision {
+  width: 10vw;
+}
+li,
+a {
+  text-decoration: none;
+  list-style: none;
+  color: #000;
+  margin-bottom: 3%;
+}
+.icons {
+  height: 9vh;
+  border-top: black 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2vw;
+}
