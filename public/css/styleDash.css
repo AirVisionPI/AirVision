@@ -10,6 +10,7 @@
 body {
   overflow-x: hidden;
 }
+
 .container {
   position: relative;
   width: 100%;
@@ -23,9 +24,11 @@ body {
   transition: 0.5s;
   overflow: hidden;
 }
+
 .navigation.active {
   width: 50px;
 }
+
 .icons {
   width: 30px;
   margin-left: 30%;
@@ -38,20 +41,25 @@ body {
   left: 0;
   width: 100%;
 }
+
 .navigation ul li {
   position: relative;
   width: 100%;
   list-style: none;
 }
+
 .navigation ul li:hover {
   background: #03a9f4;
 }
+
 .navigation ul li:nth-child(1) {
   margin-bottom: 20px;
 }
+
 .navigation ul li:nth-child(1):hover {
   background: transparent;
 }
+
 .navigation ul li a {
   position: relative;
   display: block;
@@ -60,6 +68,7 @@ body {
   text-decoration: none;
   color: #fff;
 }
+
 .navigation ul li a .icon {
   position: relative;
   display: block;
@@ -68,10 +77,12 @@ body {
   line-height: 60px;
   text-align: center;
 }
+
 .navigation ul li a .icon .icons {
   color: #fff;
   font-size: 24px;
 }
+
 .navigation ul li a .title {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -100,6 +111,7 @@ body {
   background: #f5f5f5;
   transition: 0.5s;
 }
+
 .main.active {
   width: calc(100% - 60px);
   left: 60px;
@@ -121,11 +133,13 @@ body {
   height: 60px;
   cursor: pointer;
 }
+
 .iconMenu {
   width: 50%;
   margin-top: 25%;
   margin-left: 25%;
 }
+
 .toggle::before {
   font-family: fontAwesome;
   position: absolute;
@@ -174,6 +188,7 @@ body {
   overflow: hidden;
   cursor: pointer;
 }
+
 .user img {
   position: absolute;
   top: 0;
@@ -218,6 +233,7 @@ body {
 .cardIcon {
   width: 50px;
 }
+
 .details {
   position: relative;
   width: 310%;
@@ -247,6 +263,7 @@ body {
 .cardHeader h2 {
   font-weight: 600;
 }
+
 .btn {
   position: relative;
   padding: 5px 10px;
@@ -279,19 +296,22 @@ body {
   color: #fff;
 }
 
+/* ALTERA (DISCO, RAM E ID) */
 .details .recentOrders table tr td {
-  padding: 9px 5px;
+  text-align: center;
+  padding: 9px 0px;
 }
 
+/* ALTERA(STATUS) */
 .details .recentOrders table thead tr td:last-child,
 .details .recentOrders table tbody tr td:last-child {
-  text-align: right;
+  text-align: center;
 }
 
+/* ALTERA (NOME TOTEM) */
 .details .recentOrders table thead tr td:nth-child(2),
 .details .recentOrders table tbody tr td:nth-child(2) {
-  text-align: right;
-  padding-right: 20px;
+  text-align: center;
 }
 
 .details .recentOrders table thead tr td:nth-child(3),
@@ -309,6 +329,7 @@ body {
   font-weight: 300;
   letter-spacing: 1px;
 }
+
 .statusTotem {
   position: relative;
   height: 20px;
@@ -317,6 +338,7 @@ body {
   color: #fff;
   border-radius: 100%;
 }
+
 .delivered {
   background: #8de02c;
 }
@@ -337,10 +359,12 @@ body {
   .details {
     grid-template-columns: repeat(1, 1fr);
   }
+
   .cardHeader h2 {
     font-weight: 600;
     font-size: 18px;
   }
+
   .details .recentOrders {
     width: 290px;
     overflow-x: scroll;
@@ -351,33 +375,68 @@ body {
   .cardBox {
     grid-template-columns: repeat(1, 1fr);
   }
+
   .details .recentOrders {
     overflow: auto;
   }
+
   .details .recentOrders table {
     width: 600px;
   }
+
   .navigation {
     width: 100%;
     left: -100%;
     z-index: 1000;
   }
+
   .navigation.active {
     width: 100%;
     left: 0;
   }
+
   .toggle.active {
     position: fixed;
     z-index: 10000;
     right: 0;
     left: initial;
   }
+
   .toggle.active::before {
     color: #fff;
   }
+
   .main,
   .main.active {
     width: 100%;
     left: 0;
   }
+}
+
+ /* TOOLTIP */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: rgba(248, 248, 248, 0.932);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  padding: 5px 10px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  right: 18.9px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

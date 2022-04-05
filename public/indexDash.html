@@ -6,7 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DashBoard</title>
+  <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="./css/styleDash.css">
+  <link rel="stylesheet" href="./jsDash/AddTotem.js">
 </head>
 
 <body>
@@ -32,7 +34,7 @@
           </a>
         </li>
         <li>
-          <a href="#" >
+          <a href="#">
             <span class="icon"><img class="icons" src="imgDash/icons/pagina-inicial.png"></i></span>
             <span class="title ativo">DashBoard</span> </span>
           </a>
@@ -85,7 +87,7 @@
       <!--=======================================================================================================================-->
 
       <div class="cardBox">
-        <div class="card">
+        <!-- <div class="card">
           <div>
             <div class="cardName">01</div>
             <div class="numbers"></div>
@@ -118,7 +120,7 @@
           <div class="iconBox">
             <img class="cardIcon" src="./imgDash/icons/billboard.png">
           </div>
-        </div>
+        </div> -->
 
         <!--=======================================================================================================================-->
         <!--------------------------------------------------Detales Dos Totens------------------------------------------------------->
@@ -127,14 +129,15 @@
           <div class="recentOrders">
             <div class="cardHeader ">
               <h2>Totens</h2>
-              <a href="#" class="btn">View All</a>
             </div>
             <table>
               <thead>
                 <tr>
                   <td>Id</td>
                   <td>Nome Totem</td>
-                  <td>Porcentagem CPU</td>
+                  <td>% CPU</td>
+                  <td>% RAM</td>
+                  <td>% DISCO</td>
                   <td>Status</td>
                 </tr>
               </thead>
@@ -142,47 +145,83 @@
               <tbody>
                 <tr>
                   <td>01</td>
-                  <td></td>
-                  <td>15%</td>
+                  <td>Totem_A</td>
+
+                  <td>15%
+                    <div class="tooltip">📈
+                      <span class="tooltiptext">
+                        <canvas class="line-chart-1"></canvas>
+                      </span>
+                    </div>
+                  </td>
+
+                  <td>15%
+                    <div class="tooltip">📈
+                      <span class="tooltiptext">
+                        <canvas class="line-chart-2"></canvas>
+                      </span>
+                    </div>
+                  </td>
+
+                  <td>15%
+                    <div class="tooltip">📈
+                      <span class="tooltiptext">
+                        <canvas class="line-chart-3"></canvas>
+                      </span>
+                    </div>
+                  </td>
+
                   <td><span class="status peding">offline</td></span></td>
                 </tr>
 
                 <tr>
                   <td>02</td>
-                  <td></td>
+                  <td>Totem_B</td>
+                  <td>20%</td>
+                  <td>20%</td>
                   <td>20%</td>
                   <td><span class="status peding">offline</td></span></td>
                 </tr>
 
                 <tr>
                   <td>03</td>
-                  <td></td>
+                  <td>Totem_C</td>
+                  <td>30%</td>
+                  <td>30%</td>
                   <td>30%</td>
                   <td><span class="status return">offline</td></span></td>
-                </tr>     
+                </tr>
                 <tr>
                   <td>04</td>
-                  <td></td>
+                  <td>Totem_D</td>
+                  <td>100%</td>
+                  <td>100%</td>
                   <td>100%</td>
                   <td><span class="status delivered">online</td></span></td>
                 </tr>
 
                 <tr>
                   <td>05</td>
-                  <td></td>
+                  <td>Totem_E</td>
+                  <td>100%</td>
+                  <td>100%</td>
                   <td>100%</td>
                   <td><span class="status delivered">online</td></span></td>
                 </tr>
 
                 <tr>
                   <td>06</td>
-                  <td></td>
+                  <td>Totem_F</td>
+                  <td>100%</td>
+                  <td>100%</td>
                   <td>100%</td>
                   <td><span class="status delivered">online</td></span></td>
                 </tr>
-                 <tr>
+                <tr>
                   <td>07</td>
-                  <td></td>
+                  <td>Totem_G</td>
+                  <td>100%</td>
+                  <td>100%</td>
                   <td>100%</td>
                   <td><span class="status delivered">online</td></span></td>
                 </tr>
@@ -203,6 +242,59 @@
         navigation.classList.toggle("active");
         main.classList.toggle("active");
       }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"
+      integrity="sha512-Xi9hntzKnjRajIIkbxU5XFCnY4fXApOTc/uf4TkJRE/kv5k9jAaK+CWLHJnpcGdWJsxNColUdRESQQPL+dSR9A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      var ctx_1 = document.getElementsByClassName("line-chart-1");
+
+      var chartGraph = new Chart(ctx_1, {
+        type: 'line',
+        data: {
+          labels: ["jan", "fez", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"],
+          datasets: [{
+            label: "TAXA DE CLIQUES - 2022",
+            data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
+            borderWidth: 6,
+            borderColor: 'rgba(77,166,253,0.85)',
+            backgroundColor: 'transparent',
+          }]
+        },
+      });
+
+      var ctx_2 = document.getElementsByClassName("line-chart-2");
+
+      var chartGraph = new Chart(ctx_2, {
+        type: 'line',
+        data: {
+          labels: ["jan", "fez", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"],
+          datasets: [{
+            label: "TAXA DE CLIQUES - 2022",
+            data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
+            borderWidth: 6,
+            borderColor: 'rgba(77,166,253,0.85)',
+            backgroundColor: 'transparent',
+          }]
+        },
+      });
+
+      var ctx_3 = document.getElementsByClassName("line-chart-3");
+
+      var chartGraph = new Chart(ctx_3, {
+        type: 'line',
+        data: {
+          labels: ["jan", "fez", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"],
+          datasets: [{
+            label: "TAXA DE CLIQUES - 2022",
+            data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
+            borderWidth: 6,
+            borderColor: 'rgba(77,166,253,0.85)',
+            backgroundColor: 'transparent',
+          }]
+        },
+      });
+
     </script>
 </body>
 
