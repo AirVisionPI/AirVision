@@ -211,6 +211,9 @@ h1 {
 .caixafooter .contato {
   margin-left: 2.8vw;
 }
+.caixafooter .mapa {
+  margin-left: 0.4vw;
+}
 
 li {
   font-size: 1.2vw !important;
