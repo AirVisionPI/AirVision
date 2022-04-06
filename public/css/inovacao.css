@@ -208,6 +208,9 @@ h1 {
 .caixafooter li {
   height: 5vh;
 }
+.caixafooter .contato {
+  margin-left: 2.8vw;
+}
 
 li {
   font-size: 1.2vw !important;
