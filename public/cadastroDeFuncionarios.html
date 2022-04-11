@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Funcionarios</title>
+  <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="./css/styleDash.css">
+  <link rel="stylesheet" href="./jsDash/AddTotem.js">
+  <link rel="stylesheet" href="./css/cadFuncionario.css">
+
+</head>
+
+<body>
+  <!--=======================================================================================================================-->
+  <!----------------------------------------------------------NavBar----------------------------------------------------------->
+  <!--=======================================================================================================================-->
+
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="icon"><img class="icons" src="imgDash/icons/airplane.png"></span>
+            <span class="title">
+              <h2>AirVision</h2>
+            </span> </span>
+          </a>
+        </li>
+        <li>
+          <a href="./index.html">
+            <span class="icon"><img class="icons" src="imgDash/icons/bandeira.png"></span>
+            <span class="title">Home</span> </span>
+          </a>
+        </li>
+        <li>
+          <a href="indexDashGestor.html">
+            <span class="icon"><img class="icons" src="imgDash/icons/pagina-inicial.png"></i></span>
+            <span class="title ">DashBoard</span> </span>
+          </a>
+        </li>
+        <li>
+          <a href="./cadastroDeFuncionarios.html">
+            <span class="icon"> <img class="icons" src="imgDash/icons/billboard.png"></i></span>
+            <span class="title ativo">Cadastro de Funcionario</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="funcAtivos.html">
+            <span class="icon"><img class="icons" src="imgDash/icons/group.png"></i> </span>
+            <span class="title">Funcionarios Ativos</span> </span>
+          </a>
+        </li>
+        <!-- <li>
+          <a href="#">
+            <span class="icon"> <img class="icons" src="imgDash/icons/setting-gears.png"></i></span>
+            <span class="title">Configurações</span> </span>
+          </a>
+        </li> -->
+        <li>
+          <a href="index.html">
+            <span class="icon"> <img class="icons" src="imgDash/icons/exit.png"></span>
+            <span class="title">Sair</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle" onclick="toggleMenu()">
+          <img class="iconMenu" src="./imgDash/icons/menu.png">
+        </div>
+        <div class="search">
+          <label>
+            <input type="text" placeholder="Search here">
+            <img class="iconSearch" src="imgDash/icons/search.png">
+          </label>
+        </div>
+        <div class="user">
+          <img class="imgUser" src="./imgDash/icons/profile-user.png">
+        </div>
+      </div>
+
+      <!--=======================================================================================================================-->
+      <!----------------------------------------------------------Cadastro de funcioarios------------------------------------------------------>
+      <!--=======================================================================================================================-->
+
+      <div class="cont-login">
+    <div class="containerFuncionario" id="container">
+      <div class="form-container sign-up-container">
+        <form class="formFuncionario" action="#">
+          <h1 class="titleLogin">Cadastrar Funcionario</h1>
+  
+          <input class="ipt_cadastroFuncionario" type="text" placeholder="Nome do Funcionario" />
+          <input class="ipt_cadastroFuncionario" type="text" placeholder="Função" />
+          <input class="ipt_cadastroFuncionario" type="email" placeholder="Email" />
+          <input class="ipt_cadastroFuncionario" type="password" placeholder="Senha" />
+          <input class="ipt_cadastroFuncionario" type="text" placeholder="Aeroporto que ira trabalhar" />
+          <button class="buttonFuncionario">Cadastrar</button>
+        </form>
+      </div>
+  </div>
+    </div>
+    </div>
+  
+</div>
+    <script>
+      function toggleMenu() {
+        let toggle = document.querySelector(".toggle");
+        let navigation = document.querySelector(".navigation");
+        let main = document.querySelector(".main");
+        toggle.classList.toggle("active");
+        navigation.classList.toggle("active");
+        main.classList.toggle("active");
+      }
+    </script>
+    
+</body>
+
+</html>

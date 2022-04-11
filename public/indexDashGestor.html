@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DashBoard</title>
   <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="./css/styleDash.css">
+  <link rel="stylesheet" type="text/css" href="./css/styleDashGestor.css">
   <link rel="stylesheet" href="./jsDash/AddTotem.js">
 </head>
 
@@ -34,29 +34,29 @@
           </a>
         </li>
         <li>
-          <a href="indexDash.html">
+          <a href="indexDashGestor.html">
             <span class="icon"><img class="icons" src="imgDash/icons/pagina-inicial.png"></i></span>
             <span class="title ativo">DashBoard</span> </span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="./cadastroDeFuncionarios.html">
             <span class="icon"> <img class="icons" src="imgDash/icons/billboard.png"></i></span>
-            <span class="title">Cadastro de Totem</span></span>
+            <span class="title">Cadastro de Funcionario</span></span>
           </a>
         </li>
         <li>
-          <a href="#">
-            <span class="icon"><img class="icons" src="imgDash/icons/email.png"></i> </span>
-            <span class="title">Mensagem</span> </span>
+          <a href="funcAtivos.html">
+            <span class="icon"><img class="icons" src="imgDash/icons/group.png"></i> </span>
+            <span class="title">Funcionarios Ativos</span> </span>
           </a>
         </li>
-        <li>
+        <!-- <li>
           <a href="#">
             <span class="icon"> <img class="icons" src="imgDash/icons/setting-gears.png"></i></span>
             <span class="title">Configurações</span> </span>
           </a>
-        </li>
+        </li> -->
         <li>
           <a href="index.html">
             <span class="icon"> <img class="icons" src="imgDash/icons/exit.png"></span>
@@ -87,50 +87,32 @@
       <!--=======================================================================================================================-->
 
       <div class="cardBox">
-        <!-- <div class="card">
-          <div>
-            <div class="cardName">01</div>
-            <div class="numbers"></div>
-          </div>
-          <span class="statusTotem peding"></span>  
-
-          <div class="iconBox">
-            <img class="cardIcon" src="./imgDash/icons/billboard.png">
-          </div>
+        <div class="card">
+         <canvas class="line-chart-1"></canvas>
         </div>
 
         <div class="card">
-          <div>
-            <div class="cardName">02</div>
-            <div class="numbers"></div>
-          </div>
-          <span class="statusTotem peding"></span>  
-          <div class="iconBox">
-            <img class="cardIcon" src="./imgDash/icons/billboard.png">
-          </div>
+         <canvas class="line-chart-2"></canvas>
         </div>
 
         <div class="card">
-          <div>
-            <div class="cardName">03</div>
-            <div class="numbers"></div>
-          </div>
-          <span class="statusTotem peding"></span>  
-
-          <div class="iconBox">
-            <img class="cardIcon" src="./imgDash/icons/billboard.png">
-          </div>
-        </div> -->
-
+         <canvas class="line-chart-3"></canvas>
+        </div> 
+         <div class="card">
+         <canvas class="line-chart-4"></canvas>
+        </div> 
+        
         <!--=======================================================================================================================-->
         <!--------------------------------------------------Detales Dos Totens------------------------------------------------------->
         <!--=======================================================================================================================-->
-        <div class="details">
-          <div class="recentOrders">
+
+        <!-- <div class="details"> -->
+          <!-- <div class="recentOrders">
             <div class="cardHeader ">
               <h2>Totens</h2>
-            </div>
-            <table>
+            </div> -->
+            
+            <!-- <table>
               <thead>
                 <tr>
                   <td>Id</td>
@@ -150,7 +132,6 @@
                   <td>15%
                     <div class="tooltip">📈
                       <span class="tooltiptext">
-                        <canvas class="line-chart-1"></canvas>
                       </span>
                     </div>
                   </td>
@@ -158,7 +139,6 @@
                   <td>15%
                     <div class="tooltip">📈
                       <span class="tooltiptext">
-                        <canvas class="line-chart-2"></canvas>
                       </span>
                     </div>
                   </td>
@@ -166,7 +146,6 @@
                   <td>15%
                     <div class="tooltip">📈
                       <span class="tooltiptext">
-                        <canvas class="line-chart-3"></canvas>
                       </span>
                     </div>
                   </td>
@@ -226,10 +205,10 @@
                   <td><span class="status delivered">online</td></span></td>
                 </tr>
               </tbody>
-            </table>
-          </div>
+            </table> -->
+          <!-- </div> -->
 
-        </div>
+        <!-- </div> -->
 
       </div>
     </div>
@@ -250,15 +229,20 @@
       var ctx_1 = document.getElementsByClassName("line-chart-1");
 
       var chartGraph = new Chart(ctx_1, {
-        type: 'line',
+        type: 'doughnut',
         data: {
-          labels: ["jan", "fez", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"],
+          labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
           datasets: [{
             label: "TAXA DE CLIQUES - 2022",
-            data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
-            borderWidth: 6,
-            borderColor: 'rgba(77,166,253,0.85)',
-            backgroundColor: 'transparent',
+            data: [10, 23, 40, 70],
+            borderWidth: 1.5,
+            borderColor: 'black',
+            backgroundColor: ['#3A75B480',
+            '#759eca',
+            '#22466c',
+            '#172e48',
+
+          ]
           }]
         },
       });
@@ -266,15 +250,20 @@
       var ctx_2 = document.getElementsByClassName("line-chart-2");
 
       var chartGraph = new Chart(ctx_2, {
-        type: 'line',
+        type: 'radar',
         data: {
-          labels: ["jan", "fez", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"],
+          labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
           datasets: [{
             label: "TAXA DE CLIQUES - 2022",
-            data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
-            borderWidth: 6,
-            borderColor: 'rgba(77,166,253,0.85)',
-            backgroundColor: 'transparent',
+            data: [10, 23, 40, 70],
+            borderWidth: 1.5,
+            borderColor: 'black',
+            backgroundColor: ['#3A75B480',
+            '#759eca',
+            '#22466c',
+            '#172e48',
+
+          ]
           }]
         },
       });
@@ -284,13 +273,39 @@
       var chartGraph = new Chart(ctx_3, {
         type: 'line',
         data: {
-          labels: ["jan", "fez", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"],
+          labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
           datasets: [{
             label: "TAXA DE CLIQUES - 2022",
-            data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
-            borderWidth: 6,
-            borderColor: 'rgba(77,166,253,0.85)',
-            backgroundColor: 'transparent',
+            data: [10, 23, 40, 70],
+           borderWidth: 1.5,
+            borderColor: 'black',
+            backgroundColor: ['#3A75B480',
+            '#759eca',
+            '#22466c',
+            '#172e48',
+
+          ]
+          }]
+        },
+      });
+
+      var ctx_4 = document.getElementsByClassName("line-chart-4");
+
+      var chartGraph = new Chart(ctx_4, {
+        type: 'polarArea',
+        data: {
+          labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+          datasets: [{
+            label: "TAXA DE CLIQUES - 2022",
+            data: [10, 23, 40, 70],
+            borderWidth: 1.5,
+            borderColor: 'black',
+            backgroundColor: ['#3A75B480',
+            '#759eca',
+            '#22466c',
+            '#172e48',
+
+          ]
           }]
         },
       });

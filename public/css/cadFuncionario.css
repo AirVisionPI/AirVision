@@ -1,0 +1,116 @@
+.cont-login {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  font-family: "Montserrat", sans-serif;
+  margin-left: 10vw;
+  margin-top: 50px;
+  margin-right: 10vw;
+}
+
+.titleLogin {
+  font-weight: bold;
+  font-size: 3vw;
+  margin-bottom: 6vh;
+}
+
+.paragrafo {
+  font-size: 1.4vw;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.1vw;
+  margin: 2vw 0 3vw;
+}
+
+.buttonFuncionario {
+  cursor: pointer !important;
+  font-size: 1vw !important;
+}
+
+.link {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.overlay button {
+  border-radius: 20px;
+  border: 1px solid #6394ff;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 1vw;
+
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  width: 10vw;
+  height: 5vh !important;
+}
+
+.buttonFuncionario {
+  border-radius: 20px;
+  border: 1px solid #6394ff;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 1vw;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  height: 5vh !important;
+  width: 10vw;
+}
+
+.buttonFuncionario:active {
+  transform: scale(0.95);
+}
+
+.buttonFuncionario:focus {
+  outline: none;
+}
+.buttonFuncionario.ghost {
+  background-color: #000;
+  border-color: rgba(14, 57, 151, 0.795);
+}
+
+.formFuncionario {
+  align-items: center;
+  justify-content: center;
+  margin-left: 65%;
+}
+
+.ipt_cadastroFuncionario {
+  background-color: transparent;
+  border: none;
+  border-bottom: #3a75b4 2px solid;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  height: 3vh;
+  /* width: 100%; */
+}
+
+.containerFuncionario {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  margin-bottom: 50px;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  margin-right: 50%;
+}
+
+.titleLogin {
+  margin-top: 40px;
+}

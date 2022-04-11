@@ -13,72 +13,71 @@
 </head>
 
 <body>
-<!-- NAVBAR -->
-<div class="header">
-  <nav class="stroke">
-    <span id="top"></span>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="sobrenos.html">Sobre nós</a></li>
-      <li><a href="suporte.html">Suporte</a></li>
-      <li><a href="inovacao.html">Inovação</a></li>
-      <li><a href="login.html">Acesso</a></li>
-    </ul>
-  </nav>
-</div>
-
-
-<!-- Login e Cadastro -->
-
-<div class="cont-login">
-	<div class="container" id="container">
-	  <div class="form-container sign-up-container">
-		<form action="#">
-		  <h1 class="title">Criar Conta</h1>
-
-		  <input type="text" placeholder="Nome" />
-		  <input type="email" placeholder="Email" />
-		  <input type="password" placeholder="Senha" />
-		  <input type="password" placeholder="Confirme sua senha" />
-		  <input type="text" placeholder="Razão social" />
-		  <input
-			type="number"
-			data-mask="000.000.000/0000-00"
-			data-mask-selectonfocus="true"
-			maxlength="14"
-			placeholder="CNPJ (000.000.000/0000-00)"
-		  />
-		  <input type="text" placeholder="Localização (Aeroporto)" />
-		  <button class="button">Cadastrar</button>
-		</form>
-	  </div>
-	  <div class="form-container sign-in-container">
-		<form action="#">
-		  <h1 class="title">Enter</h1>
-
-		  <input type="email" placeholder="Email" />
-		  <input type="password" placeholder="Senha" />
-		  <a class="link"href="#">Esqueceu sua senha?</a>
-		  <button onclick="btnEntrar()" class="button">Entrar</button>
-		</form>
-	  </div>
-	  <div class="overlay-container">
-		<div class="overlay">
-		  <div class="overlay-panel overlay-left">
-			<div class="logo"></div>
-			<p class="paragrafo">Para continuar conectado conosco, realize seu login</p>
-			<button class="ghost" id="signIn">Entrar</button>
-		  </div>
-		  <div class="overlay-panel overlay-right">
-			<div class="logo"></div>
-			<p class="paragrafo">Entre com as suas informações para realizar o orçamento</p>
-			<button  class="ghost" id="signUp">Cadastrar</button>
-		  </div>
-		</div>
-	  </div>
-	</div>
+  <!-- NAVBAR -->
+  <div class="header">
+    <nav class="stroke">
+      <span id="top"></span>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobrenos.html">Sobre nós</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+        <li><a href="inovacao.html">Inovação</a></li>
+        <li><a href="login.html">Acesso</a></li>
+      </ul>
+    </nav>
   </div>
-  
+
+
+  <!-- Login e Cadastro -->
+
+  <div class="cont-login">
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="#">
+          <h1 class="title">Criar Conta</h1>
+
+          <input type="text" placeholder="Nome" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Senha" />
+          <input type="password" placeholder="Confirme sua senha" />
+          <input type="text" placeholder="Razão social" />
+          <input type="number" data-mask="000.000.000/0000-00" data-mask-selectonfocus="true" maxlength="14"
+            placeholder="CNPJ (000.000.000/0000-00)" />
+          <input type="text" placeholder="Localização (Aeroporto)" />
+          <button class="button">Cadastrar</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form id="form_login">
+          <h1 class="title">Enter</h1>
+
+          <input type="email" placeholder="Email" name="email" />
+          <input  type="password" placeholder="Senha" name="senha" />
+          <a class="link" onclick="teste()">Esqueceu sua senha?</a>
+
+
+          <div style="cursor: pointer" onclick="btnEntrar()" class="button"> Entrar</div>
+
+
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <div class="logo"></div>
+            <p class="paragrafo">Para continuar conectado conosco, realize seu login</p>
+            <button class="ghost" id="signIn">Entrar</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <div class="logo"></div>
+            <p class="paragrafo">Entre com as suas informações para realizar o orçamento</p>
+            <button class="ghost" id="signUp">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
 
 
@@ -87,21 +86,21 @@
       <img class="imgAirVision" src="assets/AirVisionM.png" alt="">
     </div>
     <div class="caixafooter">
-     <div class="mapaSite">
-      <h1 class="title-h1">Mapa do site</h1>
-      <ul>
-        <li class="text-li"><a href="sobrenos.html">Sobre nós</a></li>
-        <li class="text-li"><a href="inovacao.html">Inovação</a></li>
-        <li class="text-li"><a href="login.html">Acesso</a></li>
-      </ul>
-     </div>
+      <div class="mapaSite">
+        <h1 class="title-h1">Mapa do site</h1>
+        <ul>
+          <li class="text-li"><a href="sobrenos.html">Sobre nós</a></li>
+          <li class="text-li"><a href="inovacao.html">Inovação</a></li>
+          <li class="text-li"><a href="login.html">Acesso</a></li>
+        </ul>
+      </div>
       <div class="contato">
         <h1 class="title-h1">Contato</h1>
-      <p class="text-p-footer">
-        <img src="" src="./assets/icons/envelope.png"> AirVision@gmail.com <br><br>
-        <img src="./assets/icons/phone-receiver-silhouette.png"> 55 (11)93207-7271 <br><br>
-       <a href="https://github.com/AirVisionPI/AirVision"> <img  src="./assets/icons/github.png"> AirVision</a>
-      </p>
+        <p class="text-p-footer">
+          <img src="" src="./assets/icons/envelope.png"> AirVision@gmail.com <br><br>
+          <img src="./assets/icons/phone-receiver-silhouette.png"> 55 (11)93207-7271 <br><br>
+          <a href="https://github.com/AirVisionPI/AirVision"> <img src="./assets/icons/github.png"> AirVision</a>
+        </p>
       </div>
     </div>
   </div>
@@ -116,51 +115,115 @@
 <script>
 
   const target = document.querySelectorAll('[data-container]');
-    const animationClass = 'animate';
+  const animationClass = 'animate';
 
-    function animeScroll() {
-        const windowTop = window.pageYOffset + ((window.innerHeight * 3) / 4);
-        target.forEach(function (element){
-            if(windowTop > element.offsetTop){
-                element.classList.add(animationClass);
-            }else{
-                element.classList.remove(animationClass);
-            }
+  function animeScroll() {
+    const windowTop = window.pageYOffset + ((window.innerHeight * 3) / 4);
+    target.forEach(function (element) {
+      if (windowTop > element.offsetTop) {
+        element.classList.add(animationClass);
+      } else {
+        element.classList.remove(animationClass);
+      }
 
-        })
-    }
+    })
+  }
 
-    animeScroll();
+  animeScroll();
 
-    if(target.length){
-      window.addEventListener('scroll', function () {
-         animeScroll();
-      })
-    }
+  if (target.length) {
+    window.addEventListener('scroll', function () {
+      animeScroll();
+    })
+  }
 
-	const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+  const signUpButton = document.getElementById('signUp');
+  const signInButton = document.getElementById('signIn');
+  const container = document.getElementById('container');
 
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
+  signUpButton.addEventListener('click', () => {
+    container.classList.add("right-panel-active");
+  });
 
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
+  signInButton.addEventListener('click', () => {
+    container.classList.remove("right-panel-active");
+  });
 
 
-function btnEntrar(){
+  function btnEntrar(){
+
+  var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));  
   var email = formulario.get("email");
   var senha = formulario.get("senha");
 
-if(email == "AirVision@gmail.com" || senha == "123456"){
-  window.location = "/indexDash.html";
-}
+
+          if (email == "Admin@admin.com" && senha == "123") {
+
+          window.location = "http://127.0.0.1:5500/public/indexDashGestor.html"
+
+
+          }else if(email == "funcionario@admin.com" && senha == "123"){
+            window.location = "http://127.0.0.1:5500/public/indexDash.html"
+
+          }else{
+
+            window.alert("Preencha todos os campos para prosseguir!");
+            
+   return false;
+          }
+
+
+          // VALIDAÇAO QUANDO CONECTAR AO BANCO
+
+
+  // if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+  //     window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+
+  //     return false;
+  // }
+
+  //     fetch("/usuarios/autenticar", {
+  //         method: "POST",
+  //         body: formulario
+  //     }).then(function (resposta) {
+  //         if (resposta.ok) {
+  //             console.log(resposta);
+
+  //             resposta.json().then(json => {
+  //                 console.log(json);
+  //                 console.log(JSON.stringify(json));
+
+  //                 sessionStorage.EMAIL_USUARIO = json.email;
+  //                 sessionStorage.NOME_USUARIO = json.nome;
+  //                 sessionStorage.ID_USUARIO = json.id;
+
+  //                 setTimeout(function () {
+  //                     window.location = "indexDashGestor.html";
+  //                 }, 1000); // apenas para exibir o loading
+
+  //             });
+
+  //         } else {
+
+  //             console.log("Houve um erro ao tentar realizar o login!");
+
+  //             resposta.text().then(texto => {
+  //                 console.error(texto);
+  //                 finalizarAguardar(texto);
+  //             });
+  //         }
+
+  //     }).catch(function (erro) {
+  //         console.log(erro);
+  //     })
+
+  //     return false;
+  // }
+  // }
+
+  }
 
 
 
-}
 
 </script>
