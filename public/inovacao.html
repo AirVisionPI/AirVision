@@ -129,7 +129,8 @@
       const consumoTot = calculo * qtdTotens;
       const calcSem = ((potencia * 24 * dias)/1000) * qtdTotens;
       const calcSemTot = ((potencia * 24 * dias)/1000) * gastoEnerg ;
-      div_inner.innerHTML = `<b>
+      div_inner.innerHTML = ` 
+      <b>
           Mensalmente o consumo dos seus ${qtdTotens} totens é:<span style="color:red"> R$${calcSemTot.toFixed(2)}</span>
            por totem! <br>
           e um gasto de valor de consumo energético real <span style="color:red"> R$${calcSem.toFixed(2)}</span> por mês. <br>
@@ -142,13 +143,13 @@
           <span style="color: green;">R$${calculo.toFixed(2)}</span> por totem e, <br>
           <span style="color:green;">R$${consumoTot.toFixed(2)}</span> por mês. <br>
 
-          </b> 
+          </b>
           `
           
 
   
 }
-}
+  }
 
           
 
