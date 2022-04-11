@@ -62,11 +62,12 @@
 
       <button class="btncomp" title="Cálculo de consumo:
       (P)Potência do totem = 200 Watts
+      (G) Custo da energia
       (H)Horas do dia = 24h
       (O)Horas ociosas = x
       (D)Dias do mês = 30
       
-      Consumo por totem = (P x (H - O) x D)/ 1000
+      Consumo por totem = ((P x (H - O) x D)/ 1000) * G
       Consumo total = Consumo por totem x Quantidade de totens." onclick="bt_cal()" id="cal">Calcular 💡
     </button>
    
@@ -124,22 +125,22 @@
       const gastoEnerg = energia.value;
       const qtdTotens = totens.value;
 
-      const calculo = (potencia * (horaTot - hora) * dias) / 1000;  
+      const calculo = ((potencia * (horaTot - hora) * dias) / 1000) * gastoEnerg;  
       const consumoTot = calculo * qtdTotens;
       const calcSem = ((potencia * 24 * dias)/1000) * qtdTotens;
-      const calcSemTot = ((potencia * 24 * dias)/1000) ;
+      const calcSemTot = ((potencia * 24 * dias)/1000) * gastoEnerg ;
       div_inner.innerHTML = `<b>
-          Mensalmente o consumo dos seus ${qtdTotens} totens é:<span style="color:red"> R$${calcSemTot}</span>
+          Mensalmente o consumo dos seus ${qtdTotens} totens é:<span style="color:red"> R$${calcSemTot.toFixed(2)}</span>
            por totem! <br>
-          e um gasto de valor de consumo energético real <span style="color:red"> R$${calcSem}</span> por mês. <br>
+          e um gasto de valor de consumo energético real <span style="color:red"> R$${calcSem.toFixed(2)}</span> por mês. <br>
             <br>
           Utilizando nossa solução, você tera uma economia de:
           <br>
-          <span style="color: goldenrod;">R$${calcSemTot - calculo}</span> por totem e, <br>
-          <span style="color:goldenrod;">R$${calcSem - consumoTot}</span> por mês. <br> <br>
+          <span style="color: goldenrod;">R$${(calcSemTot - calculo).toFixed(2)}</span> por totem e, <br>
+          <span style="color:goldenrod;">R$${(calcSem - consumoTot).toFixed(2)}</span> por mês. <br> <br>
           Assim resultando nos valores médios de: <br>
-          <span style="color: green;">R$${calculo}</span> por totem e, <br>
-          <span style="color:green;">R$${consumoTot}</span> por mês. <br>
+          <span style="color: green;">R$${calculo.toFixed(2)}</span> por totem e, <br>
+          <span style="color:green;">R$${consumoTot.toFixed(2)}</span> por mês. <br>
 
           </b> 
           `
