@@ -97,10 +97,11 @@ h3 {
   margin-bottom: 5%;
 }
 input {
-  height: 45px;
+  /* height: 45px; */
   border: none;
   border-bottom: #3a75b4 0.1vw solid;
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: medium ;
   outline: none;
   margin: 5vh 1vh 0 1vh;
 }
@@ -165,6 +166,14 @@ h1 {
   cursor: help !important;
 }
 
+.mapa{
+  margin-left: .4vw;
+}
+
+.contato{
+  margin-left: 2.9vw;
+}
+
 .div_desconto {
   display: flex;
   height: 30vh;
@@ -186,8 +195,7 @@ h1 {
   width: 50vw;
 }
 .firstlineInovacao {
-  height: 300px;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   margin-top: 3%;
