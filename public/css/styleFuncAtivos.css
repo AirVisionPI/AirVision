@@ -214,6 +214,8 @@ body {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  width: 500px;
+  height: 250px;
 }
 
 .cardBox .card .numbers {
