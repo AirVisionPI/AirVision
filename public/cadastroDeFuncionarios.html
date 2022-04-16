@@ -36,7 +36,7 @@
           </a>
         </li>
         <li>
-          <a href="indexDashGestor.html">
+          <a href="IndexDashDono.html">
             <span class="icon"><img class="icons" src="imgDash/icons/pagina-inicial.png"></i></span>
             <span class="title ">DashBoard</span> </span>
           </a>
@@ -89,35 +89,41 @@
       <!--=======================================================================================================================-->
 
       <div class="cont-login">
-    <div class="containerFuncionario" id="container">
-      <div class="form-container sign-up-container">
-        <form class="formFuncionario" action="#">
+        <div class="containerFuncionario" id="container">
           <h1 class="titleLogin">Cadastrar Funcionario</h1>
-  
-          <input class="ipt_cadastroFuncionario" type="text" placeholder="Nome do Funcionario" />
-          <input class="ipt_cadastroFuncionario" type="text" placeholder="Função" />
-          <input class="ipt_cadastroFuncionario" type="email" placeholder="Email" />
-          <input class="ipt_cadastroFuncionario" type="password" placeholder="Senha" />
-          <input class="ipt_cadastroFuncionario" type="text" placeholder="Aeroporto que ira trabalhar" />
-          <button class="buttonFuncionario">Cadastrar</button>
-        </form>
+          <div class="form-container sign-up-container">
+            <form class="formFuncionario" action="#">
+
+              <input class="ipt_cadastroFuncionario" type="text" placeholder="Nome do Funcionario" />
+              <input class="ipt_cadastroFuncionario" type="email" placeholder="Email" />
+              <input class="ipt_cadastroFuncionario" type="password" placeholder="Senha" />
+              <input class="ipt_cadastroFuncionario" type="text" placeholder="Aeroporto que ira trabalhar" />
+              <select class="selectCargo">
+
+                <option name="cargo" value="">Cargo</option>
+                <option value="">Gestor</option>
+                <option value="">Tecnico</option>
+
+              </select>
+              <button class="buttonFuncionario">Cadastrar</button>
+            </form>
+          </div>
+        </div>
       </div>
+    </div>
+
   </div>
-    </div>
-    </div>
-  
-</div>
-    <script>
-      function toggleMenu() {
-        let toggle = document.querySelector(".toggle");
-        let navigation = document.querySelector(".navigation");
-        let main = document.querySelector(".main");
-        toggle.classList.toggle("active");
-        navigation.classList.toggle("active");
-        main.classList.toggle("active");
-      }
-    </script>
-    
+  <script>
+    function toggleMenu() {
+      let toggle = document.querySelector(".toggle");
+      let navigation = document.querySelector(".navigation");
+      let main = document.querySelector(".main");
+      toggle.classList.toggle("active");
+      navigation.classList.toggle("active");
+      main.classList.toggle("active");
+    }
+  </script>
+
 </body>
 
 </html>
