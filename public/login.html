@@ -157,13 +157,16 @@
   var senha = formulario.get("senha");
 
 
-          if (email == "Admin@admin.com" && senha == "123") {
+          if (email == "Gestor@admin.com" && senha == "123") {
 
           window.location = "http://127.0.0.1:5500/public/indexDashGestor.html"
 
 
           }else if(email == "funcionario@admin.com" && senha == "123"){
             window.location = "indexDash.html"
+
+          }else if(email == "Dono@admin.com" && senha == "123"){
+            window.location = "http://127.0.0.1:5500/public/IndexDashDono.html"
 
           }else{
 

@@ -343,6 +343,7 @@ body {
 
 .delivered {
   background: #8de02c;
+  color: #111;
 }
 
 .pedding {
@@ -415,7 +416,7 @@ body {
   }
 }
 
- /* TOOLTIP */
+/* TOOLTIP */
 .tooltip {
   position: relative;
   display: inline-block;
