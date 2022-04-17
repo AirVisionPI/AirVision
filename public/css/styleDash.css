@@ -203,8 +203,7 @@ body {
   width: 100%;
   padding: 20px;
   display: grid;
-  flex-direction: column;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
 
@@ -213,7 +212,6 @@ body {
   background: #fff;
   padding: 20px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
 }
@@ -238,8 +236,8 @@ body {
 
 .details {
   position: relative;
-  width: 100%;
-  padding: 10px;
+  width: 310%;
+  padding: 20px;
   padding-top: 0;
   display: grid;
   grid-gap: 20px;
