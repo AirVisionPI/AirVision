@@ -1,0 +1,27 @@
+AS COISAS QUE TEM
+Visão Geral
+Monitoramento
+Funcionários Ativos
+Cadastro Funcionário
+Mensagem
+Configurações
+Sair
+
+ADMIN - DONO
+Visão Geral
+Monitoramento
+Funcionários Ativos - GESTORES E FUNCIONARIOS
+Cadastro Funcionário
+Configurações
+Sair
+
+GESTOR
+Visão Geral
+Monitoramento
+Funcionários Ativos - APENAS FUNCIONARIOS
+Sair
+
+FUNCIONARIO
+Monitoramento
+Mensagem
+Sair

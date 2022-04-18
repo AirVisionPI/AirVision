@@ -9,6 +9,8 @@
   <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
   <!-- <link rel="stylesheet" href="./css/style.css"> -->
   <link rel="stylesheet" href="./css/acesso.css">
+  <script src="javascript/login.js"></script>
+  <script src="javascript/cadastro_login_chumbado.js"></script>
   <title>AirVision </title>
 </head>
 
@@ -33,18 +35,18 @@
   <div class="cont-login">
     <div class="container" id="container">
       <div class="form-container sign-up-container">
-        <form action="#">
+        <form id="form_cadastro" action="#">
           <h1 class="title">Criar Conta</h1>
 
-          <input type="text" placeholder="Nome" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Senha" />
+          <input type="text" placeholder="Nome" name="nome"/>
+          <input type="email" placeholder="Email" name="email"/>
+          <input type="password" placeholder="Senha" name="senha"/>
           <input type="password" placeholder="Confirme sua senha" />
-          <input type="text" placeholder="Razão social" />
+          <input type="text" placeholder="Razão social" name="razao_social"/>
           <input type="number" data-mask="000.000.000/0000-00" data-mask-selectonfocus="true" maxlength="14"
-            placeholder="CNPJ (000.000.000/0000-00)" />
-          <input type="text" placeholder="Localização (Aeroporto)" />
-          <button class="button">Cadastrar</button>
+            placeholder="CNPJ (000.000.000/0000-00)" name="cnpj"/>
+          <input type="text" placeholder="Localização (Aeroporto)" nome="local_companhia"/>
+          <button onclick="btnCadastrar()" class="button">Cadastrar</button>
         </form>
       </div>
       <div class="form-container sign-in-container">
@@ -52,12 +54,10 @@
           <h1 class="title">Enter</h1>
 
           <input type="email" placeholder="Email" name="email" />
-          <input  type="password" placeholder="Senha" name="senha" />
+          <input type="password" placeholder="Senha" name="senha" />
           <a class="link" onclick="teste()">Esqueceu sua senha?</a>
 
-
           <div style="cursor: pointer" onclick="btnEntrar()" class="buttonEntrar"> Entrar</div>
-
 
         </form>
       </div>
@@ -150,81 +150,80 @@
   });
 
 
-  function btnEntrar(){
+  // function btnEntrar() {
 
-  var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));  
-  var email = formulario.get("email");
-  var senha = formulario.get("senha");
+  //   var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+  //   var email = formulario.get("email");
+  //   var senha = formulario.get("senha");
 
+  //   if (email == "Gestor@admin.com" && senha == "123") {
 
-          if (email == "Gestor@admin.com" && senha == "123") {
-
-          window.location = "http://127.0.0.1:5500/public/indexDashGestor.html"
-
-
-          }else if(email == "funcionario@admin.com" && senha == "123"){
-            window.location = "http://127.0.0.1:5500/public/indexDash.html"
-
-          }else if(email == "Dono@admin.com" && senha == "123"){
-            window.location = "http://127.0.0.1:5500/public/IndexDashDono.html"
-
-          }else{
-
-            window.alert("Preencha todos os campos para prosseguir!");
-            
-   return false;
-          }
+  //     window.location = "http://127.0.0.1:5500/public/indexDashGestor.html"
 
 
-          // VALIDAÇAO QUANDO CONECTAR AO BANCO
+  //   } else if (email == "funcionario@admin.com" && senha == "123") {
+  //     window.location = "http://127.0.0.1:5500/public/indexDash.html"
 
+  //   } else if (email == "Dono@admin.com" && senha == "123") {
+  //     window.location = "http://127.0.0.1:5500/public/IndexDashDono.html"
 
-  // if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
-  //     window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+  //   } else {
+
+  //     window.alert("Preencha todos os campos para prosseguir!");
 
   //     return false;
+  //   }
+
+
+  //   // VALIDAÇAO QUANDO CONECTAR AO BANCO
+
+
+  //   // if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+  //   //     window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+
+  //   //     return false;
+  //   // }
+
+  //   //     fetch("/usuarios/autenticar", {
+  //   //         method: "POST",
+  //   //         body: formulario
+  //   //     }).then(function (resposta) {
+  //   //         if (resposta.ok) {
+  //   //             console.log(resposta);
+
+  //   //             resposta.json().then(json => {
+  //   //                 console.log(json);
+  //   //                 console.log(JSON.stringify(json));
+
+  //   //                 sessionStorage.EMAIL_USUARIO = json.email;
+  //   //                 sessionStorage.NOME_USUARIO = json.nome;
+  //   //                 sessionStorage.ID_USUARIO = json.id;
+
+  //   //                 setTimeout(function () {
+  //   //                     window.location = "indexDashGestor.html";
+  //   //                 }, 1000); // apenas para exibir o loading
+
+  //   //             });
+
+  //   //         } else {
+
+  //   //             console.log("Houve um erro ao tentar realizar o login!");
+
+  //   //             resposta.text().then(texto => {
+  //   //                 console.error(texto);
+  //   //                 finalizarAguardar(texto);
+  //   //             });
+  //   //         }
+
+  //   //     }).catch(function (erro) {
+  //   //         console.log(erro);
+  //   //     })
+
+  //   //     return false;
+  //   // }
+  //   // }
+
   // }
-
-  //     fetch("/usuarios/autenticar", {
-  //         method: "POST",
-  //         body: formulario
-  //     }).then(function (resposta) {
-  //         if (resposta.ok) {
-  //             console.log(resposta);
-
-  //             resposta.json().then(json => {
-  //                 console.log(json);
-  //                 console.log(JSON.stringify(json));
-
-  //                 sessionStorage.EMAIL_USUARIO = json.email;
-  //                 sessionStorage.NOME_USUARIO = json.nome;
-  //                 sessionStorage.ID_USUARIO = json.id;
-
-  //                 setTimeout(function () {
-  //                     window.location = "indexDashGestor.html";
-  //                 }, 1000); // apenas para exibir o loading
-
-  //             });
-
-  //         } else {
-
-  //             console.log("Houve um erro ao tentar realizar o login!");
-
-  //             resposta.text().then(texto => {
-  //                 console.error(texto);
-  //                 finalizarAguardar(texto);
-  //             });
-  //         }
-
-  //     }).catch(function (erro) {
-  //         console.log(erro);
-  //     })
-
-  //     return false;
-  // }
-  // }
-
-  }
 
 
 

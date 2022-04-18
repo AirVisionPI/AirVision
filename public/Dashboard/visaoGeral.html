@@ -6,58 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DashBoard</title>
-  <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="./css/styleDashGestor.css">
-  <link rel="stylesheet" href="./jsDash/AddTotem.js">
+  <link rel="shortcut icon" href="../assets/icons/AirVisionIcon3.webp" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../css/styleDashDono.css">
+  <script type="text/javascript" src="../javascript/carregarSideBar.js"></script>
+  
 </head>
 
-<body>
+<body onload='atualizarSideBar()'>
   <!--=======================================================================================================================-->
   <!----------------------------------------------------------NavBar----------------------------------------------------------->
   <!--=======================================================================================================================-->
 
   <div class="container">
-    <div class="navigation">
-      <ul>
-        <li>
-          <a href="#">
-            <span class="icon"><img class="icons" src="imgDash/icons/airplane.png"></span>
-            <span class="title">
-              <h2>AirVision</h2>
-            </span> </span>
-          </a>
-        </li>
-        <li>
-          <a href="./index.html">
-            <span class="icon"><img class="icons" src="imgDash/icons/bandeira.png"></span>
-            <span class="title">Home Gestor</span> </span>
-          </a>
-        </li>
-        <li>
-          <a href="indexDashGestor.html">
-            <span class="icon"><img class="icons" src="imgDash/icons/pagina-inicial.png"></i></span>
-            <span class="title ativo">DashBoard</span> </span>
-          </a>
-        </li>
-        <li>
-          <a href="funcAtivos.html">
-            <span class="icon"><img class="icons" src="imgDash/icons/group.png"></i> </span>
-            <span class="title">Funcionarios Ativos</span> </span>
-          </a>
-        </li>
-        <!-- <li>
-          <a href="#">
-            <span class="icon"> <img class="icons" src="imgDash/icons/setting-gears.png"></i></span>
-            <span class="title">Configurações</span> </span>
-          </a>
-        </li> -->
-        <li>
-          <a href="index.html">
-            <span class="icon"> <img class="icons" src="imgDash/icons/exit.png"></span>
-            <span class="title">Sair</span></span>
-          </a>
-        </li>
-      </ul>
+    <div class="navigation" id="sideBarNavegation">
+      <!-- SIDEBAR CARREGADA -->
     </div>
 
     <div class="main">
@@ -217,9 +179,7 @@
         main.classList.toggle("active");
       }
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"
-      integrity="sha512-Xi9hntzKnjRajIIkbxU5XFCnY4fXApOTc/uf4TkJRE/kv5k9jAaK+CWLHJnpcGdWJsxNColUdRESQQPL+dSR9A=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script>
       var ctx_1 = document.getElementsByClassName("line-chart-1");
 

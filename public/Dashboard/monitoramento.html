@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DashBoard</title>
+  <link rel="shortcut icon" href="../assets/icons/AirVisionIcon3.webp" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../css/styleDash.css">
+  <script type="text/javascript" src="../javascript/totens.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+  <script type="text/javascript" src="../javascript/carregarSideBar.js"></script>
+  <script type="text/javascript" src="../javascript/painelDeControle.js"></script>
+
+</head>
+
+<body onload='atualizarPainel(), atualizarSideBar()'>
+  <!--=======================================================================================================================-->
+  <!----------------------------------------------------------NavBar----------------------------------------------------------->
+  <!--=======================================================================================================================-->
+
+  <div class="container">
+    <div class="navigation" id="sideBarNavegation">
+      <!-- SIDEBAR CARREGADA -->
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle" onclick="toggleMenu()">
+          <img class="iconMenu" src="./imgDash/icons/menu.png">
+        </div>
+        <div class="search">
+          <label>
+            <input type="text" placeholder="Search here">
+            <img class="iconSearch" src="imgDash/icons/search.png">
+          </label>
+        </div>
+        <div class="user">
+          <img class="imgUser" src="./imgDash/icons/profile-user.png">
+        </div>
+      </div>
+
+      <!--=======================================================================================================================-->
+      <!----------------------------------------------------------CardsTotens------------------------------------------------------>
+      <!--=======================================================================================================================-->
+
+      <div class="cardBox">
+        <!-- <div class="card">
+          <div>
+            <div class="cardName">01</div>
+            <div class="numbers"></div>
+          </div>
+          <span class="statusTotem peding"></span>  
+
+          <div class="iconBox">
+            <img class="cardIcon" src="./imgDash/icons/billboard.png">
+          </div>
+        </div> -->
+
+        <!--=======================================================================================================================-->
+        <!--------------------------------------------------Detales Dos Totens------------------------------------------------------->
+        <!--=======================================================================================================================-->
+
+        <div class="details">
+          <div class="recentOrders">
+            <div class="cardHeader ">
+              <h2>Totens</h2>
+            </div>
+            <table>
+              <thead id="thead_painel">
+                <tr>
+                  <td>Nome Totem</td>
+                  <td class="td_painel">ID</td>
+                  <td class="td_painel">% CPU</td>
+                  <td class="td_painel">% RAM</td>
+                  <td class="td_painel">% DISCO</td>
+                  <td class="td_painel">Status</td>
+                </tr>
+              </thead>
+
+              <tbody id="tbody_painel">
+                <!-- AQUI VAI SER INSERIDO OS TOTENS DO BANCO DE DADOS -->
+
+                <!-- MODELO DE EXIBIÇÃO DO GRÁFICO
+                  <div class="main">
+                    <canvas id="myChart"></canvas>
+                  </div> 
+                -->
+                <script type="text/javascript" src="../javascript/configGraficos.js"></script>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="painelDeControle" class="card">
+
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleMenu() {
+        let toggle = document.querySelector(".toggle");
+        let navigation = document.querySelector(".navigation");
+        let main = document.querySelector(".main");
+        toggle.classList.toggle("active");
+        navigation.classList.toggle("active");
+        main.classList.toggle("active");
+      }</script>
+    <!-- <script>
+      var ctx_1 = document.getElementsByClassName("line-chart-1");
+
+      var chartGraph = new Chart(ctx_1, {
+        type: "line",
+        data: {
+          labels: [
+            "jan",
+            "fez",
+            "mar",
+            "abr",
+            "mai",
+            "jun",
+            "jul",
+            "ago",
+            "set",
+            "out",
+            "nov",
+            "dez",
+          ],
+          datasets: [
+            {
+              label: "TAXA DE CLIQUES - 2022",
+              data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
+              borderWidth: 6,
+              borderColor: "rgba(77,166,253,0.85)",
+              backgroundColor: "transparent",
+            },
+          ],
+        },
+      });F
+    </script> -->
+</body>
+
+</html>

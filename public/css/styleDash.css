@@ -202,17 +202,14 @@ body {
   position: relative;
   width: 100%;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   grid-gap: 20px;
 }
 
 .cardBox .card {
-  position: relative;
   background: #fff;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
+  width: 0%;
+  transition: 1s;
   cursor: pointer;
 }
 
@@ -236,8 +233,8 @@ body {
 
 .details {
   position: relative;
-  width: 310%;
-  padding: 20px;
+  width: 100%;
+  padding: 10px;
   padding-top: 0;
   display: grid;
   grid-gap: 20px;
@@ -292,6 +289,7 @@ body {
 }
 
 .details .recentOrders table tbody tr:hover {
+  cursor: pointer;
   background: #03a9f4;
   color: #fff;
 }

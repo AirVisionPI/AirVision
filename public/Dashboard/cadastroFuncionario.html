@@ -6,66 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastro de Funcionarios</title>
-  <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="./css/styleDash.css">
-  <link rel="stylesheet" href="./jsDash/AddTotem.js">
-  <link rel="stylesheet" href="./css/cadFuncionario.css">
+  <link rel="shortcut icon" href="../assets/icons/AirVisionIcon3.webp" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="../css/styleDash.css">
+  <link rel="stylesheet" href="../css/cadFuncionario.css">
+  <script type="text/javascript" src="../javascript/carregarSideBar.js"></script>
 
 </head>
 
-<body>
+<body onload='atualizarSideBar()'>
   <!--=======================================================================================================================-->
   <!----------------------------------------------------------NavBar----------------------------------------------------------->
   <!--=======================================================================================================================-->
 
   <div class="container">
-    <div class="navigation">
-      <ul>
-        <li>
-          <a href="#">
-            <span class="icon"><img class="icons" src="imgDash/icons/airplane.png"></span>
-            <span class="title">
-              <h2>AirVision</h2>
-            </span> </span>
-          </a>
-        </li>
-        <li>
-          <a href="./index.html">
-            <span class="icon"><img class="icons" src="imgDash/icons/bandeira.png"></span>
-            <span class="title">Home</span> </span>
-          </a>
-        </li>
-        <li>
-          <a href="./IndexDashDono.html">
-            <span class="icon"><img class="icons" src="imgDash/icons/pagina-inicial.png"></i></span>
-            <span class="title ">DashBoard</span> </span>
-          </a>
-        </li>
-        <li>
-          <a href="./cadastroDeFuncionarios.html">
-            <span class="icon"> <img class="icons" src="imgDash/icons/billboard.png"></i></span>
-            <span class="title ativo">Cadastro de Funcionario</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="funcAtivosDono.html">
-            <span class="icon"><img class="icons" src="imgDash/icons/group.png"></i> </span>
-            <span class="title">Funcionarios Ativos</span> </span>
-          </a>
-        </li>
-        <!-- <li>
-          <a href="#">
-            <span class="icon"> <img class="icons" src="imgDash/icons/setting-gears.png"></i></span>
-            <span class="title">Configurações</span> </span>
-          </a>
-        </li> -->
-        <li>
-          <a href="index.html">
-            <span class="icon"> <img class="icons" src="imgDash/icons/exit.png"></span>
-            <span class="title">Sair</span></span>
-          </a>
-        </li>
-      </ul>
+    <div class="navigation" id="sideBarNavegation">
+      <!-- SIDEBAR CARREGADA -->
     </div>
 
     <div class="main">
