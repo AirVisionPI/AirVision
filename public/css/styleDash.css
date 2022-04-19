@@ -223,7 +223,7 @@ body {
 }
 
 .card .div2CardTotens {
-  background: #015c8a;
+  background: #3f61ab;
   width: 650px;
   height: 200px;
   display: flex;
@@ -241,6 +241,10 @@ body {
 .divBotoes3 {
   justify-content: center;
 }
+
+.cardBox .card .container_painel {
+  display: none;
+};
 
 .cardBox .card .numbers {
   position: relative;

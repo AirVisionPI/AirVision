@@ -2,6 +2,7 @@ let statusPainel = false;
 
 function exibirPainelDeControle() {
   painelDeControle.style.width = "300%";
+  containerDoPainel.style.display = "block";
   statusPainel = true;
   if (statusPainel) {
     //Esconde as Legendas do PAINEL deixando somente o NOME TOTEM

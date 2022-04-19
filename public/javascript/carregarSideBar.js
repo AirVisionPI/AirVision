@@ -1,6 +1,8 @@
-
-
 function atualizarSideBar() {
+  // console.log(window.location.href.split("/").at(-1).split(".")[0]);
+
+  const htmlAtual = window.location.href.split("/").at(-1).split(".")[0];
+
   sideBarNavegation.innerHTML = `
     <ul>
     <li>
@@ -14,7 +16,7 @@ function atualizarSideBar() {
     <li id="opcao_monitoramento">
       <a href="./monitoramento.html">
         <span class="icon"><img class="icons" src="imgDash/icons/monitoring.png"></i></span>
-        <span class="title ativo">Monitoramento</span> </span>
+        <span class="title">Monitoramento</span> </span>
       </a>
     </li>
     <li id="opcao_visaoGeral">
@@ -55,4 +57,38 @@ function atualizarSideBar() {
     </li>
   </ul>
     `;
+
+  if (sessionStorage.cargo === "gestor") {
+    opcao_visaoGeral.style.display = "block";
+    opcao_monitoramento.style.display = "block";
+    opcao_funcAtivos.style.display = "block";
+    opcao_cadastroFuncionario.style.display = "none";
+    opcao_mensagem.style.display = "none";
+    opcao_configuracoes.style.display = "none";
+    opcao_sair.style.display = "block";
+  }
+
+  if (sessionStorage.cargo === "admin") {
+    opcao_visaoGeral.style.display = "block";
+    opcao_monitoramento.style.display = "block";
+    opcao_funcAtivos.style.display = "block";
+    opcao_cadastroFuncionario.style.display = "block";
+    opcao_mensagem.style.display = "block";
+    opcao_configuracoes.style.display = "block";
+    opcao_sair.style.display = "block";
+  }
+
+  if (sessionStorage.cargo === "tecnico") {
+    opcao_visaoGeral.style.display = "none";
+    opcao_monitoramento.style.display = "block";
+    opcao_funcAtivos.style.display = "none";
+    opcao_cadastroFuncionario.style.display = "none";
+    opcao_mensagem.style.display = "block";
+    opcao_configuracoes.style.display = "none";
+    opcao_sair.style.display = "block";
+  }
+
+  document
+    .querySelectorAll(`#opcao_${htmlAtual}`)[0]
+    .children[0].children[1].classList.add("ativo");
 }
