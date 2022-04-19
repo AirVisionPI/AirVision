@@ -214,6 +214,10 @@ body {
   cursor: pointer;
 }
 
+.cardBox .card .container_painel {
+  display: none;
+};
+
 .cardBox .card .numbers {
   position: relative;
   font-size: 2em;

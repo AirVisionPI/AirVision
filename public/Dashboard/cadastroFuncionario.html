@@ -10,6 +10,7 @@
   <link rel="stylesheet" type="text/css" href="../css/styleDash.css">
   <link rel="stylesheet" href="../css/cadFuncionario.css">
   <script type="text/javascript" src="../javascript/carregarSideBar.js"></script>
+  <script src="../javascript/cadastro_login_chumbado.js"></script>
 
 </head>
 
@@ -47,20 +48,21 @@
         <div class="containerFuncionario" id="container">
           <h1 class="titleLogin">Cadastrar Funcionario</h1>
           <div class="form-container sign-up-container">
-            <form class="formFuncionario" action="#">
+            <form id="form_funcionario" class="formFuncionario" action="#">
 
-              <input class="ipt_cadastroFuncionario" type="text" placeholder="Nome do Funcionario" />
-              <input class="ipt_cadastroFuncionario" type="email" placeholder="Email" />
-              <input class="ipt_cadastroFuncionario" type="password" placeholder="Senha" />
-              <input class="ipt_cadastroFuncionario" type="text" placeholder="Aeroporto que ira trabalhar" />
-              <select class="selectCargo">
+              <input class="ipt_cadastroFuncionario" type="text" placeholder="Nome do Funcionario" name="nome" />
+              <input class="ipt_cadastroFuncionario" type="email" placeholder="Email" name="email" />
+              <input class="ipt_cadastroFuncionario" type="password" placeholder="Senha" name="senha" />
+              <input class="ipt_cadastroFuncionario" type="text" placeholder="Aeroporto que ira trabalhar" name="aeroporto_trabalho" />
+              <select class="selectCargo" name="cargo">
 
                 <option name="cargo" value="">Cargo</option>
-                <option value="">Gestor</option>
-                <option value="">Tecnico</option>
+                <option value="gestor">Gestor</option>
+                <option value="tecnico">Tecnico</option>
 
               </select>
-              <button class="buttonFuncionario">Cadastrar</button>
+              <button onclick="btnCadastrarFunc()" class="buttonFuncionario">Cadastrar</button>
+              
             </form>
           </div>
         </div>
