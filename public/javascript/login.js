@@ -7,6 +7,7 @@
     sessionStorage.email = localStorage.getItem("myBD");
     sessionStorage.senha = senha;
     sessionStorage.cargo = 
+    
 
 
   }

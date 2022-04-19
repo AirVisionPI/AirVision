@@ -207,6 +207,7 @@ body {
 }
 
 .cardBox .card {
+  position: relative;
   background: #fff;
   width: 0%;
   transition: 1s;
@@ -232,6 +233,7 @@ body {
 }
 
 .details {
+  height: 520px;
   position: relative;
   width: 100%;
   padding: 10px;
@@ -242,9 +244,11 @@ body {
 }
 
 .details .recentOrders {
+  height: 520px;
   position: relative;
   background: #fff;
   padding: 20px;
+  overflow-y: scroll;
 }
 
 .imgIconBx {
@@ -367,6 +371,10 @@ body {
   .details .recentOrders {
     width: 290px;
     overflow-x: scroll;
+  }
+  .details .recentOrders {
+    height: 290px;
+    overflow-y: scroll;
   }
 }
 
