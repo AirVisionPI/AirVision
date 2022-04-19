@@ -211,7 +211,35 @@ body {
   background: #fff;
   width: 0%;
   transition: 1s;
-  cursor: pointer;
+}
+
+.card .cardGrafico {
+  margin-left: 27%;
+  width: 50%;
+  height: 50%;
+}
+.card .divCardTotens {
+  margin-left: 50px;
+}
+
+.card .div2CardTotens {
+  background: #3f61ab;
+  width: 650px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.divBotoes1 {
+  justify-content: center;
+}
+.divBotoes2 {
+  justify-content: center;
+}
+.divBotoes3 {
+  justify-content: center;
 }
 
 .cardBox .card .container_painel {
@@ -274,8 +302,33 @@ body {
   padding: 5px 10px;
   background: #03a9f4;
   color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
+}
+.btnMonitoramento {
+  cursor: pointer !important;
+  font-size: 1vw !important;
+}
+
+.btnMonitoramento {
+  border: 1px solid #6394ff;
+  background-color: #006400;
+  color: #ffffff;
+  font-weight: bold;
+  transition: transform 80ms ease-in;
+  height: 5vh !important;
+  width: 10vw;
+  margin-top: 20px;
+}
+
+.btnMonitoramento:active {
+  transform: scale(0.95);
+}
+
+.btnMonitoramento:focus {
+  outline: none;
+}
+.buttonFuncionario.ghost {
+  background-color: #000;
+  border-color: rgba(14, 57, 151, 0.795);
 }
 
 .details table {
