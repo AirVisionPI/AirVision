@@ -157,7 +157,3 @@ create table logs_disco(
     logs varchar(100)
     data_hora datetime 
 )
-
-
-
-

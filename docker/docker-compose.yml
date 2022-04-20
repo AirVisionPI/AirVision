@@ -1,0 +1,13 @@
+mysql:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      - MYSQL_DATABASE=airvision
+      - MYSQL_USER=agavazzi
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    ports:
+      - 3307:3306
+    tty: true

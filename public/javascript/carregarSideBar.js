@@ -37,18 +37,6 @@ function atualizarSideBar() {
         <span class="title">Cadastro Funcionário</span> </span>
       </a>
     </li>
-    <li id="opcao_mensagem">
-      <a href="./mensagem.html">
-        <span class="icon"> <img class="icons" src="imgDash/icons/email.png"></span>
-        <span class="title">Mensagem</span></span>
-      </a>
-    </li>
-    <li id="opcao_configuracoes">
-      <a href="./configuracoes.html">
-        <span class="icon"> <img class="icons" src="imgDash/icons/setting-gears.png"></span>
-        <span class="title">Configurações</span></span>
-      </a>
-    </li>
     <li id="opcao_sair">
       <a href="../index.html">
         <span class="icon"> <img class="icons" src="imgDash/icons/exit.png"></span>
@@ -63,8 +51,8 @@ function atualizarSideBar() {
     opcao_monitoramento.style.display = "block";
     opcao_funcAtivos.style.display = "block";
     opcao_cadastroFuncionario.style.display = "none";
-    opcao_mensagem.style.display = "none";
-    opcao_configuracoes.style.display = "none";
+    // opcao_mensagem.style.display = "none";
+    // opcao_configuracoes.style.display = "none";
     opcao_sair.style.display = "block";
   }
 
@@ -73,8 +61,8 @@ function atualizarSideBar() {
     opcao_monitoramento.style.display = "block";
     opcao_funcAtivos.style.display = "block";
     opcao_cadastroFuncionario.style.display = "block";
-    opcao_mensagem.style.display = "block";
-    opcao_configuracoes.style.display = "block";
+    // opcao_mensagem.style.display = "block";
+    // opcao_configuracoes.style.display = "block";
     opcao_sair.style.display = "block";
   }
 
@@ -83,8 +71,8 @@ function atualizarSideBar() {
     opcao_monitoramento.style.display = "block";
     opcao_funcAtivos.style.display = "none";
     opcao_cadastroFuncionario.style.display = "none";
-    opcao_mensagem.style.display = "block";
-    opcao_configuracoes.style.display = "none";
+    // opcao_mensagem.style.display = "block";
+    // opcao_configuracoes.style.display = "none";
     opcao_sair.style.display = "block";
   }
 
