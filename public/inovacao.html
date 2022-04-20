@@ -43,43 +43,51 @@
 
     </div>
   </div>
- <div class="imagem">
-  <img class="img_Inovacao" src="assets/innovation.svg" alt="">
- </div>
-  <div class="calculadora">
-    <div class="bloco" id="bloco1" style="display: block;">
-      <h4 class="insert-data">Insira os dados:</h4>
-     <div class="inputs">
-
-      <input type="number" title="Quantidade total dos totens" class="inpCalc" 
-      id="totens" placeholder="Quantidade de totens" >
-
-      <input type="number" title="Insira o tempo em média que o totem fica em espera"
-       class="inpCalc" id="horas" placeholder="Tempo ocioso">
-
-      <input type="number" title="Preço da energia por kWh"
-      class="inpCalc" id="energia" placeholder="Valor da energia">
-
-      <button class="btncomp" title="Cálculo de consumo:
-      (P)Potência do totem = 200 Watts
-      (G) Custo da energia
-      (H)Horas do dia = 24h
-      (O)Horas ociosas = x
-      (D)Dias do mês = 30
-      
-      Consumo por totem = ((P x (H - O) x D)/ 1000) * G
-      Consumo total = Consumo por totem x Quantidade de totens." onclick="bt_cal()" id="cal">Calcular 💡
-    </button>
-   
-    
   
-     </div>
-      <div class="div_desconto" id="div_inner">
-        
+    
+    
+      <div class="imagem">
+        <img class="img_Inovacao" src="assets/innovation.svg" alt="">
       </div>
-    </div>
-
-  </div>
+      <div class="calculadora">
+        <div class="bloco"  style="display: block;">
+          <h4 class="insert-data">Insira os dados sobre o seu gasto energético:</h4>
+          <div class="inputs">
+            
+       
+            <input type="number" title="Quantidade total dos totens" class="inpCalc" 
+            id="totens" placeholder="Quantidade de totens" >
+          
+            <input type="number"  title="Insira o tempo em média que o totem fica em espera"
+            class="inpCalc" id="horas" placeholder="Tempo ocioso (horas)">
+          
+              <input type="number" title="Preço da energia por kWh"
+            class="inpCalc" id="energia" placeholder="Valor da energia (kWh)">
+          
+        
+        
+        
+        
+          <button class="btncomp" title="Cálculo de consumo:
+          (P)Potência do totem = 200 Watts
+          (G) Custo da energia
+          (H)Horas do dia = 24h
+          (O)Horas ociosas = x
+          (D)Dias do mês = 30
+          
+          Consumo por totem = ((P x (H - O) x D)/ 1000) * G
+          Consumo total = Consumo por totem x Quantidade de totens." onclick="bt_cal()" id="cal">Calcular 💡
+        </button>
+         
+         </div>
+              <div class="div_desconto" id="div_inner">
+          
+             </div>
+          </div>
+      </div>
+  
+  
+ 
 
   <!-- FOOTER -->
   <div class="footerline">
@@ -127,19 +135,24 @@
 
       const calculo = ((potencia * (horaTot - hora) * dias) / 1000) * gastoEnerg;  
       const consumoTot = calculo * qtdTotens;
-      const calcSem = ((potencia * 24 * dias)/1000) * qtdTotens;
+      const calcSem = (((potencia * 24 * dias)/1000) * qtdTotens) *gastoEnerg;
       const calcSemTot = ((potencia * 24 * dias)/1000) * gastoEnerg ;
       div_inner.innerHTML = ` 
       <b>
+        <span class="title-calc">Gastos sem a nossa inovação:</span> <br>
           Mensalmente o consumo dos seus ${qtdTotens} totens é:<span style="color:red"> R$${calcSemTot.toFixed(2)}</span>
            por totem! <br>
           e um gasto de valor de consumo energético real <span style="color:red"> R$${calcSem.toFixed(2)}</span> por mês. <br>
             <br>
-          Utilizando nossa solução, você tera uma economia de:
+
+
+          <span class= "title-calc">Utilizando nossa solução, você terá uma economia média de:</span>
           <br>
           <span style="color: goldenrod;">R$${(calcSemTot - calculo).toFixed(2)}</span> por totem e, <br>
           <span style="color:goldenrod;">R$${(calcSem - consumoTot).toFixed(2)}</span> por mês. <br> <br>
-          Assim resultando nos valores médios de: <br>
+
+
+          <span class="title-calc">Assim resultando nos valores médios de:</span> <br>
           <span style="color: green;">R$${calculo.toFixed(2)}</span> por totem e, <br>
           <span style="color:green;">R$${consumoTot.toFixed(2)}</span> por mês. <br>
 
