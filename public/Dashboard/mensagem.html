@@ -11,11 +11,10 @@
   <script type="text/javascript" src="../javascript/totens.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
   <script type="text/javascript" src="../javascript/carregarSideBar.js"></script>
-  <script type="text/javascript" src="../javascript/painelDeControle.js"></script>
 
 </head>
 
-<body onload='atualizarPainel(), atualizarSideBar()'>
+<body onload='atualizarSideBar()'>
   <!--=======================================================================================================================-->
   <!----------------------------------------------------------NavBar----------------------------------------------------------->
   <!--=======================================================================================================================-->
@@ -87,7 +86,6 @@
                     <canvas id="myChart"></canvas>
                   </div> 
                 -->
-
                 <script type="text/javascript" src="../javascript/configGraficos.js"></script>
               </tbody>
             </table>
@@ -95,42 +93,7 @@
         </div>
 
         <div id="painelDeControle" class="card">
-<<<<<<< HEAD
-          <div id="containerDoPainel" class="container_painel">
-            <div id="conteudoDoPainel" class="conteudo_painel">
-              <div class="cabecario_painel">
-                <h2>Totem A</h2>
-                <h2 onclick="">X</h2>
-              </div>
-              <div class="monitorar_painel">CONTEUDO</div>
-              <div class="abas_painel">ABAS</div>
-=======
-          <div class="cardGrafico">
-            <canvas class="line-chart-1"></canvas>
-          </div>
-          <div class="divCardTotens">
-            <h2>Ações tecnicas</h2>
-            <div class="div2CardTotens">
-              <div class="divBotoes1">
-                <button class="btnMonitoramento">Ligar</button>
-                <button class="btnMonitoramento">Reiniciar</button>
-                <button class="btnMonitoramento">Desligar</button>
 
-              </div>
-              <div  class="divBotoes2">
-                <button class="btnMonitoramento">Limpar Cache</button>
-                <button class="btnMonitoramento">..</button>
-                <button class="btnMonitoramento">..</button>
-                
-              </div>
-              <div  class="divBotoes3">
-                <button class="btnMonitoramento">Otimizar RAM</button>
-                <button class="btnMonitoramento">Otimizar CPU</button>
-                <button class="btnMonitoramento">Otimizar Disco</button>
-
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -143,57 +106,38 @@
         navigation.classList.toggle("active");
         main.classList.toggle("active");
       }</script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script>
+    <!-- <script>
       var ctx_1 = document.getElementsByClassName("line-chart-1");
 
       var chartGraph = new Chart(ctx_1, {
-        type: 'line',
+        type: "line",
         data: {
-          labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
-          datasets: [{
-            label: "TAXA DE CLIQUES - 2022",
-            data: [10, 23, 40, 70],
-            borderWidth: 1.5,
-            borderColor: '0',
-            backgroundColor: "green"
-          }]
+          labels: [
+            "jan",
+            "fez",
+            "mar",
+            "abr",
+            "mai",
+            "jun",
+            "jul",
+            "ago",
+            "set",
+            "out",
+            "nov",
+            "dez",
+          ],
+          datasets: [
+            {
+              label: "TAXA DE CLIQUES - 2022",
+              data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
+              borderWidth: 6,
+              borderColor: "rgba(77,166,253,0.85)",
+              backgroundColor: "transparent",
+            },
+          ],
         },
-      });
-    //  <script>
-    //   var ctx_1 = document.getElementsByClassName("line-chart-1");
-
-    //   var chartGraph = new Chart(ctx_1, {
-    //     type: "line",
-    //     data: {
-    //       labels: [
-    //         "jan",
-    //         "fez",
-    //         "mar",
-    //         "abr",
-    //         "mai",
-    //         "jun",
-    //         "jul",
-    //         "ago",
-    //         "set",
-    //         "out",
-    //         "nov",
-    //         "dez",
-    //       ],
-    //       datasets: [
-    //         {
-    //           label: "TAXA DE CLIQUES - 2022",
-    //           data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
-    //           borderWidth: 6,
-    //           borderColor: "rgba(77,166,253,0.85)",
-    //           backgroundColor: "transparent",
-    //         },
-    //       ],
-    //     },
-    //   });F
-    //
-    </script>
+      });F
+    </script> -->
 </body>
 
 </html>

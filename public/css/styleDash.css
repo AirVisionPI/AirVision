@@ -210,41 +210,26 @@ body {
   position: relative;
   background: #fff;
   width: 0%;
-  transition: 0.1s;
-  justify-content: center;
-  align-items: center;
+  transition: 1s;
 }
 
 .card .cardGrafico {
-  position: relative;
-  color: rgb(78, 78, 78);
-  width: 100%;
-  height: 100%;
-  padding-left: 1.4%;
-  padding-right: 1.4%;
-  border: groove 3px rgba(177, 177, 255, 0.863);
-  border-radius: 3px;
-  text-align: center;
+  margin-left: 27%;
+  width: 50%;
+  height: 50%;
 }
-
-#grafico {
-  position: absolute;
-}
-
 .card .divCardTotens {
   margin-left: 50px;
 }
 
 .card .div2CardTotens {
-  background: #d8e7ffab;
-  border: groove 3px #3f61ab;
+  background: #3f61ab;
   width: 650px;
   height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-radius: 2px;
 }
 
 .divBotoes1 {
@@ -259,48 +244,7 @@ body {
 
 .cardBox .card .container_painel {
   display: none;
-  width: 100%;
-  height: 100%;
-}
-
-.cabecario_painel {
-  color: rgb(78, 78, 78);
-  font-style: italic;
-  display: flex;
-  width: 100%;
-  height: 15%;
-  transition: 1s;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 4.2%;
-  padding-right: 4.2%;
-}
-
-.monitorar_painel {
-  padding-left: 5%;
-  padding-right: 5%;
-  display: flex;
-  width: 100%;
-  height: 30%;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.monitorar_painel2 {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.abas_painel {
-  display: flex;
-  width: 100%;
-  height: 50%;
-  align-items: center;
-  justify-content: center;
-}
+};
 
 .cardBox .card .numbers {
   position: relative;
@@ -366,7 +310,6 @@ body {
 
 .btnMonitoramento {
   border: 1px solid #6394ff;
-  border-radius: 4px;
   background-color: #006400;
   color: #ffffff;
   font-weight: bold;
@@ -374,14 +317,6 @@ body {
   height: 5vh !important;
   width: 10vw;
   margin-top: 20px;
-}
-
-.btnMonitoramento:hover {
-  border: 1.5px solid #006400;
-  border-radius: 7px;
-  background-color: #6394ff;
-  color: #ffffff;
-  font-weight: bolder;
 }
 
 .btnMonitoramento:active {
