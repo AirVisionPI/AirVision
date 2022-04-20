@@ -1,86 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Funcionarios</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/icons/AirVisionIcon3.webp"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/styleDash.css" />
+    <link rel="stylesheet" href="../css/cadFuncionario.css" />
+    <script
+      type="text/javascript"
+      src="../javascript/carregarSideBar.js"
+    ></script>
+    <script src="../javascript/cadastro_login_chumbado.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cadastro de Funcionarios</title>
-  <link rel="shortcut icon" href="../assets/icons/AirVisionIcon3.webp" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="../css/styleDash.css">
-  <link rel="stylesheet" href="../css/cadFuncionario.css">
-  <script type="text/javascript" src="../javascript/carregarSideBar.js"></script>
-  <script src="../javascript/cadastro_login_chumbado.js"></script>
+  <body onload="atualizarSideBar()">
+    <!--=======================================================================================================================-->
+    <!----------------------------------------------------------NavBar----------------------------------------------------------->
+    <!--=======================================================================================================================-->
 
-</head>
-
-<body onload='atualizarSideBar()'>
-  <!--=======================================================================================================================-->
-  <!----------------------------------------------------------NavBar----------------------------------------------------------->
-  <!--=======================================================================================================================-->
-
-  <div class="container">
-    <div class="navigation" id="sideBarNavegation">
-      <!-- SIDEBAR CARREGADA -->
-    </div>
-
-    <div class="main">
-      <div class="topbar">
-        <div class="toggle" onclick="toggleMenu()">
-          <img class="iconMenu" src="./imgDash/icons/menu.png">
-        </div>
-        <div class="search">
-          <label>
-            <input type="text" placeholder="Search here">
-            <img class="iconSearch" src="imgDash/icons/search.png">
-          </label>
-        </div>
-        <div class="user">
-          <img class="imgUser" src="./imgDash/icons/profile-user.png">
-        </div>
+    <div class="container">
+      <div class="navigation" id="sideBarNavegation">
+        <!-- SIDEBAR CARREGADA -->
       </div>
 
-      <!--=======================================================================================================================-->
-      <!----------------------------------------------------------Cadastro de funcioarios------------------------------------------------------>
-      <!--=======================================================================================================================-->
+      <div class="main">
+        <div class="topbar">
+          <div class="toggle" onclick="toggleMenu()">
+            <img class="iconMenu" src="./imgDash/icons/menu.png" />
+          </div>
+          <div class="search">
+            <label>
+              <input type="text" placeholder="Search here" />
+              <img class="iconSearch" src="imgDash/icons/search.png" />
+            </label>
+          </div>
+          <div class="msg">
+            <img class="msgUser" src="./imgDash/icons/email.png" />
+          </div>
+          <div class="user">
+            <img class="imgUser" src="./imgDash/icons/profile-user.png" />
+          </div>
+        </div>
 
-      <div class="cont-login">
-        <div class="containerFuncionario" id="container">
-          <h1 class="titleLogin">Cadastrar Funcionario</h1>
-          <div class="form-container sign-up-container">
-            <form id="form_funcionario" class="formFuncionario" action="#">
+        <!--=======================================================================================================================-->
+        <!----------------------------------------------------------Cadastro de funcioarios------------------------------------------------------>
+        <!--=======================================================================================================================-->
 
-              <input class="ipt_cadastroFuncionario" type="text" placeholder="Nome do Funcionario" name="nome" />
-              <input class="ipt_cadastroFuncionario" type="email" placeholder="Email" name="email" />
-              <input class="ipt_cadastroFuncionario" type="password" placeholder="Senha" name="senha" />
-              <input class="ipt_cadastroFuncionario" type="text" placeholder="Aeroporto que ira trabalhar" name="aeroporto_trabalho" />
-              <select class="selectCargo" name="cargo">
-
-                <option name="cargo" value="">Cargo</option>
-                <option value="gestor">Gestor</option>
-                <option value="tecnico">Tecnico</option>
-
-              </select>
-              <button onclick="btnCadastrarFunc()" class="buttonFuncionario">Cadastrar</button>
-              
-            </form>
+        <div class="cont-login">
+          <div class="containerFuncionario" id="container">
+            <h1 class="titleLogin">Cadastrar Funcionario</h1>
+            <div class="form-container sign-up-container">
+              <form id="form_funcionario" class="formFuncionario" action="#">
+                <input
+                  class="ipt_cadastroFuncionario"
+                  type="text"
+                  placeholder="Nome do Funcionario"
+                  name="nome"
+                />
+                <input
+                  class="ipt_cadastroFuncionario"
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                />
+                <input
+                  class="ipt_cadastroFuncionario"
+                  type="password"
+                  placeholder="Senha"
+                  name="senha"
+                />
+                <input
+                  class="ipt_cadastroFuncionario"
+                  type="text"
+                  placeholder="Aeroporto que ira trabalhar"
+                  name="aeroporto_trabalho"
+                />
+                <select class="selectCargo" name="cargo">
+                  <option name="cargo" value="">Cargo</option>
+                  <option value="gestor">Gestor</option>
+                  <option value="tecnico">Tecnico</option>
+                </select>
+                <button onclick="btnCadastrarFunc()" class="buttonFuncionario">
+                  Cadastrar
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div id="modal-promocao" class="modal-container">
+      <div class="modal">
+        <button class="fechar">X</button>
+        <h3>Bem Vindo</h3>
+        <form>
+          <img class="imgUserModal" src="./imgDash/icons/profile-user.png" />
+          <h5 class="ipt_modal"></h5>
+          <label></label>
+        </form>
+      </div>
+    </div>
 
-  </div>
-  <script>
-    function toggleMenu() {
-      let toggle = document.querySelector(".toggle");
-      let navigation = document.querySelector(".navigation");
-      let main = document.querySelector(".main");
-      toggle.classList.toggle("active");
-      navigation.classList.toggle("active");
-      main.classList.toggle("active");
-    }
-  </script>
+    <div id="modal-promocao_msg" class="modal-container-msg">
+      <div class="modal">
+        <button class="fechar">X</button>
+        <h3>Envie uma mensagem</h3>
+        <br />
+        <form>
+          <input
+            class="ipt_modal"
+            type="text"
+            placeholder="Mensagem para outro Funcionario"
+          />
+          <select class="selectCargo" name="cargo">
+            <option name="cargo" value="">Funcionario</option>
+            <option value="gestor">Gestor</option>
+            <option value="tecnico">Tecnico</option>
+          </select>
+          <h5 class="ipt_modal"></h5>
+        </form>
+      </div>
+    </div>
+     <script>
+      function iniciaModal(modalID) {
+        const modal = document.getElementById(modalID);
+        if (modal) {
+          modal.classList.add("mostrar");
+          modal.addEventListener("click", (e) => {
+            if (e.target.id == modalID || e.target.className == "fechar") {
+              modal.classList.remove("mostrar");
+            }
+          })
+        }
+      }
 
-</body>
+      const logo = document.querySelector(".imgUser");
+      logo.addEventListener("click", () => iniciaModal("modal-promocao"));
+        
+      const logoDois = document.querySelector(".msgUser");
+      logoDois.addEventListener("click", () => iniciaModal("modal-promocao_msg"));
 
+    </script>
+    <script>
+      function toggleMenu() {
+        let toggle = document.querySelector(".toggle");
+        let navigation = document.querySelector(".navigation");
+        let main = document.querySelector(".main");
+        toggle.classList.toggle("active");
+        navigation.classList.toggle("active");
+        main.classList.toggle("active");
+      }
+    </script>
+  </body>
 </html>

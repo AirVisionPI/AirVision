@@ -33,6 +33,9 @@
             <img class="iconSearch" src="imgDash/icons/search.png">
           </label>
         </div>
+         <div class="msg">
+          <img class="msgUser" src="./imgDash/icons/email.png">
+        </div>
         <div class="user">
           <img class="imgUser" src="./imgDash/icons/profile-user.png">
         </div>
@@ -169,6 +172,58 @@
 
       </div>
     </div>
+    <div id="modal-promocao" class="modal-container">
+      <div class="modal">
+        <button class="fechar">X</button>
+          <h3>Bem Vindo</h3>
+          <form>
+            <img class="imgUserModal" src="./imgDash/icons/profile-user.png">
+            <h5 class="ipt_modal"></h5>
+            <label></label>
+            
+          </form>
+
+
+      </div>
+    </div>
+
+    <div id="modal-promocao_msg" class="modal-container-msg">
+      <div class="modal">
+        <button class="fechar">X</button>
+        <h3>Envie uma mensagem</h3>
+        <br>
+        <form>
+          <input class="ipt_modal" type="text" placeholder="Mensagem para outro Funcionario">
+          <select class="selectCargo" name="cargo">
+                  <option name="cargo" value="">Funcionario</option>
+                  <option value="gestor">Gestor</option>
+                  <option value="tecnico">Tecnico</option>
+                </select>
+          <h5 class="ipt_modal"></h5>
+          
+        </form>
+      </div>
+    </div>
+     <script>
+      function iniciaModal(modalID) {
+        const modal = document.getElementById(modalID);
+        if (modal) {
+          modal.classList.add("mostrar");
+          modal.addEventListener("click", (e) => {
+            if (e.target.id == modalID || e.target.className == "fechar") {
+              modal.classList.remove("mostrar");
+            }
+          })
+        }
+      }
+
+      const logo = document.querySelector(".imgUser");
+      logo.addEventListener("click", () => iniciaModal("modal-promocao"));
+        
+      const logoDois = document.querySelector(".msgUser");
+      logoDois.addEventListener("click", () => iniciaModal("modal-promocao_msg"));
+
+    </script>
     <script>
       function toggleMenu() {
         let toggle = document.querySelector(".toggle");
