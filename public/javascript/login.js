@@ -21,6 +21,7 @@ function btnEntrar() {
       alert(`Cadastro Inexistente`);
     }
   } catch (error) {
+    console.error(error);
     alert(`Cadastro Inexistente`);
   }
 }

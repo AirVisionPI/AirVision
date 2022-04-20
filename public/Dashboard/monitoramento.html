@@ -36,7 +36,7 @@
             <img class="iconSearch" src="imgDash/icons/search.png">
           </label>
         </div>
-         <div class="msg">
+        <div class="msg">
           <img class="msgUser" src="./imgDash/icons/email.png">
         </div>
         <div class="user">
@@ -70,7 +70,7 @@
             <div class="cardHeader ">
               <h2>Totens</h2>
             </div>
-            <table>
+            <table id="table_totens">
               <thead id="thead_painel">
                 <tr>
                   <td>Nome Totem</td>
@@ -97,105 +97,193 @@
           </div>
         </div>
 
-        <div id="painelDeControle" class="card">  
+        <div id="painelDeControle" class="card">
           <div id="containerDoPainel" class="container_painel">
-            <div id="conteudoDoPainel" class="conteudo_painel">
-              <div class="cabecario_painel">
-                <h2>Totem A</h2>
-                <h2 onclick="">X</h2>
-              </div>
-              <div class="monitorar_painel">CONTEUDO</div>
-              <div class="abas_painel">ABAS</div>
+            <!-- NOME DO TOTEM E FECHAR PAINEL -->
+            <div class="cabecario_painel">
+              <h3>Totem A</h3>
+              <h2 onclick="esconderPainelDeControle()" style="cursor: pointer;">X</h2>
+            </div>
 
-          <div class="cardGrafico">
-            <canvas class="line-chart-1"></canvas>
-          </div>
-          <div class="divCardTotens">
-            <h2>Ações tecnicas</h2>
-            <div class="div2CardTotens">
-              <div class="divBotoes1">
-                <button class="btnMonitoramento">Ligar</button>
-                <button class="btnMonitoramento">Reiniciar</button>
-                <button class="btnMonitoramento">Desligar</button>
+            <!-- MONITORAR CPU RAM DISCO -->
+            <div class="monitorar_painel">
+              <div class="cardGrafico">
+                <h4>CPU %</h4>
+                <canvas id="grafico" class="line-chart-1"></canvas>
+              </div>
+              <div class="cardGrafico">
+                <h4>RAM %</h4>
+                <canvas id="grafico" class="line-chart-2"></canvas>
+              </div>
+              <div class="cardGrafico">
+                <h4>DISCO %</h4>
+                <canvas id="grafico" class="line-chart-3"></canvas>
+              </div>
+            </div>
 
-              </div>
-              <div  class="divBotoes2">
-                <button class="btnMonitoramento">Limpar Cache</button>
-                <button class="btnMonitoramento">..</button>
-                <button class="btnMonitoramento">..</button>
-                
-              </div>
-              <div  class="divBotoes3">
-                <button class="btnMonitoramento">Otimizar RAM</button>
-                <button class="btnMonitoramento">Otimizar CPU</button>
-                <button class="btnMonitoramento">Otimizar Disco</button>
+            <!-- ABAS DE AÇÕES -->
 
+            <div class="abas_painel">
+
+              <!-- DIV PARA A VISÃO GERAL -->
+              <div class="divCardTotens">
+                <h2>Visão Geral</h2>
+                <div class="div2CardTotens">
+                  <div class="monitorar_painel2">
+                    <div class="cardGrafico">
+                      <h4>RAM %</h4>
+                      <canvas id="grafico" class="line-chart-4"></canvas>
+                    </div>
+                    <div class="cardGrafico">
+                      <h4>DISCO %</h4>
+                      <canvas id="grafico" class="line-chart-5"></canvas>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              <!-- DIV PARA A AÇÕES -->
+              <!-- <div class="divCardTotens">
+                <h2>Ações tecnicas</h2>
+                <div class="div2CardTotens">
+                  <div class="divBotoes1">
+                    <button class="btnMonitoramento">Ligar</button>
+                    <button class="btnMonitoramento">Reiniciar</button>
+                    <button class="btnMonitoramento">Desligar</button>
+                  </div>
+                  <div class="divBotoes2">
+                    <button class="btnMonitoramento">Limpar Cache</button>
+                    <button class="btnMonitoramento">..</button>
+                    <button class="btnMonitoramento">..</button>
+                  </div>
+                  <div class="divBotoes3">
+                    <button class="btnMonitoramento">Otimizar RAM</button>
+                    <button class="btnMonitoramento">Otimizar CPU</button>
+                    <button class="btnMonitoramento">Otimizar Disco</button>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- FIM PAINEL -->
             </div>
           </div>
         </div>
-      </div>
-    </div>    
-    <script>
-      function toggleMenu() {
-        let toggle = document.querySelector(".toggle");
-        let navigation = document.querySelector(".navigation");
-        let main = document.querySelector(".main");
-        toggle.classList.toggle("active");
-        navigation.classList.toggle("active");
-        main.classList.toggle("active");
-      }</script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script>
-      var ctx_1 = document.getElementsByClassName("line-chart-1");
+        <script>
+          function toggleMenu() {
+            let toggle = document.querySelector(".toggle");
+            let navigation = document.querySelector(".navigation");
+            let main = document.querySelector(".main");
+            toggle.classList.toggle("active");
+            navigation.classList.toggle("active");
+            main.classList.toggle("active");
+          }</script>
 
-      var chartGraph = new Chart(ctx_1, {
-        type: 'line',
-        data: {
-          labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
-          datasets: [{
-            label: "TAXA DE CLIQUES - 2022",
-            data: [10, 23, 40, 70],
-            borderWidth: 1.5,
-            borderColor: '0',
-            backgroundColor: "green"
-          }]
-        },
-      });
-    //  <script>
-    //   var ctx_1 = document.getElementsByClassName("line-chart-1");
+        <script>
+          var ctx_1 = document.getElementsByClassName("line-chart-1");
+          var ctx_2 = document.getElementsByClassName("line-chart-2");
+          var ctx_3 = document.getElementsByClassName("line-chart-3");
+          var ctx_4 = document.getElementsByClassName("line-chart-4");
+          var ctx_5 = document.getElementsByClassName("line-chart-5");
+          var chartGraph = new Chart(ctx_1, {
+            type: 'line',
+            data: {
+              labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+              datasets: [{
+                label: "CPU %",
+                data: [23, 44, 23, 27],
+                borderWidth: 1.5,
+                borderColor: '0',
+                backgroundColor: "green"
+              }]
+            },
+          });
+          var chartGraph = new Chart(ctx_2, {
+            type: 'line',
+            data: {
+              labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+              datasets: [{
+                label: "RAM %",
+                data: [19, 44, 28, 70],
+                borderWidth: 1.5,
+                borderColor: '0',
+                backgroundColor: "blue"
+              }]
+            },
+          });
+          var chartGraph = new Chart(ctx_3, {
+            type: 'line',
+            data: {
+              labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+              datasets: [{
+                label: "DISCO %",
+                data: [16, 24, 26, 60],
+                borderWidth: 1.5,
+                borderColor: '0',
+                backgroundColor: "yellow"
+              }]
+            },
+          });
+          var chartGraph = new Chart(ctx_4, {
+            type: 'line',
+            data: {
+              labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+              datasets: [{
+                label: "DISCO %",
+                data: [16, 24, 26, 60],
+                borderWidth: 1.5,
+                borderColor: '0',
+                backgroundColor: "yellow"
+              }]
+            },
+          });
+          var chartGraph = new Chart(ctx_5, {
+            type: 'line',
+            data: {
+              labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+              datasets: [{
+                label: "DISCO %",
+                data: [16, 24, 26, 60],
+                borderWidth: 1.5,
+                borderColor: '0',
+                backgroundColor: "yellow"
+              }]
+            },
+          });
+//  <script>
+//   var ctx_1 = document.getElementsByClassName("line-chart-1");
 
-    //   var chartGraph = new Chart(ctx_1, {
-    //     type: "line",
-    //     data: {
-    //       labels: [
-    //         "jan",
-    //         "fez",
-    //         "mar",
-    //         "abr",
-    //         "mai",
-    //         "jun",
-    //         "jul",
-    //         "ago",
-    //         "set",
-    //         "out",
-    //         "nov",
-    //         "dez",
-    //       ],
-    //       datasets: [
-    //         {
-    //           label: "TAXA DE CLIQUES - 2022",
-    //           data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
-    //           borderWidth: 6,
-    //           borderColor: "rgba(77,166,253,0.85)",
-    //           backgroundColor: "transparent",
-    //         },
-    //       ],
-    //     },
-    //   });F
-    //
-    </script>
+//   var chartGraph = new Chart(ctx_1, {
+//     type: "line",
+//     data: {
+//       labels: [
+//         "jan",
+//         "fez",
+//         "mar",
+//         "abr",
+//         "mai",
+//         "jun",
+//         "jul",
+//         "ago",
+//         "set",
+//         "out",
+//         "nov",
+//         "dez",
+//       ],
+//       datasets: [
+//         {
+//           label: "TAXA DE CLIQUES - 2022",
+//           data: [30, 3, 20, 15, 30, 3, 20, 15, 30, 3, 20, 15],
+//           borderWidth: 6,
+//           borderColor: "rgba(77,166,253,0.85)",
+//           backgroundColor: "transparent",
+//         },
+//       ],
+//     },
+//   });F
+//
+        </script>
+
 </body>
 
 </html>
