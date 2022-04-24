@@ -257,6 +257,8 @@ body {
   position: relative;
   background: #fff;
   padding: 20px;
+  overflow-y: scroll;
+  height: 520px;
 }
 
 .imgIconBx {
@@ -512,6 +514,25 @@ body {
   /* width: 100%; */
 }
 
+.formModal {
+  display: flex;
+}
+.formModal h4 {
+  margin-left: 70%;
+}
+
+.atualizarDados {
+  width: 50%;
+}
+.divDados {
+  display: flex;
+}
+
+.atualizarDadosDois {
+  width: 50%;
+  display: flex;
+}
+
 /* ------POPUP MODAL MENSAGEM-------- */
 
 .modal-container-msg {
@@ -624,4 +645,36 @@ body {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+.btnMonitoramento {
+  cursor: pointer !important;
+  font-size: 1vw !important;
+}
+
+.btnMonitoramento {
+  border: 1px solid #6394ff;
+  background-color: #6394ff;
+  border-radius: 4px;
+  color: #ffffff;
+  font-weight: bold;
+  transition: transform 80ms ease-in;
+  height: 5vh !important;
+  width: 15vw;
+  margin-top: 20px;
+}
+
+.btnMonitoramento:active {
+  transform: scale(0.95);
+}
+
+.btnMonitoramento:hover {
+  border: 1.5px solid #001749;
+  border-radius: 7px;
+  background-color: #6394ff;
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.btnMonitoramento:focus {
+  outline: none;
 }

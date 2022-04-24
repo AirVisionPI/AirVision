@@ -6,7 +6,7 @@ function atualizarSideBar() {
   sideBarNavegation.innerHTML = `
     <ul>
     <li>
-      <a href="./monitoramento.html">
+      <a>
         <span class="icon"><img class="icons" src="imgDash/icons/airplane.png"></span>
         <span class="title">
           <h2>AirVision</h2>
@@ -55,6 +55,7 @@ function atualizarSideBar() {
     // opcao_mensagem.style.display = "none";
     // opcao_configuracoes.style.display = "none";
     opcao_sair.style.display = "block";
+    btnAdmin.style.display = "none";
   }
 
   if (sessionStorage.cargo === "admin") {
@@ -65,6 +66,7 @@ function atualizarSideBar() {
     // opcao_mensagem.style.display = "block";
     // opcao_configuracoes.style.display = "block";
     opcao_sair.style.display = "block";
+    btnAdmin.style.display = "block";
   }
 
   if (sessionStorage.cargo === "tecnico") {
@@ -75,6 +77,7 @@ function atualizarSideBar() {
     // opcao_mensagem.style.display = "block";
     // opcao_configuracoes.style.display = "none";
     opcao_sair.style.display = "block";
+    btnAdmin.style.display = "none";
   }
 
   document

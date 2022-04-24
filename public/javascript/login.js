@@ -16,6 +16,8 @@ function btnEntrar() {
       alert(`Bem Vindo ${verificacaoLogin.nome}`);
       sessionStorage.email = verificacaoLogin.email;
       sessionStorage.cargo = verificacaoLogin.cargo;
+      sessionStorage.nome = verificacaoLogin.nome;
+
       window.location = "./Dashboard/monitoramento.html";
     } else {
       alert(`Cadastro Inexistente`);

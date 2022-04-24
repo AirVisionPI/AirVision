@@ -168,88 +168,190 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <script>
-          function toggleMenu() {
-            let toggle = document.querySelector(".toggle");
-            let navigation = document.querySelector(".navigation");
-            let main = document.querySelector(".main");
-            toggle.classList.toggle("active");
-            navigation.classList.toggle("active");
-            main.classList.toggle("active");
-          }</script>
 
-        <script>
-          var ctx_1 = document.getElementsByClassName("line-chart-1");
-          var ctx_2 = document.getElementsByClassName("line-chart-2");
-          var ctx_3 = document.getElementsByClassName("line-chart-3");
-          var ctx_4 = document.getElementsByClassName("line-chart-4");
-          var ctx_5 = document.getElementsByClassName("line-chart-5");
-          var chartGraph = new Chart(ctx_1, {
-            type: 'line',
-            data: {
-              labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
-              datasets: [{
-                label: "CPU %",
-                data: [23, 44, 23, 27],
-                borderWidth: 1.5,
-                borderColor: '0',
-                backgroundColor: "green"
-              }]
-            },
-          });
-          var chartGraph = new Chart(ctx_2, {
-            type: 'line',
-            data: {
-              labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
-              datasets: [{
-                label: "RAM %",
-                data: [19, 44, 28, 70],
-                borderWidth: 1.5,
-                borderColor: '0',
-                backgroundColor: "blue"
-              }]
-            },
-          });
-          var chartGraph = new Chart(ctx_3, {
-            type: 'line',
-            data: {
-              labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
-              datasets: [{
-                label: "DISCO %",
-                data: [16, 24, 26, 60],
-                borderWidth: 1.5,
-                borderColor: '0',
-                backgroundColor: "yellow"
-              }]
-            },
-          });
-          var chartGraph = new Chart(ctx_4, {
-            type: 'line',
-            data: {
-              labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
-              datasets: [{
-                label: "DISCO %",
-                data: [16, 24, 26, 60],
-                borderWidth: 1.5,
-                borderColor: '0',
-                backgroundColor: "yellow"
-              }]
-            },
-          });
-          var chartGraph = new Chart(ctx_5, {
-            type: 'line',
-            data: {
-              labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
-              datasets: [{
-                label: "DISCO %",
-                data: [16, 24, 26, 60],
-                borderWidth: 1.5,
-                borderColor: '0',
-                backgroundColor: "yellow"
-              }]
-            },
-          });
+      <script>
+        function iniciaModal(modalID) {
+          const modal = document.getElementById(modalID);
+          if (modal) {
+            modal.classList.add("mostrar");
+            modal.addEventListener("click", (e) => {
+              if (e.target.id == modalID || e.target.className == "fechar") {
+                modal.classList.remove("mostrar");
+              }
+            })
+          }
+          nomeModal.innerHTML = `${sessionStorage.nome}`;
+          acessoModal.innerHTML = `${sessionStorage.cargo}`;
+        }
+
+        const logo = document.querySelector(".imgUser");
+        logo.addEventListener("click", () => iniciaModal("modal-promocao"));
+
+        const logoDois = document.querySelector(".msgUser");
+        logoDois.addEventListener("click", () => iniciaModal("modal-promocao_msg"));
+
+        function btnAtualizarDados() {
+
+          atualizarDados.style.display = "block";
+          atualizarDadosDois.style.display = "block";
+
+
+        }
+
+        function Enviar() {
+          atualizarDados.style.display = "none";
+          atualizarDadosDois.style.display = "none";
+        }
+
+      </script>
+
+      <div id="modal-promocao" class="modal-container">
+        <div class="modal">
+          <button class="fechar">X</button>
+          <h3>Bem Vindo <span id="nomeModal"></span></h3>
+
+          <br>
+          <form class="formModal">
+            <img class="imgUserModal" src="./imgDash/icons/profile-user.png">
+
+            <h4>Tipo de Acesso <br> <span id="acessoModal"></span></h4>
+
+
+          </form>
+          <h5 class="ipt_modal"></h5>
+
+          <button class="btnMonitoramento" id="btnAdmin" onclick="btnAtualizarDados()">Opções Avançadas</button> <br><br>
+
+          <div class="divDados">
+
+            <div class="atualizarDados" id="atualizarDados" style="display: none">
+
+              <h4>Mudar nome:</h4> <input class="ipt_modal" placeholder="Novo nome">
+              <h4>Atualizar Funcionario:</h4> <input class="ipt_modal" placeholder="Promover/Demitir funcionario">
+              <h4>Adicionar Aeroporto:</h4> <input class="ipt_modal" placeholder="Novo nome do aeroporto">
+
+            </div>
+
+            <div class="atualizarDadosDois" id="atualizarDadosDois" style="display: none">
+
+              <h4>Atualizar email:</h4> <input class="ipt_modal" placeholder="Novo email">
+              <h4>Nova Senha:</h4> <input class="ipt_modal" placeholder="Nova Senha">
+              <h4>Confirmação da Senha:</h4> <input class="ipt_modal" placeholder="Confirme a senha">
+
+              <button class="btnMonitoramento" onclick="Enviar()"> Enviar</button>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+
+      <div id="modal-promocao_msg" class="modal-container-msg">
+        <div class="modal">
+          <button class="fechar">X</button>
+          <h3>Envie uma mensagem</h3>
+          <br>
+          <form>
+            <input class="ipt_modal" type="text" placeholder="Mensagem para outro Funcionario"> <br>
+            <input class="ipt_modal" type="email" placeholder="Email do Funcionario">
+
+
+            <select class="selectCargo" name="cargo">
+              <option name="cargo" value="">Funcionario</option>
+              <option value="gestor">Gestor</option>
+              <option value="tecnico">Tecnico</option>
+            </select>
+            <button class="btnMonitoramento">Enviar</button>
+            <h5 class="ipt_modal"></h5>
+
+          </form>
+        </div>
+      </div>
+
+      <script>
+        function toggleMenu() {
+          let toggle = document.querySelector(".toggle");
+          let navigation = document.querySelector(".navigation");
+          let main = document.querySelector(".main");
+          toggle.classList.toggle("active");
+          navigation.classList.toggle("active");
+          main.classList.toggle("active");
+        }</script>
+
+      <script>
+        var ctx_1 = document.getElementsByClassName("line-chart-1");
+        var ctx_2 = document.getElementsByClassName("line-chart-2");
+        var ctx_3 = document.getElementsByClassName("line-chart-3");
+        var ctx_4 = document.getElementsByClassName("line-chart-4");
+        var ctx_5 = document.getElementsByClassName("line-chart-5");
+        var chartGraph = new Chart(ctx_1, {
+          type: 'line',
+          data: {
+            labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+            datasets: [{
+              label: "CPU %",
+              data: [23, 44, 23, 27],
+              borderWidth: 1.5,
+              borderColor: '0',
+              backgroundColor: "green"
+            }]
+          },
+        });
+        var chartGraph = new Chart(ctx_2, {
+          type: 'line',
+          data: {
+            labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+            datasets: [{
+              label: "RAM %",
+              data: [19, 44, 28, 70],
+              borderWidth: 1.5,
+              borderColor: '0',
+              backgroundColor: "blue"
+            }]
+          },
+        });
+        var chartGraph = new Chart(ctx_3, {
+          type: 'line',
+          data: {
+            labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+            datasets: [{
+              label: "DISCO %",
+              data: [16, 24, 26, 60],
+              borderWidth: 1.5,
+              borderColor: '0',
+              backgroundColor: "yellow"
+            }]
+          },
+        });
+        var chartGraph = new Chart(ctx_4, {
+          type: 'line',
+          data: {
+            labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+            datasets: [{
+              label: "DISCO %",
+              data: [16, 24, 26, 60],
+              borderWidth: 1.5,
+              borderColor: '0',
+              backgroundColor: "yellow"
+            }]
+          },
+        });
+        var chartGraph = new Chart(ctx_5, {
+          type: 'line',
+          data: {
+            labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+            datasets: [{
+              label: "DISCO %",
+              data: [16, 24, 26, 60],
+              borderWidth: 1.5,
+              borderColor: '0',
+              backgroundColor: "yellow"
+            }]
+          },
+        });
 //  <script>
 //   var ctx_1 = document.getElementsByClassName("line-chart-1");
 
@@ -282,7 +384,7 @@
 //     },
 //   });F
 //
-        </script>
+      </script>
 
 </body>
 

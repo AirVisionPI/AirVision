@@ -98,12 +98,56 @@
     <div id="modal-promocao" class="modal-container">
       <div class="modal">
         <button class="fechar">X</button>
-        <h3>Bem Vindo</h3>
-        <form>
+        <h3>Bem Vindo <span id="nomeModal"></span></h3>
+
+        <br />
+        <form class="formModal">
           <img class="imgUserModal" src="./imgDash/icons/profile-user.png" />
-          <h5 class="ipt_modal"></h5>
-          <label></label>
+
+          <h4>
+            Tipo de Acesso <br />
+            <span id="acessoModal"></span>
+          </h4>
         </form>
+        <h5 class="ipt_modal"></h5>
+
+        <button
+          class="btnMonitoramento"
+          id="btnAdmin"
+          onclick="btnAtualizarDados()"
+        >
+          Opções Avançadas
+        </button>
+        <br /><br />
+
+        <div class="divDados">
+          <div class="atualizarDados" id="atualizarDados" style="display: none">
+            <h4>Mudar nome:</h4>
+            <input class="ipt_modal" placeholder="Novo nome" />
+            <h4>Atualizar Funcionario:</h4>
+            <input
+              class="ipt_modal"
+              placeholder="Promover/Demitir funcionario"
+            />
+            <h4>Adicionar Aeroporto:</h4>
+            <input class="ipt_modal" placeholder="Novo nome do aeroporto" />
+          </div>
+
+          <div
+            class="atualizarDadosDois"
+            id="atualizarDadosDois"
+            style="display: none"
+          >
+            <h4>Atualizar email:</h4>
+            <input class="ipt_modal" placeholder="Novo email" />
+            <h4>Nova Senha:</h4>
+            <input class="ipt_modal" placeholder="Nova Senha" />
+            <h4>Confirmação da Senha:</h4>
+            <input class="ipt_modal" placeholder="Confirme a senha" />
+
+            <button class="btnMonitoramento" onclick="Enviar()">Enviar</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -118,16 +162,24 @@
             type="text"
             placeholder="Mensagem para outro Funcionario"
           />
+          <br />
+          <input
+            class="ipt_modal"
+            type="email"
+            placeholder="Email do Funcionario"
+          />
+
           <select class="selectCargo" name="cargo">
             <option name="cargo" value="">Funcionario</option>
             <option value="gestor">Gestor</option>
             <option value="tecnico">Tecnico</option>
           </select>
+          <button class="btnMonitoramento">Enviar</button>
           <h5 class="ipt_modal"></h5>
         </form>
       </div>
     </div>
-     <script>
+    <script>
       function iniciaModal(modalID) {
         const modal = document.getElementById(modalID);
         if (modal) {
@@ -136,16 +188,29 @@
             if (e.target.id == modalID || e.target.className == "fechar") {
               modal.classList.remove("mostrar");
             }
-          })
+          });
         }
+        nomeModal.innerHTML = `${sessionStorage.nome}`;
+        acessoModal.innerHTML = `${sessionStorage.cargo}`;
       }
 
       const logo = document.querySelector(".imgUser");
       logo.addEventListener("click", () => iniciaModal("modal-promocao"));
-        
-      const logoDois = document.querySelector(".msgUser");
-      logoDois.addEventListener("click", () => iniciaModal("modal-promocao_msg"));
 
+      const logoDois = document.querySelector(".msgUser");
+      logoDois.addEventListener("click", () =>
+        iniciaModal("modal-promocao_msg")
+      );
+
+      function btnAtualizarDados() {
+        atualizarDados.style.display = "block";
+        atualizarDadosDois.style.display = "block";
+      }
+
+      function Enviar() {
+        atualizarDados.style.display = "none";
+        atualizarDadosDois.style.display = "none";
+      }
     </script>
     <script>
       function toggleMenu() {
