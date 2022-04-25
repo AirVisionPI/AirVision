@@ -9,12 +9,13 @@
   <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
   <!-- <link rel="stylesheet" href="./css/style.css"> -->
   <link rel="stylesheet" href="./css/acesso.css">
+  <script src="javascript/animacaoSign.js"></script>
   <script src="javascript/login.js"></script>
-  <script src="javascript/cadastro_login_chumbado.js"></script>
+  <script src="javascript/cadastro.js"></script>
   <title>AirVision </title>
 </head>
 
-<body>
+<body onload="animacaoSign()">
   <!-- NAVBAR -->
   <div class="header">
     <nav class="stroke">
@@ -41,12 +42,12 @@
           <input type="text" placeholder="Nome" name="nome"/>
           <input type="email" placeholder="Email" name="email"/>
           <input type="password" placeholder="Senha" name="senha"/>
-          <input type="password" placeholder="Confirme sua senha" />
+          <input type="password" placeholder="Confirme sua senha" name="confirmacao_senha"/>
           <input type="text" placeholder="Razão social" name="razao_social"/>
           <input type="number" data-mask="000.000.000/0000-00" data-mask-selectonfocus="true" maxlength="14"
             placeholder="CNPJ (000.000.000/0000-00)" name="cnpj"/>
           <input type="text" placeholder="Localização (Aeroporto)" name="local_companhia"/>
-          <button onclick="btnCadastrar()" class="button">Cadastrar</button>
+          <div onclick="btnCadastrar()" class="button">Cadastrar</div>
         </form>
       </div>
       <div class="form-container sign-in-container">
@@ -66,12 +67,12 @@
           <div class="overlay-panel overlay-left">
             <div class="logo"></div>
             <p class="paragrafo">Para continuar conectado conosco, realize seu login</p>
-            <button class="ghost" id="signIn">Entrar</button>
+            <button class="ghost" onclick="animacaoSign()" id="signIn">Entrar</button>
           </div>
           <div class="overlay-panel overlay-right">
             <div class="logo"></div>
             <p class="paragrafo">Entre com as suas informações para realizar o orçamento</p>
-            <button class="ghost" id="signUp">Cadastrar</button>
+            <button class="ghost" onclick="animacaoSign()" id="signUp">Cadastrar</button>
           </div>
         </div>
       </div>
@@ -113,43 +114,6 @@
 
 </html>
 <script>
-
-  const target = document.querySelectorAll('[data-container]');
-  const animationClass = 'animate';
-
-  function animeScroll() {
-    const windowTop = window.pageYOffset + ((window.innerHeight * 3) / 4);
-    target.forEach(function (element) {
-      if (windowTop > element.offsetTop) {
-        element.classList.add(animationClass);
-      } else {
-        element.classList.remove(animationClass);
-      }
-
-    })
-  }
-
-  animeScroll();
-
-  if (target.length) {
-    window.addEventListener('scroll', function () {
-      animeScroll();
-    })
-  }
-
-  const signUpButton = document.getElementById('signUp');
-  const signInButton = document.getElementById('signIn');
-  const container = document.getElementById('container');
-
-  signUpButton.addEventListener('click', () => {
-    container.classList.add("right-panel-active");
-  });
-
-  signInButton.addEventListener('click', () => {
-    container.classList.remove("right-panel-active");
-  });
-
-
   // function btnEntrar() {
 
   //   var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
@@ -224,8 +188,4 @@
   //   // }
 
   // }
-
-
-
-
 </script>
