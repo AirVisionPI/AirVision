@@ -45,9 +45,9 @@ function btnEntrar() {
         sessionStorage.localidadeAeroporto = json.localidade_aeroporto;
 
         setTimeout(function () {
-          window.alert("foi meu consagrado");
+          window.alert(`Seja bem vindo ${sessionStorage.nome}!`);
           window.location = "./Dashboard/monitoramento.html";
-        }, 1000); // apenas para exibir o loading
+        }, 500); // apenas para exibir o loading
 
       });
 
