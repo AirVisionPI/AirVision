@@ -21,8 +21,8 @@ var sqlServerConfig = {
 var mySqlConfig = {
     host: "localhost",
     user: "root",
-    database: "",
-    password: "",
+    database: "airvision",
+    password: "root",
     port: "3306",
 };
 
