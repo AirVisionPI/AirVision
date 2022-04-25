@@ -211,6 +211,17 @@
   /* width: 100%; */
 }
 
+.selectCargoModal {
+  margin-left: 300px;
+  background-color: transparent;
+  border: none;
+  border-bottom: #3a75b4 2px solid;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  /* height: 3vh; */
+  /* width: 100%; */
+}
+
 /* ------POPUP MODAL MENSAGEM-------- */
 
 .modal-container-msg {
