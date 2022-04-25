@@ -37,9 +37,10 @@
     <div class="container" id="container">
       <div class="form-container sign-up-container">
         <form id="form_cadastro" action="#">
+          
           <h1 class="title">Criar Conta</h1>
 
-          <input type="text" placeholder="Nome" name="nome"/>
+          <input type="text" placeholder="Nome Responsável" name="nome"/>
           <input type="email" placeholder="Email" name="email"/>
           <input type="password" placeholder="Senha" name="senha"/>
           <input type="password" placeholder="Confirme sua senha" name="confirmacao_senha"/>
@@ -47,7 +48,9 @@
           <input type="number" data-mask="000.000.000/0000-00" data-mask-selectonfocus="true" maxlength="14"
             placeholder="CNPJ (000.000.000/0000-00)" name="cnpj"/>
           <input type="text" placeholder="Localização (Aeroporto)" name="local_companhia"/>
-          <div onclick="btnCadastrar()" class="button">Cadastrar</div>
+
+          <div style="cursor: pointer" onclick="btnCadastrar()" class="buttonEntrar">Cadastrar</div>
+
         </form>
       </div>
       <div class="form-container sign-in-container">

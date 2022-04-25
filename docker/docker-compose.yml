@@ -3,11 +3,12 @@ mysql:
     container_name: mysql
     environment:
       - MYSQL_DATABASE=airvision
-      - MYSQL_USER=agavazzi
+      - MYSQL_USER=root
       - MYSQL_PASSWORD=root
       - MYSQL_ROOT_PASSWORD=root
     volumes:
       - ./data/mysql:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
     ports:
       - 3307:3306
     tty: true

@@ -81,9 +81,46 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrarFuncionario(req, res) {
+    var nome = req.body.nome;
+    var email = req.body.email;
+    var senha = req.body.senha;
+    var aeroporto_trabalho = req.body.aeroporto_trabalho;
+    var cargo = req.body.cargo;
+
+    if (nome == undefined) {
+        res.status(400).send("O nome está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("O email está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("A senha está undefined!");
+    } else if (aeroporto_trabalho == undefined) {
+        res.status(400).send("O local de trabalho está undefined!");
+    } else if (cargo == undefined) {
+        res.status(400).send("O cargo está undefined!");
+    } else {
+        usuarioModel.cadastrarFuncionario(nome, email, senha, aeroporto_trabalho, cargo)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 
 module.exports = {
     entrar,
     cadastrar,
+    cadastrarFuncionario,
     testar,
 }

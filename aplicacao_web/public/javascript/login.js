@@ -38,6 +38,11 @@ function btnEntrar() {
         sessionStorage.nome = json.nome_usuario;
         sessionStorage.cargo = json.cargo_usuario;
         sessionStorage.id = json.id_usuario;
+        sessionStorage.idAeroporto = json.id_aeroporto;
+        sessionStorage.razaoAeroporto = json.razao_aeroporto;
+        sessionStorage.cnpjAeroporto = json.cnpj_aeroporto;
+        sessionStorage.responsavelAeroporto = json.responsavel_aeroporto;
+        sessionStorage.localidadeAeroporto = json.localidade_aeroporto;
 
         setTimeout(function () {
           window.alert("foi meu consagrado");

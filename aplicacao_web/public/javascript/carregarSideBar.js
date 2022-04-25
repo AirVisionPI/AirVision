@@ -67,6 +67,11 @@ function atualizarSideBar() {
     // opcao_configuracoes.style.display = "block";
     opcao_sair.style.display = "block";
     btnAdmin.style.display = "block";
+
+    // APARECER NO CADASTRO DE FUNCIONARIO, O SESSION STORAGE PUXANDO O AEROPORTO DE TRABALHO
+    option_local.style.display = "block";
+    option_local.label = `${sessionStorage.razaoAeroporto}`;
+    option_local.value = `${sessionStorage.idAeroporto}`;
   }
 
   if (sessionStorage.cargo === "tecnico") {
