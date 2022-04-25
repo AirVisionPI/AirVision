@@ -9,7 +9,7 @@
 
 #
 
-![AirVision-banner](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/Air%20Vision%20-%202%20Semestre.png?raw=true)
+
 
 #
 ### Descrição do projeto:
@@ -42,22 +42,22 @@ Nosso principal desafio é manter a máquina funcionando perfeitamente, para evi
 
 ### Início
 
-![home](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/inicio.jpg?raw=true)
+
 
 #### Navbar (Header)
 
-![header](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/navbar.jpg?raw=true)
+
 
 
 #### Footer
 
-![footer](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/Footer.jpg?raw=true)
+
 
 #
 
 ### Login
 
-![login](https://github.com/AirVisionPI/AirVision/blob/main/public/assets/git-prints/login.jpg?raw=true)
+
 
 # 
 
