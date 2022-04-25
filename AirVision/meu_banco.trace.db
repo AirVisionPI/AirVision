@@ -1,0 +1,12 @@
+2022-04-11 19:37:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DISCO" not found; SQL statement:
+INSERT INTO Disco () values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-199]
+2022-04-11 19:45:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DISCO" not found; SQL statement:
+INSERT INTO Disco () values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-199]
+2022-04-11 19:46:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DISCO" not found; SQL statement:
+INSERT INTO Disco () values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-199]
+2022-04-11 19:47:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DISCO" not found; SQL statement:
+INSERT INTO disco () values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-199]
