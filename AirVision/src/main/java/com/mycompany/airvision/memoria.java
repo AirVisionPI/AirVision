@@ -19,33 +19,35 @@ public class memoria {
         return idMemoria;
     }
 
+    public void setIdMemoria(Integer idMemoria) {
+        this.idMemoria = idMemoria;
+    }
+
     public String getTotal() {
         return total;
-    }
-
-    public String getDisponivel() {
-        return disponivel;
-    }
-
-    public String getUso() {
-        return uso;
-    }
-
-    public void setIdRam(Integer idRam) {
-        this.idMemoria = idRam;
     }
 
     public void setTotal(String total) {
         this.total = total;
     }
 
+    public String getDisponivel() {
+        return disponivel;
+    }
+
     public void setDisponivel(String disponivel) {
         this.disponivel = disponivel;
+    }
+
+    public String getUso() {
+        return uso;
     }
 
     public void setUso(String uso) {
         this.uso = uso;
     }
+
+  
 
     @Override
     public String toString() {

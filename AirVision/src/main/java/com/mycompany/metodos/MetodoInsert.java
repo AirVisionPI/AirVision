@@ -52,17 +52,17 @@ public class MetodoInsert {
         
     }
     
-    public void insertBanco(){
+    public void insertBanco(Integer fk_aeroporto){
     
         DiscoLeitor disco = new DiscoLeitor();
         ramLeitor ram = new ramLeitor();
         CpuLeitor cpu = new CpuLeitor();
 
 
-        disco.insertDiscoLeitor(0);
+        disco.insertDiscoLeitor(0, fk_aeroporto);
         
-        cpu.insertCpu();
-        ram.insertRam(Integer.MIN_VALUE);
+        cpu.insertCpu(fk_aeroporto);
+        ram.insertRam(fk_aeroporto);
 
         System.out.println(cpu);
         System.out.println(ram);

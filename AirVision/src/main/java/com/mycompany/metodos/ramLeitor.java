@@ -38,12 +38,12 @@ public class ramLeitor {
         return looca.getMemoria().getEmUso();
     }
     
-    public void insertRam(Integer idMaquina){
+    public void insertRam(Integer fk_aeroporto){
         maquinaLeitor maquinaleitor = new maquinaLeitor();
         Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
         
-        List<Maquina> maquinas = template.query("SELECT * from maquina where hostname = ?", new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName());
+        List<Maquina> maquinas = template.query("SELECT * from maquina where hostname = ? and fk_aeroporto = ?", new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
         
         
               template.update("INSERT INTO memoria ( total, fk_maquina) VALUES ( ?,?);",

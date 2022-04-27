@@ -50,14 +50,14 @@ public class DiscoLeitor {
         return disco.getDiscos().get(index);
     }
 
-    public void insertDiscoLeitor(Integer index){
+    public void insertDiscoLeitor(Integer index, Integer fk_aeroporto){
         maquinaLeitor maquinaleitor = new maquinaLeitor();
         
         Disco disco = getDisco(index);
         Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
         
-        List<Maquina> maquinas = template.query("SELECT * from maquina where hostname = ?", new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName());
+        List<Maquina> maquinas = template.query("SELECT * from maquina where hostname = ? and fk_aeroporto = ?", new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
         
         for (Maquina maquina1 : maquinas) {
             System.out.println("maquinas: " + maquina1);

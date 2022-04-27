@@ -112,7 +112,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MetodoInsert inserir = new MetodoInsert();
         
         inserir.insertMaquina(fk_aeroporto);
-        inserir.insertBanco();
+        inserir.insertBanco(fk_aeroporto);
         
         ActionListener acao = (ActionEvent executar) -> {
             
