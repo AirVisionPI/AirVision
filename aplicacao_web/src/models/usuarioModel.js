@@ -29,7 +29,7 @@ function entrar(email, senha) {
 function cadastrar(nome, email, senha, razao_social, cnpj, local_companhia) {
     console.log("ACESSEI O CADASTRO MODEL");
 
-    function instrucao2() {
+    async function instrucao2() {
         var instrucao_usuario = `
             INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, cargo_usuario, fk_aeroporto) VALUES 
             ('${nome}', '${email}', '${senha}', 'admin', 
@@ -41,13 +41,23 @@ function cadastrar(nome, email, senha, razao_social, cnpj, local_companhia) {
     }
 
     function instrucao1() {
+        var validar_parte_1 = false;
         var instrucao_companhia = `
             INSERT INTO companhia_aerea (razao_aeroporto, cnpj_aeroporto, responsavel_aeroporto, localidade_aeroporto) VALUES 
             ('${razao_social}', '${cnpj}', '${nome}', '${local_companhia}');
             `;
         console.log("Executando a instrução SQL: \n" + instrucao_companhia);
-        database.executar(instrucao_companhia);
-        return instrucao2();
+        db_exec();
+        function db_exec() {
+            database.executar(instrucao_companhia);
+            validar_parte_1 = true;
+        }
+
+        if(validar_parte_1) {
+            return instrucao2();
+        }
+
+        return instrucao1();
     }
 
     return instrucao1();
