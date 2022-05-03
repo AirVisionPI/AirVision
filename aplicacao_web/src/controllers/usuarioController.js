@@ -44,6 +44,39 @@ function entrar(req, res) {
 
 function cadastrar(req, res) {
     var nome = req.body.nome;
+    var razao_social = req.body.razao_social;
+    var cnpj = req.body.cnpj;
+    var local_companhia = req.body.local_companhia;
+
+    if (nome == undefined) {
+        res.status(400).send("Seu Nome está undefined!");
+    } else if (razao_social == undefined) {
+        res.status(400).send("Sua razão social está undefined!");
+    } else if (cnpj == undefined) {
+        res.status(400).send("Seu CNPJ está undefined!");
+    } else if (local_companhia == undefined) {
+        res.status(400).send("Seu Local Companhia está undefined!");
+    } else {
+        usuarioModel.cadastrar(nome, razao_social, cnpj, local_companhia)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro comp! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function cadastrarUser(req, res) {
+    var nome = req.body.nome;
     var email = req.body.email;
     var senha = req.body.senha;
     var razao_social = req.body.razao_social;
@@ -63,7 +96,7 @@ function cadastrar(req, res) {
     } else if (local_companhia == undefined) {
         res.status(400).send("Seu Local Companhia está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, email, senha, razao_social, cnpj, local_companhia)
+        usuarioModel.cadastrarUser(nome, email, senha, razao_social, cnpj, local_companhia)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -72,7 +105,7 @@ function cadastrar(req, res) {
                 function (erro) {
                     console.log(erro);
                     console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        "\nHouve um erro ao realizar o cadastro user! Erro: ",
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);
@@ -80,6 +113,7 @@ function cadastrar(req, res) {
             );
     }
 }
+
 
 function cadastrarFuncionario(req, res) {
     var nome = req.body.nome;
@@ -121,6 +155,7 @@ function cadastrarFuncionario(req, res) {
 module.exports = {
     entrar,
     cadastrar,
+    cadastrarUser,
     cadastrarFuncionario,
     testar,
 }
