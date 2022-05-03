@@ -29,21 +29,28 @@ function entrar(email, senha) {
 function cadastrar(nome, email, senha, razao_social, cnpj, local_companhia) {
     console.log("ACESSEI O CADASTRO MODEL");
 
-    var instrucao_usuario = `
-    INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, cargo_usuario, fk_aeroporto) VALUES 
-    ('${nome}', '${email}', '${senha}', 'admin', '2');
-    `;
-    // (SELECT id_aeroporto FROM companhia_aerea WHERE razao_aeroporto = '${razao_social}' AND localidade_aeroporto = '${local_companhia}' AND cnpj_aeroporto = '${cnpj}')
-    console.log("Executando a instrução SQL: \n" + instrucao_usuario);
+    function instrucao2() {
+        var instrucao_usuario = `
+            INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, cargo_usuario, fk_aeroporto) VALUES 
+            ('${nome}', '${email}', '${senha}', 'admin', 
+                (SELECT id_aeroporto FROM companhia_aerea WHERE razao_aeroporto = '${razao_social}' AND localidade_aeroporto = '${local_companhia}' AND cnpj_aeroporto = '${cnpj}' AND responsavel_aeroporto = '${nome}')
+            );
+        `;
+        console.log("Executando a instrução SQL: \n" + instrucao_usuario);
+        return database.executar(instrucao_usuario);
+    }
 
-    var instrucao_companhia = `
+    function instrucao1() {
+        var instrucao_companhia = `
             INSERT INTO companhia_aerea (razao_aeroporto, cnpj_aeroporto, responsavel_aeroporto, localidade_aeroporto) VALUES 
             ('${razao_social}', '${cnpj}', '${nome}', '${local_companhia}');
             `;
-    console.log("Executando a instrução SQL: \n" + instrucao_companhia);
+        console.log("Executando a instrução SQL: \n" + instrucao_companhia);
+        database.executar(instrucao_companhia);
+        return instrucao2();
+    }
 
-    database.executar(instrucao_companhia);
-    return database.executar(instrucao_usuario);
+    return instrucao1();
 }
 
 function cadastrarFuncionario(nome, email, senha, aeroporto_trabalho, cargo) {
