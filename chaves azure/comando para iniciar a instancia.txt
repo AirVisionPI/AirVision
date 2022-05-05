@@ -1,1 +1,1 @@
-ssh -i admin-airvision.pem azureuser@20.232.200.235
+ssh -i admin-airvision.pem azureuser@20.25.124.189

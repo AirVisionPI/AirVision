@@ -33,24 +33,43 @@ function btnCadastrar() {
   // ==========================================================================
   // ============ NO BANCO DE DADOS MYSQL =====================================
   // ==========================================================================
+  function cadastroUsuario() {
+    fetch("/usuarios/cadastrarUser", {
+      method: "POST",
+      body: formulario
+    }).then(function (resposta) {
 
-  fetch("/usuarios/cadastrar", {
-    method: "POST",
-    body: formulario
-  }).then(function (resposta) {
+      console.log("resposta: ", resposta);
 
-    console.log("resposta: ", resposta);
+      if (resposta.ok) {
+        window.alert("Cadastro realizado com sucesso!");
+        window.location = "login.html";
+      } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+  }
+  function cadastroCompanhia() {
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      body: formulario
+    }).then(function (resposta) {
 
-    if (resposta.ok) {
-      window.alert("Cadastro realizado com sucesso!");
-      window.location = "login.html";
-    } else {
-      throw ("Houve um erro ao tentar realizar o cadastro!");
-    }
-  }).catch(function (resposta) {
-    console.log(`#ERRO: ${resposta}`);
-  });
+      console.log("resposta: ", resposta);
 
+      if (resposta.ok) {
+        return cadastroUsuario();
+      } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+  }
+  
+  cadastroCompanhia();
   return false;
 
   // ==========================================================================
