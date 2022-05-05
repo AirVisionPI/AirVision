@@ -13,6 +13,8 @@
   <script src="javascript/login.js"></script>
   <script src="javascript/cadastro.js"></script>
   <title>AirVision </title>
+  <script src="https://kit.fontawesome.com/e01f426084.js" crossorigin="anonymous"></script>
+  <script src="javascript/acessoResponsivo.js"></script>
 </head>
 
 <body onload="animacaoSign()">
@@ -37,17 +39,17 @@
     <div class="container" id="container">
       <div class="form-container sign-up-container">
         <form id="form_cadastro" action="#">
-          
+
           <h1 class="title">Criar Conta</h1>
 
-          <input type="text" placeholder="Nome Responsável" name="nome"/>
-          <input type="email" placeholder="Email" name="email"/>
-          <input type="password" placeholder="Senha" name="senha"/>
-          <input type="password" placeholder="Confirme sua senha" name="confirmacao_senha"/>
-          <input type="text" placeholder="Razão social" name="razao_social"/>
+          <input type="text" placeholder="Nome Responsável" name="nome" />
+          <input type="email" placeholder="Email" name="email" />
+          <input type="password" placeholder="Senha" name="senha" />
+          <input type="password" placeholder="Confirme sua senha" name="confirmacao_senha" />
+          <input type="text" placeholder="Razão social" name="razao_social" />
           <input type="number" data-mask="000.000.000/0000-00" data-mask-selectonfocus="true" maxlength="14"
-            placeholder="CNPJ (000.000.000/0000-00)" name="cnpj"/>
-          <input type="text" placeholder="Localização (Aeroporto)" name="local_companhia"/>
+            placeholder="CNPJ (000.000.000/0000-00)" name="cnpj" />
+          <input type="text" placeholder="Localização (Aeroporto)" name="local_companhia" />
 
           <div style="cursor: pointer" onclick="btnCadastrar()" class="buttonEntrar">Cadastrar</div>
 
@@ -80,7 +82,43 @@
         </div>
       </div>
     </div>
+
+    <!---------------------------------- LOGIN RESPONSIVO -------------------------------------------->
+
+    <div class="loginAnswer">
+      <div class="buttonsForm">
+        <div class="btnColor"></div>
+        <button id="btnSigin">Entrar</button>
+        <button id="btnSigup">Cadastrar</button>
+      </div>
+
+      <form class="formResponsive" id="singin">
+
+        <input type="email" placeholder="Email" name="email" />
+        <input type="password" placeholder="Senha" name="senha" />
+
+        <button  onclick="btnEntrar()" type="submit" id="">Entrar</button>
+      </form>
+
+      <form class="formResponsiveSingin" id="singup">
+
+
+        <input type="text" placeholder="Nome Responsável" name="nome" />
+        <input type="email" placeholder="Email" name="email" />
+        <input type="password" placeholder="Senha" name="senha" />
+        <input type="password" placeholder="Confirme sua senha" name="confirmacao_senha" />
+        <input type="text" placeholder="Razão social" name="razao_social" />
+        <input type="number" data-mask="000.000.000/0000-00" data-mask-selectonfocus="true" maxlength="14"
+          placeholder="CNPJ (000.000.000/0000-00)" name="cnpj" />
+        <input type="text" placeholder="Localização (Aeroporto)" name="local_companhia" />
+
+        
+
+        <button onclick="btnCadastrar()" type="submit" id="">Cadastrar</button>
+      </form>
+    </div>
   </div>
+
 
   <!-- FOOTER -->
 
@@ -117,6 +155,23 @@
 
 </html>
 <script>
+  var formSignin = document.querySelector("#singin");
+  var formSignup = document.querySelector("#singup");
+  var btnColor = document.querySelector(".btnColor");
+
+  document.querySelector("#btnSigin").addEventListener("click", () => {
+    formSignin.style.left = "25px";
+    formSignup.style.left = "450px";
+    btnColor.style.left = "0px";
+  });
+
+  document.querySelector("#btnSigup").addEventListener("click", () => {
+    formSignin.style.left = "-450px";
+    formSignup.style.left = "25px";
+    btnColor.style.left = "110px";
+  });
+
+
   // function btnEntrar() {
 
   //   var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));

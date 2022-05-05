@@ -20,7 +20,8 @@ body {
   position: fixed;
   width: 300px;
   height: 100%;
-  background: #3f61ab;
+  background: linear-gradient(to right, #3a75b4, #61a3e9);
+
   transition: 0.5s;
   overflow: hidden;
 }
@@ -49,7 +50,7 @@ body {
 }
 
 .navigation ul li:hover {
-  background: #03a9f4;
+  background: linear-gradient(to right, #3a75b4, #61a3e9);
 }
 
 .navigation ul li:nth-child(1) {

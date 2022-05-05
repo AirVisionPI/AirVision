@@ -126,7 +126,6 @@ input {
   border-bottom: #3a75b4 2px solid;
   padding: 12px 15px;
   margin-bottom: 3vh;
-  font-size: 1.2vw;
   height: 3vh;
   width: 100%;
 }
@@ -205,7 +204,7 @@ input {
 }
 
 .overlay {
-  background-color: #0e3997cb;
+  background: linear-gradient(to right, #3a75b4, #61a3e9);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -352,4 +351,101 @@ a {
   justify-content: center;
   align-items: center;
   font-size: 1.2vw;
+}
+
+/*----------------------------------------- LOGIN RESPONSIVO---------------------------------------------------- */
+
+/* TAG @media para mexer com o tamanho da tela com uma proporção desejada */
+
+@media (max-width: 480px) {
+  .container {
+    display: none;
+  }
+
+  .loginAnswer {
+    display: block;
+  }
+  .loginAnswer {
+    background-color: whitesmoke;
+    padding: 6px;
+    width: 350px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 darkgrey;
+  }
+
+  .formResponsive {
+    position: absolute;
+    margin-top: 80px;
+    transition: 0.5s;
+    width: 300px;
+    height: 400px;
+  }
+  .formResponsiveSingin {
+    position: absolute;
+    margin-top: 100px;
+    transition: 0.5s;
+    width: 300px;
+    height: 440px;
+  }
+
+  .buttonsForm {
+    margin: 40px;
+    position: relative;
+    border-radius: 30px;
+    box-shadow: 0 0 7px 0 #3a75b4;
+  }
+
+  .buttonsForm button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    position: relative;
+    padding: 10px 29px;
+  }
+
+  .btnColor {
+    position: absolute;
+    width: 125px;
+    height: 100%;
+    background: linear-gradient(to right, #3a75b4, #61a3e9);
+    border-radius: 30px;
+    transition: 0.3s;
+  }
+
+  button[type="submit"] {
+    background: #3a75b4;
+    color: white;
+    border-radius: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 8px 0 8px 15px;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .divCheck {
+    margin: 10px 0 0 5px;
+    width: 80%;
+    font-size: 13px;
+  }
+
+  #singin {
+    left: 25px;
+  }
+  #singup {
+    left: 450px;
+  }
+}
+@media (min-width: 480px) {
+  .loginAnswer {
+    display: none;
+  }
 }

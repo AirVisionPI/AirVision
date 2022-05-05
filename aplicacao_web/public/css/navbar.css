@@ -119,3 +119,6 @@ a {
   align-items: center;
   font-size: 1.2vw;
 }
+
+@media (max-width: 480px) {
+}
