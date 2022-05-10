@@ -15,6 +15,11 @@
   <title>AirVision </title>
   <script src="https://kit.fontawesome.com/e01f426084.js" crossorigin="anonymous"></script>
   <script src="javascript/acessoResponsivo.js"></script>
+
+
+  <!-- link para os icones da responsividade -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
 </head>
 
 <body onload="animacaoSign()">
@@ -31,6 +36,70 @@
       </ul>
     </nav>
   </div>
+
+  <!-- NAVBAR-RESPONSIVO -->
+  <div id="sidebar" class="sidebar">
+    <div class="logo_content">
+      <div class="logoResponsive">
+        <i class="fa-solid fa-plane"></i>
+        <div class="logo_name">AirVision</div>
+      </div>
+      <i class="fa-solid fa-bars" id="btn_responsive" onclick="btn_responsive()"></i>
+
+    </div>
+    <ul class="nav_list">
+      <div class="li_responsive">
+        <a href="index.html">
+          <i class="fa-solid fa-house-user"></i>
+          <span class="links_name">Inicio</span>
+        </a>
+        <span class="tooltip">Inicio</span>
+      </div>
+      <div class="li_responsive">
+        <a href="sobrenos.html">
+          <i class="fa-solid fa-people-group"></i>
+          <span class="links_name">Sobre Nós</span>
+        </a>
+        <span class="tooltip">Sobre Nó</span>
+      </div>
+      <div class="li_responsive">
+        <a href="suporte.html">
+          <i class="fa-solid fa-headset"></i>
+          <span class="links_name">Suporte</span>
+        </a>
+        <span class="tooltip">Suporte</span>
+      </div>
+      <div class="li_responsive">
+        <a href="inovacao.html">
+          <i class="fa-solid fa-lightbulb"></i>
+          <span class="links_name">Inovação</span>
+        </a>
+        <span class="tooltip">Inovação</span>
+      </div>
+      <div class="li_responsive">
+        <a href="login.html">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          <span class="links_name">Acesso</span>
+        </a>
+        <span class="tooltip">Acesso</span>
+      </div>
+    </ul>
+    <div class="profile_content">
+      <!-- <div class="profile">
+      <div class="profile_details">
+        <img src="#" alt="">
+        <div class="name_job">
+          <div class="name">Allan</div>
+          <div class="job">Web Designer</div>
+        </div>
+      </div>
+    </div> -->
+    </div>
+  </div>
+
+  <!-- <div class="home_content">
+  <div class="text">Home Content</div>
+</div> -->
 
 
   <!-- Login e Cadastro -->
@@ -85,7 +154,7 @@
 
     <!---------------------------------- LOGIN RESPONSIVO -------------------------------------------->
 
-    <div class="loginAnswer">
+    <div id="loginAnswer" class="loginAnswer">
       <div class="buttonsForm">
         <div class="btnColor"></div>
         <button id="btnSigin">Entrar</button>
@@ -155,21 +224,66 @@
   </div>
 
 
+<!-- FooterResponsive -->
+<div class="copyright-reponsive">
+
+</div>
+  <div class="footerResponsive">
+
+    <div class="caixafooterResponsive">
+
+      <div class="contatoResponsive">
+        <h1 class="title-h1-responsive">Contato</h1>
+        <p class="text-p-footer-responsive">
+          <img class="img-responsive" src="" src="./assets/icons/envelope.png"> AirVision@gmail.com <br><br>
+          <img src="./assets/icons/phone-receiver-silhouette.png"> 55 (11)93207-7271 <br><br>
+          <a href="https://github.com/AirVisionPI/AirVision"> <img src="./assets/icons/github.png"> AirVision</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
 </html>
+<script>
+
+  let btn = document.querySelector("btn_responsive");
+  let sidebar = document.querySelector(".sidebar");
+
+  function btn_responsive() {
+    sidebar.classList.toggle("active");
+
+
+
+    if (loginAnswer.style.display == "none") {
+      loginAnswer.style.display = "block";
+
+    } else {
+      loginAnswer.style.display = "none";
+
+    }
+
+
+
+
+  }
+</script>
+
+
 <script>
   var formSignin = document.querySelector("#singin");
   var formSignup = document.querySelector("#singup");
   var btnColor = document.querySelector(".btnColor");
 
   document.querySelector("#btnSigin").addEventListener("click", () => {
-    formSignin.style.left = "25px";
+    formSignin.style.left = "30px";
     formSignup.style.left = "450px";
     btnColor.style.left = "0px";
   });
 
   document.querySelector("#btnSigup").addEventListener("click", () => {
     formSignin.style.left = "-450px";
-    formSignup.style.left = "25px";
+    formSignup.style.left = "30px";
     btnColor.style.left = "110px";
   });
 

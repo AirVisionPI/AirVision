@@ -5,11 +5,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
+
   <title>AirVision</title>
   <link rel="stylesheet" href="css/inovacao.css">
+  <!-- link para os icones da responsividade -->
+       <script src="https://kit.fontawesome.com/e01f426084.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="css/acesso.css">
+
   <!-- <link rel="stylesheet" href="./css/navbar.css"> -->
   <!-- <link rel="stylesheet" href="./css/style.css"> -->
-  <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon">
+  <!-- <link rel="shortcut icon" href="./assets/icons/AirVisionIcon3.webp" type="image/x-icon"> -->
+
+
+
 </head>
 
 <body>
@@ -27,19 +37,84 @@
       </ul>
     </nav>
   </div>
+  <div id="sidebar" class="sidebar">
+    <div class="logo_content">
+      <div class="logoResponsive">
+        <i class="fa-solid fa-plane"></i>
+        <div class="logo_name">AirVision</div>
+      </div>
+      <i class="fa-solid fa-bars" id="btn_responsive" onclick="btn_responsive()"></i>
+
+    </div>
+    <ul class="nav_list">
+      <div class="li_responsive">
+        <a href="index.html">
+          <i class="fa-solid fa-house-chimney"></i>
+          <span class="links_name">Inicio</span>
+        </a>
+        <span class="tooltip">Inicio</span>
+      </div>
+      <div class="li_responsive">
+        <a href="sobrenos.html">
+          <i class="fa-solid fa-people-group"></i>
+          <span class="links_name">Sobre Nós</span>
+        </a>
+        <span class="tooltip">Sobre Nó</span>
+      </div>
+      <div class="li_responsive">
+        <a href="suporte.html">
+          <i class="fa-solid fa-headset"></i>
+          <span class="links_name">Suporte</span>
+        </a>
+        <span class="tooltip">Suporte</span>
+      </div>
+      <div class="li_responsive">
+        <a href="inovacao.html">
+          <i class="fa-solid fa-lightbulb"></i>
+          <span class="links_name">Inovação</span>
+        </a>
+        <span class="tooltip">Inovação</span>
+      </div>
+      <div class="li_responsive">
+        <a href="login.html">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          <span class="links_name">Acesso</span>
+        </a>
+        <span class="tooltip">Acesso</span>
+      </div>
+    </ul>
+    <div class="profile_content">
+      <!-- <div class="profile">
+      <div class="profile_details">
+        <img src="#" alt="">
+        <div class="name_job">
+          <div class="name">Allan</div>
+          <div class="job">Web Designer</div>
+        </div>
+      </div>
+    </div> -->
+    </div>
+  </div>
+
+  <!-- <div class="home_content">
+  <div class="text">Home Content</div>
+</div> -->
+
   <!-- CALCULADORA -->
   <div class="firstlineInovacao">
     <div class="textofirstline">
 
-      <h3><span class="mel">Ino</span><span class="ciaa">vação</span></h3> <br>
+      <h3>Inovação</h3> <br>
 
 
       <p>
         Por mais que os aeroportos sempre estão cheios os totens ficam em media 1/4 do dia parado sem uso porém
         consumindo energia, e pensando nisso nos criamos uma solução para que o sistema dos totens possam detectar
-        ociosidade de 10 minutos. Logo todas as funções que são possíveis entram em modo de descanso, o brilho da tela é
-        reduzido gerando uma grande economia!
+        ociosidade de 10 minutos. <br>
+        Logo todas as funções que são possíveis entram em modo de descanso, o brilho da tela é
+      reduzido gerando uma grande economia!
       </p>
+     
 
     </div>
   </div>
@@ -68,6 +143,11 @@
         
         
         
+            
+          </div>
+          <div class="div_desconto" id="div_inner">
+            
+          </div>
           <button class="btncomp" title="Cálculo de consumo:
           (P)Potência do totem = 200 Watts
           (G) Custo da energia
@@ -78,12 +158,8 @@
           Consumo por totem = ((P x (H - O) x D)/ 1000) * G
           Consumo total = Consumo por totem x Quantidade de totens." onclick="bt_cal()" id="cal">Calcular 💡
         </button>
-         
-         </div>
-              <div class="div_desconto" id="div_inner">
-          
-             </div>
-          </div>
+        <button class="btncomp" onclick="reload()">Repetir 🔁</button> 
+      </div>
       </div>
   
   
@@ -117,7 +193,49 @@
     </p>
   </div>
 
+  <!-- FooterResponsive -->
+<div class="copyright-reponsive">
+
+</div>
+  <div class="footerResponsive">
+
+    <div class="caixafooterResponsive">
+
+      <div class="contatoResponsive">
+        <h1 class="title-h1-responsive">Contato</h1>
+        <p class="text-p-footer-responsive">
+          <img class="img-responsive" src="" src="./assets/icons/envelope.png"> AirVision@gmail.com <br><br>
+          <img src="./assets/icons/phone-receiver-silhouette.png"> 55 (11)93207-7271 <br><br>
+          <a href="https://github.com/AirVisionPI/AirVision"> <img src="./assets/icons/github.png"> AirVision</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
 </html>
+<script>
+
+  let btn = document.querySelector("btn_responsive");
+  let sidebar = document.querySelector(".sidebar");
+
+  function btn_responsive() {
+    sidebar.classList.toggle("active");
+
+
+
+    // if (loginAnswer.style.display == "none") {
+    //   loginAnswer.style.display = "block";
+
+    // } else {
+    //   loginAnswer.style.display = "none";
+
+    // }
+
+
+
+
+  }
+</script>
 <script>
 
 
@@ -164,7 +282,14 @@
 }
   }
 
-          
+function reload(){
+      const hora = horas.value;
+      const gastoEnerg = energia.value;
+      const qtdTotens = totens.value;
+
+  div_inner.innerHTML = ``;
+
+}       
 
 
 </script>

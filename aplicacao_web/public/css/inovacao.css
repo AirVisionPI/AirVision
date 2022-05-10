@@ -117,7 +117,6 @@ input {
 
 .inpCalc {
   height: 7vh;
-  width: 20vw;
   color: #224b77;
   font-weight: 500;
 }
@@ -139,7 +138,6 @@ label {
 }
 .insert-data {
   margin-left: 8%;
-  margin-top: -7vh;
 }
 
 .insert-data h4 {
@@ -166,23 +164,23 @@ h1 {
   text-align: center;
   font-size: 1vh;
   padding: 0;
-  height: 6.3vh !important;
+  height: 5.2vh !important;
   width: 13vw !important;
   transition: all 0.5s;
-  margin-left: 1vw;
-  box-shadow: 0 0.5vh 0.6vw 0 rgba(0, 0, 0, 0.7);
+  margin-left: 37vw;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   border-top-right-radius: 1vw;
   border-bottom-left-radius: 1vw;
-  background: #000;
-  color: #fff;
-  font-size: 1.4vw;
-  font-weight: 600;
+  background: #3a75b4;
+  color: #000;
+  font-size: 1vw;
   transition: 0.5s !important;
   cursor: help !important;
+
+  margin-bottom: 5%;
 }
 
 .mapa {
@@ -281,4 +279,69 @@ a {
   justify-content: center;
   align-items: center;
   font-size: 1.2vw;
+}
+
+@media (max-width: 650px) {
+  .img_Inovacao {
+    display: none;
+  }
+
+  .firstlineInovacao {
+    width: 98vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+  }
+
+  .textofirstline {
+    width: 75vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .textofirstline p {
+    font-size: 3.5vw;
+    display: grid;
+  }
+
+  h3 {
+    font-size: 5vw;
+  }
+  .div_desconto {
+    display: flex;
+    height: auto !important;
+    width: 50vw;
+    background-color: transparent;
+    margin-left: -11vw;
+    margin-top: -3vh;
+  }
+
+  .btncomp {
+    text-align: center;
+    font-size: 1vh;
+    padding: 0;
+    height: 2.2vh !important;
+    width: 13vw !important;
+    transition: all 0.5s;
+    margin-left: -10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-top-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    background: #3a75b4;
+    color: #000;
+    font-size: 1vw;
+    transition: 0.5s !important;
+    cursor: help !important;
+    margin-bottom: 5%;
+  }
+  h4 {
+    margin-top: 10%;
+    font-size: 3vw;
+    margin-bottom: 4%;
+  }
 }
