@@ -1,1 +1,0 @@
-ssh -i admin-airvision.pem azureuser@20.25.124.189
