@@ -26,6 +26,7 @@ import telas.TelaPrincipal;
 
 // ESSES IMPORTS PARA INSERIR
 import com.mycompany.metodos.MetodoInsert;
+import com.sun.java.accessibility.util.EventID;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SpringLayout;
@@ -82,6 +83,12 @@ public class App {
 
         return convertido3;
     }
+    
+    public static Double converterMillisecondsToSeconds(Double milliseconds){
+        Double seconds = (milliseconds / 1000) % 60;
+        
+        return seconds;
+    }
 
     public static void painelDeControle(
             String nome,
@@ -119,7 +126,7 @@ public class App {
                 + "\n         %s GB             %s GB           %s GB                   "
                 + "\n"
                 + "\n   Tamanho da ram        | Utilizada         | Disponivel          "
-                + "\n         %s GB             %s%%              %s%%                  "
+                + "\n         %s GB             %s GB            %s GB                  "
                 + "\n"
                 + "\n|-----------------------------------------------------------------|"
                 + "\n|--------------          MONITORAMENTO          ------------------|"
@@ -142,9 +149,9 @@ public class App {
                 formatador.format(tamanhoDaRam),
                 formatador.format(ramUtilizado),
                 formatador.format(ramDisponivel),
-                formatador.format(cpu).substring(0, 4),
+                formatador.format(cpu),
                 formatador.format(ram),
-                formatador.format(disco).substring(0, 2),
+                formatador.format(disco),
                 quantidadeRegistrado
         ));
     }
@@ -187,7 +194,7 @@ public class App {
                         LogsRamInsert logsRam = new LogsRamInsert();
                         SystemInfo si = new SystemInfo();
 
-                        //LOOCA
+                        // LOOCA
                         Looca looca = new Looca();
 
                         inserir.insertMaquina(fk_aeroporto);
@@ -209,7 +216,7 @@ public class App {
                             Double ramDisponivel = tamanhoDaRam - ramUtilizado;
                             Double cpu = looca.getProcessador().getUso();
                             Double ram = ramUtilizado * 100 / tamanhoDaRam;
-                            Double disco = converterByteToGigabyte((double) looca.getGrupoDeDiscos().getDiscos().get(0).getBytesDeLeitura());
+                            Double disco = converterMillisecondsToSeconds((double) looca.getGrupoDeDiscos().getDiscos().get(0).getTempoDeTransferencia());
 
                             // METODO PARA INSERIR NO AZURE
                             inserir.insertLogBanco(fk_aeroporto);
