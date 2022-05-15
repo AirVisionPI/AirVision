@@ -1,7 +1,20 @@
-function btnEntrar() {
-  var formulario = new URLSearchParams(
+var formulario;
+
+function btnEntrarResponsivo() {
+  formulario = new URLSearchParams(
+    new FormData(document.getElementById("singin"))
+  );
+  btnEntrar();
+}
+
+function btnEntrarTradicional() {
+  formulario = new URLSearchParams(
     new FormData(document.getElementById("form_login"))
   );
+  btnEntrar();
+}
+
+function btnEntrar() {
   var email = formulario.get("email");
   var senha = formulario.get("senha");
 
