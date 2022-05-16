@@ -162,6 +162,7 @@ body {
   position: relative;
   width: 100%;
 }
+
 .search label input {
   width: 100%;
   height: 40px;
@@ -188,6 +189,7 @@ body {
   overflow: hidden;
   cursor: pointer;
 }
+
 .msg img {
   position: relative;
   min-width: 50px;
@@ -219,20 +221,27 @@ body {
   background: #fff;
   width: 0%;
   transition: 0.1s;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .card .cardGrafico {
   position: relative;
-  color: rgb(78, 78, 78);
   width: 100%;
   height: 100%;
   padding-left: 1.4%;
   padding-right: 1.4%;
-  border: groove 3px rgba(177, 177, 255, 0.863);
-  border-radius: 3px;
+  background-color: #f6fcff;
+  border: solid 5.5px rgb(172, 205, 238);
+  border-radius: 4px;
   text-align: center;
+}
+
+.card .cardGrafico h4 {
+  position: relative;
+  color: rgb(78, 78, 78);
+  font-size: 12px;
 }
 
 #grafico {
@@ -240,14 +249,29 @@ body {
 }
 
 .card .divCardTotens {
-  margin-left: 50px;
+  margin-top: 23px;
+  margin-left: 23px;
+  margin-right: 23px;
+  border: solid 4px blue;
+}
+
+.divTitulosPainel2 {
+  width: 100%;
+  color: rgb(78, 78, 78);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.divGraficosPainel2 {
+  width: 100%;
+  display: flex;
+  height: 90%;
 }
 
 .card .div2CardTotens {
-  background: #d8e7ffab;
-  border: groove 3px #3f61ab;
-  width: 650px;
-  height: 200px;
+  width: 100%;
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,17 +282,21 @@ body {
 .divBotoes1 {
   justify-content: center;
 }
+
 .divBotoes2 {
   justify-content: center;
 }
+
 .divBotoes3 {
   justify-content: center;
 }
 
 .cardBox .card .container_painel {
   display: none;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
+  justify-content: center;
+  align-items: center;
 }
 
 .cabecario_painel {
@@ -276,38 +304,38 @@ body {
   font-style: italic;
   display: flex;
   width: 100%;
-  height: 15%;
+  height: 12%;
   transition: 1s;
   align-items: center;
   justify-content: space-between;
-  padding-left: 4.2%;
-  padding-right: 4.2%;
+  padding-left: 4.1%;
+  padding-right: 4.1%;
 }
 
 .monitorar_painel {
-  padding-left: 5%;
-  padding-right: 5%;
   display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 30%;
+  height: 33%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .monitorar_painel2 {
-  display: flex;
-  width: 100%;
+  width: 75%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .abas_painel {
+  margin-top: 15px;
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 50%;
-  align-items: center;
-  justify-content: center;
 }
 
 .cardBox .card .numbers {
@@ -367,6 +395,7 @@ body {
   background: #03a9f4;
   color: #fff;
 }
+
 .btnMonitoramento {
   cursor: pointer !important;
   font-size: 1vw !important;
@@ -389,9 +418,9 @@ body {
 }
 
 .btnMonitoramento:hover {
-  border: 1.5px solid #001749;
-  border-radius: 7px;
-  background-color: #6394ff;
+  border: 1.5px solid #0017493e;
+  border-radius: 6px;
+  background-color: #2a6effea;
   color: #ffffff;
   font-weight: bolder;
 }
@@ -399,6 +428,7 @@ body {
 .btnMonitoramento:focus {
   outline: none;
 }
+
 .buttonFuncionario.ghost {
   background-color: #000;
   border-color: rgba(14, 57, 151, 0.795);
@@ -502,6 +532,7 @@ body {
     width: 290px;
     overflow-x: scroll;
   }
+
   .details .recentOrders {
     height: 290px;
     overflow-y: scroll;
@@ -569,6 +600,7 @@ body {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
 /*----------- POPUṔ MODAL PERFIL -----------*/
 
 .modal-container {
@@ -635,6 +667,7 @@ body {
   width: 10%;
   height: 10%;
 }
+
 .ipt_modal {
   background-color: transparent;
   border: none;
@@ -644,6 +677,7 @@ body {
   height: 3vh;
   /* width: 100%; */
 }
+
 .selectCargo {
   margin-left: 300px;
   background-color: transparent;
@@ -658,6 +692,7 @@ body {
 .formModal {
   display: flex;
 }
+
 .formModal h4 {
   margin-left: 70%;
 }
@@ -665,6 +700,7 @@ body {
 .atualizarDados {
   width: 50%;
 }
+
 .divDados {
   display: flex;
 }
@@ -740,6 +776,7 @@ body {
   width: 10%;
   height: 10%;
 }
+
 .ipt_modal {
   background-color: transparent;
   border: none;
@@ -749,6 +786,7 @@ body {
   height: 3vh;
   /* width: 100%; */
 }
+
 .selectCargo {
   margin-left: 300px;
   background-color: transparent;
@@ -758,4 +796,68 @@ body {
   margin-bottom: 20px;
   /* height: 3vh; */
   /* width: 100%; */
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  position: relative;
+  display: inline-block;
+  padding: 3px 10px 3px;
+  border-radius: 4px;
+  margin-right: 4px;
+  border: 1.5px solid rgb(89, 89, 89);
+  background-color: rgb(88, 100, 100);
+  cursor: pointer;
+}
+
+.menu li:hover {
+  border: 1.5px solid rgb(115, 115, 115);
+  background-color: rgb(61, 70, 70);
+}
+
+.menu li:active {
+  transform: scale(0.95);
+}
+
+.menu li a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  color: rgb(248, 248, 248);
+}
+
+article {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+section {
+  transition: 0.4s;
+  position: absolute;
+  padding: 8px;
+  border: 3px solid rgb(210, 210, 210);
+  border-radius: 2px;
+  background: rgb(239, 239, 239);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+section.active {
+  z-index: 1;
+}
+
+/* Target cria a referência do elemento clicado */
+section:target {
+  z-index: 2
 }
