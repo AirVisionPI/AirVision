@@ -83,10 +83,10 @@ public class App {
 
         return convertido3;
     }
-    
-    public static Double converterMillisecondsToSeconds(Double milliseconds){
+
+    public static Double converterMillisecondsToSeconds(Double milliseconds) {
         Double seconds = (milliseconds / 1000) % 60;
-        
+
         return seconds;
     }
 
@@ -132,7 +132,7 @@ public class App {
                 + "\n|--------------          MONITORAMENTO          ------------------|"
                 + "\n                           CPU: %s%%"
                 + "\n                           RAM: %s%%"
-                + "\n                         Disco: %s%%"
+                + "\n          Tempo/resposta Disco: %s Segundos"
                 + "\n"
                 + "\n|--------------              OUTROS             ------------------|"
                 + "\n"
@@ -166,6 +166,7 @@ public class App {
                 clear();
                 System.out.println("\n==============================================================");
                 System.out.println("                 EFETUAR LOGIN AIRVISION                      ");
+                System.out.println("                    Exit ===> CTRL + C                        ");
                 System.out.println("--------------------------------------------------------------");
                 System.out.println("                 Email | Digite seu Email:                    ");
                 String email;
@@ -173,7 +174,7 @@ public class App {
                 System.out.println("--------------------------------------------------------------");
                 System.out.println("                 Senha | Digite sua Senha:                    ");
                 String senha;
-                senha = leitor.nextLine();
+                senha = leitor.nextLine();;
                 cadastroAdvancedUse = con.query("SELECT * FROM usuario "
                         + "WHERE email_usuario = ? and senha_usuario = ? ",
                         new BeanPropertyRowMapper(Usuario.class), email, senha);
@@ -263,7 +264,7 @@ public class App {
                 System.out.println(""
                         + "\n===========================ERROR==============================\n"
                         + e.getMessage()
-                        + "--------------------------------------------------------------\n"
+                        + "\n\n--------------------------------------------------------------"
                         + "\n"
                         + "          Algum erro foi detectado na inicialização...\n"
                         + "      VAMOS DIRECIONAR O TERMINAL PARA A APLICAÇÃO EM CLI\n"
