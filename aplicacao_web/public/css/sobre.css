@@ -175,7 +175,7 @@
     position: fixed;
     display: block;
     height: 100%;
-    width: 40px;
+    width: 13px;
     background: linear-gradient(to right, #3a75b4, #61a3e9);
     padding: 6px 14px;
     transition: all 0.5s ease;
@@ -404,6 +404,69 @@
   }
   .title-h1-responsive {
     font-size: 5vw !important ;
+  }
+
+  .firstline {
+    height: 10px;
+    /* width: 100%; */
+    display: flex;
+    justify-content: left;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    margin-left: 5%;
+  }
+
+  .header {
+    display: none;
+  }
+  .txt {
+    margin-top: 5%;
+    font-size: 63%;
+    color: rgba(59, 57, 57, 0.773);
+  }
+  .footerzin {
+    display: none;
+  }
+
+  .blocoline {
+    display: block;
+    height: 100%;
+    padding: 10%;
+    margin-left: 5%;
+    margin-top: 0;
+  }
+  .oqueline {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .cadline {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .porqueline {
+    width: 100%;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .btnCad {
+    background: #3a75b4;
+    color: white;
+    width: 45% !important;
+    border: none;
+    outline: none;
+    padding: 8px 0 8px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    height: 4vh !important;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 }
 @media (min-width: 650px) {

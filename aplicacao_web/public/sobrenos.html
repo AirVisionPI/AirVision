@@ -122,7 +122,7 @@
         <p class="txt">
           Convidamos você a conhecer nossa inovação, após ler o sobre nós, você  tambem pode contatar nosso suporte para agendar uma reunião e descobrir se nosso negócio faz sentido para você!
         </p>
-       <a href="login.html"> <button class="btnCad"  style="margin-top: 7vh; margin-left: 3.5vw;"data-container="left">Cadastro</button></a>
+       <a href="login.html"> <button class="btnCad" data-container="left">Cadastro</button></a>
       </div>
     </div>
     <div class="porqueline">
@@ -140,6 +140,8 @@
 
   <!-- FOOTER -->
 
+
+<div class="footerzin">
 
 
   <div class="footerline">
@@ -170,6 +172,7 @@
       AirVision Copyright © 2022 All rights reserved.
     </p>
   </div>
+</div>
 
   <!-- FooterResponsive -->
 <div class="copyright-reponsive">
@@ -191,6 +194,18 @@
   </div>
 
 </html>
+<script>
+
+  let btn = document.querySelector("btn_responsive");
+  let sidebar = document.querySelector(".sidebar");
+
+  function btn_responsive() {
+    sidebar.classList.toggle("active");
+
+
+
+  }
+</script>
 <script>
 
   const target = document.querySelectorAll('[data-container]');
