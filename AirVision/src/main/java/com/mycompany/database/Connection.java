@@ -16,7 +16,7 @@ public class Connection {
     private BasicDataSource dataSourceLocal;
 
     public Connection() {
-        
+
         dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         dataSource.setUrl("jdbc:sqlserver://srv-airvision.database.windows.net:1433;database=bd-airvision;user=admin-airvision@srv-airvision;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
@@ -32,12 +32,10 @@ public class Connection {
     }
 
     public BasicDataSource getDataSource() {
-        
         return dataSource;
     }
-    
-        public BasicDataSource getDataSource2() {
-        
+
+    public BasicDataSource getDataSourceLocal() {
         return dataSourceLocal;
     }
 }
