@@ -19,51 +19,56 @@ import com.mycompany.airvision.Maquina;
  * @author jsantos
  */
 public class maquinaLeitor {
-    
+
     Looca looca = new Looca();
     Sistema sistema = new Sistema();
     private final SystemInfo si = new SystemInfo();
-    
+
 //        public Long tamanhoTotal(){
 //       return disco.getTamanhoTotal();
 //    }
-    
-    
-    public String getHostName(){
+    public String getHostName() {
         return this.si.getOperatingSystem().getNetworkParams().getHostName();
     }
-        
-    public String getSistema(){
+
+    public String getSistema() {
         return sistema.getSistemaOperacional();
     }
-    
-        public void insertMaquina(Integer fk_aeroporto){
-        
+
+    public void insertMaquina(Integer fk_aeroporto) {
+
         Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        
-        
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        String insert = "INSERT INTO maquina VALUES (?,?,?);";
+
         String select = "select * from maquina where fk_aeroporto = ? and hostname = ?;";
         List<com.mycompany.airvision.Maquina> maquinas;
-        maquinas = template.query(select,new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, getHostName());
-        
-        if(maquinas.isEmpty()){
-            template.update("INSERT INTO maquina VALUES ( ?,?,?);",
+        maquinas = template.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, getHostName());
+
+        if (maquinas.isEmpty()) {
+            template.update(insert,
                     getHostName(),
                     getSistema(),
                     fk_aeroporto
-            );        
+            );
+            templateLocal.update(insert,
+                    getHostName(),
+                    getSistema(),
+                    fk_aeroporto
+            );
         }
     }
-    
-    public List<Maquina> selectMaquina(){
-        
+
+    public List<Maquina> selectMaquina() {
+
         Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
         String select = "select * from Maquina";
 
-        return template.query(select,new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class));
+        return template.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class));
 
-    }        
-        
+    }
+
 }
