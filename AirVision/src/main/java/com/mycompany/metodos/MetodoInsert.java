@@ -30,7 +30,7 @@ public class MetodoInsert {
         List<Maquina> maquinas = template.query(select,new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, maquina.getHostName() );   
         
         LogsDiscoLeitor logsDisco = new LogsDiscoLeitor();   
-        select = "select * from Disco where fk_maquina = ?";
+        select = "select * from disco where fk_maquina = ?";
         List<Disco> disco = template.query(select,new BeanPropertyRowMapper(com.mycompany.airvision.Disco.class), maquinas.get(0).getId_maquina());   
         logsDisco.insertLogDisco(disco.get(0).getId_disco());
         

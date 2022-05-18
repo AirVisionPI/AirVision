@@ -1,163 +1,83 @@
-create database airvision ;
-
-use airvision;
-
 CREATE TABLE companhia_aerea (
-Id_aeroporto int primary key auto_increment,
-razao_aeroporto varchar (45),
-cnpj_aeroporto char (14),
-responsavel_aeroporto varchar(45),
-localidade_aeroporto varchar(45)
+id_aeroporto int primary key auto_increment,
+razao_aeroporto varchar(150),
+cnpj_aeroporto char (15),
+responsavel_aeroporto varchar(150),
+localidade_aeroporto varchar(150)
 );
 
 CREATE TABLE usuario(
-Id_usuario int primary key auto_increment,
-nome_usuario varchar(45),
-email_usuario varchar(40),
- senha_usuario varchar(20),
-cargo_usuario varchar(45),
+id_usuario int primary key auto_increment,
+nome_usuario varchar(150),
+email_usuario varchar(150),
+senha_usuario varchar(150),
+cargo_usuario varchar(150),
 fk_aeroporto int,
-fk_cargo varchar(45) 
-FOREIGN KEY (fk_cargo) REFERENCES usuario (Id_usuario)
- FOREIGN KEY (fk_aeroporto) REFERENCES companhia aerea (Id_aeroporto)
+ FOREIGN KEY (fk_aeroporto) REFERENCES companhia_aerea (id_aeroporto)
 );
 
 create table maquina (
 id_maquina int primary key auto_increment,
-nome_maquina varchar (45),
-fk_aeroporto int
-FOREIGN KEY (fk_aeroporto) REFERENCES companhia aerea (Id_aeroporto)
+hostname varchar(150),
+sistema_operacional varchar(150),
+fk_aeroporto int,
+FOREIGN KEY (fk_aeroporto) REFERENCES companhia_aerea (id_aeroporto)
 );
 
-
-
-CREATE TABLE status_maquinas (
+CREATE TABLE status_maquina (
 id_status INT PRIMARY KEY AUTO_INCREMENT,
- status_maquinas CHAR(30),
+status_maquina varchar(150),
 fk_maquina INT,
 FOREIGN KEY (fk_maquina) REFERENCES maquina (id_maquina)
 );
-
-
 
 create table disco (
 id_disco int primary key auto_increment,
-especificacao varchar(45) ,
-fk_maquina_disco int,
-foreign key (fk_maquina_disco)references maquina (id_maquina)
+nome varchar(150) ,
+modelo varchar(150) ,
+fk_maquina int,
+foreign key (fk_maquina)references maquina (id_maquina)
 );
-
-
 
 create table memoria (
 id_memoria int primary key auto_increment,
-especificacao varchar(45) ,
-fk_maquina_memoria int,
-foreign key (fk_maquina_memoria)references maquina (id_maquina)
+total varchar(150) ,
+fk_maquina int,
+foreign key (fk_maquina)references maquina (id_maquina)
 );
-
-
 
 create table cpu (
 id_cpu int primary key auto_increment,
-especificacao varchar(45) ,
-fk_maquina_cpu int,
-foreign key (fk_maquina_cpu)references maquina (id_maquina)
+nome_processador varchar(150) ,
+identificador varchar(150) ,
+fabricante varchar(150) ,
+fk_maquina int,
+foreign key (fk_maquina)references maquina (id_maquina)
 );
-
 
 create table logs_disco(
     id_logs_disco int primary key auto_increment,
-    logs varchar(100)
-    data_hora datetime 
-)
-
-
-CREATE TABLE dados_agua(
-Idagua int primary key auto_increment,
-Consumo VARCHAR(50),
-Dtconsumo DATETIME DEFAULT current_timestamp,
-Fkestufa INT,
-FOREIGN KEY (Fkestufa) REFERENCES Estufa (idestufa)
+    disco_leitura varchar(150) ,
+    disco_escrita varchar(150) ,
+    tamanho_atual_fila varchar(150) ,
+    data_hora datetime ,
+    fk_disco int,
+foreign key (fk_disco)references disco (id_disco)
 );
 
-
-
-
-
-
-
--- SCRIPT PARA SQL SERVER AZURE
-CREATE TABLE companhia_aerea (
-Id_aeroporto int primary key identity,
-razao_aeroporto varchar (45),
-cnpj_aeroporto char (14),
-responsavel_aeroporto varchar(45),
-localidade_aeroporto varchar(45)
+create table logs_cpu(
+    id_logs_cpu int primary key auto_increment,
+    em_uso varchar(150) ,
+    data_hora datetime ,
+    fk_cpu int,
+foreign key (fk_cpu)references cpu (id_cpu)
 );
 
-CREATE TABLE usuario(
-Id_usuario int primary key identity,
-nome_usuario varchar(45),
-email_usuario varchar(40),
- senha_usuario varchar(20),
-cargo_usuario varchar(45),
-fk_aeroporto int,
-fk_cargo varchar(45) 
-FOREIGN KEY (fk_cargo) REFERENCES usuario (Id_usuario)
- FOREIGN KEY (fk_aeroporto) REFERENCES companhia aerea (Id_aeroporto)
+create table logs_memoria(
+    id_logs_memoria int primary key auto_increment,
+    ram_disponivel varchar(150) ,
+    ram_uso varchar(150) ,
+    data_hora datetime ,
+    fk_memoria int,
+foreign key (fk_memoria)references memoria (id_memoria)
 );
-
-create table maquina (
-id_maquina int primary key identity,
-nome_maquina varchar (45),
-fk_aeroporto int
-FOREIGN KEY (fk_aeroporto) REFERENCES companhia aerea (Id_aeroporto)
-);
-
-
-
-CREATE TABLE status_maquinas (
-id_status INT PRIMARY KEY identity,
- status_maquinas CHAR(30),
-fk_maquina INT,
-FOREIGN KEY (fk_maquina) REFERENCES maquina (id_maquina)
-);
-
-
-
-create table disco (
-id_disco int primary key identity,
-especificacao varchar(45) ,
-fk_maquina_disco int,
-foreign key (fk_maquina_disco)references maquina (id_maquina)
-);
-
-
-
-create table memoria (
-id_memoria int primary key identity,
-especificacao varchar(45) ,
-fk_maquina_memoria int,
-foreign key (fk_maquina_memoria)references maquina (id_maquina)
-);
-
-
-
-create table cpu (
-id_cpu int primary key identity,
-especificacao varchar(45) ,
-fk_maquina_cpu int,
-foreign key (fk_maquina_cpu)references maquina (id_maquina)
-);
-
-
-create table logs_disco(
-    id_logs_disco int primary key identity,
-    logs varchar(100)
-    data_hora datetime 
-)
-
-
-
-

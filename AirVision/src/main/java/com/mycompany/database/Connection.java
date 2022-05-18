@@ -13,24 +13,31 @@ import org.apache.commons.dbcp2.BasicDataSource;
 public class Connection {
 
     private BasicDataSource dataSource;
+    private BasicDataSource dataSourceLocal;
 
-    public Connection(String dataType) {
-        if (dataType.equals("Azure")) {
-            dataSource = new BasicDataSource();
-            dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            dataSource.setUrl("jdbc:sqlserver://srv-airvision.database.windows.net:1433;database=bd-airvision;user=admin-airvision@srv-airvision;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-            dataSource.setUsername("admin-airvision");
-            dataSource.setPassword("2ads@grupo3");
-        } else if (dataType.equals("MySQL")) {
-            dataSource = new BasicDataSource();
-            dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-            dataSource.setUrl("jdbc:mysql://localhost/3308");
-            dataSource.setUsername("root");
-            dataSource.setPassword("");
-        }
+    public Connection() {
+        
+        dataSource = new BasicDataSource();
+        dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        dataSource.setUrl("jdbc:sqlserver://srv-airvision.database.windows.net:1433;database=bd-airvision;user=admin-airvision@srv-airvision;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+        dataSource.setUsername("admin-airvision");
+        dataSource.setPassword("2ads@grupo3");
+
+        dataSourceLocal = new BasicDataSource();
+        dataSourceLocal.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSourceLocal.setUrl("jdbc:mysql://localhost:3308/airvision");
+        dataSourceLocal.setUsername("root");
+        dataSourceLocal.setPassword("root");
+
     }
 
     public BasicDataSource getDataSource() {
+        
         return dataSource;
+    }
+    
+        public BasicDataSource getDataSource2() {
+        
+        return dataSourceLocal;
     }
 }

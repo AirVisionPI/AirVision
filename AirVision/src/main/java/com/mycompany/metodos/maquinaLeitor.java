@@ -43,7 +43,7 @@ public class maquinaLeitor {
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
         
         
-        String select = "select * from Maquina where fk_aeroporto = ? and hostname = ?;";
+        String select = "select * from maquina where fk_aeroporto = ? and hostname = ?;";
         List<com.mycompany.airvision.Maquina> maquinas;
         maquinas = template.query(select,new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, getHostName());
         
