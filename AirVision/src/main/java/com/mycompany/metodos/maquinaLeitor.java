@@ -37,38 +37,57 @@ public class maquinaLeitor {
 
     public void insertMaquina(Integer fk_aeroporto) {
 
+        // INSTANCIANDO CONNECTION, É ONDE TEM TODOS OS CAMPOS DE CONFIGURAÇÃO DA CONEXÃO COM OS BANCOS DE DADOS.
         Connection config = new Connection();
-        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
 
+        // 🎲 SCRIPTS SQL 🎲
         String insert = "INSERT INTO maquina VALUES (?,?,?);";
-
         String select = "select * from maquina where fk_aeroporto = ? and hostname = ?;";
+
+// SQL SERVER  ------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
+
+        // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO AZURE
+        // EFETUANDO O SCRIPT SELECT NO Template(ObjetoSQL Azure), isto está em Connection...
         List<com.mycompany.airvision.Maquina> maquinas;
         maquinas = template.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, getHostName());
 
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Azure)...
         if (maquinas.isEmpty()) {
             template.update(insert,
                     getHostName(),
                     getSistema(),
                     fk_aeroporto
             );
-            templateLocal.update(insert,
+        }
+
+// SQL LOCAL  --------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO LOCAL
+        // EFETUANDO O SCRIPT SELECT NO TemplateLocal(ObjetoSQL Local), isto está em Connection...
+        List<com.mycompany.airvision.Maquina> maquinasLocal;
+        maquinasLocal = templateLocal.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, getHostName());;;;
+
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
+        if (maquinasLocal.isEmpty()) {
+            templateLocal.update("INSERT INTO maquina ( hostname, sistema_operacional, fk_aeroporto) VALUES (?,?,?);",
                     getHostName(),
                     getSistema(),
                     fk_aeroporto
             );
         }
+
     }
 
     public List<Maquina> selectMaquina() {
-
         Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
         String select = "select * from Maquina";
-
         return template.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class));
-
     }
-
 }

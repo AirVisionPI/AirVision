@@ -15,14 +15,22 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class LogsRamInsert {
 
-    public void insertLogRam(Integer fk_ram) {
+    public void insertLogRam(Integer fk_ram, Integer fk_ram_local) {
 
         ramLeitor ram = new ramLeitor();
+
+        // INSTANCIANDO CONNECTION, É ONDE TEM TODOS OS CAMPOS DE CONFIGURAÇÃO DA CONEXÃO COM OS BANCOS DE DADOS.
         Connection config = new Connection();
-        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        // 🎲 SCRIPTS SQL 🎲
         String insert = "INSERT INTO logs_memoria (ram_disponivel, ram_uso, data_hora, fk_memoria) VALUES ( ?,?,?,?);";
 
+// SQL SERVER  ------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
+
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Azure)...
         template.update(insert,
                 ram.disponivel(),
                 ram.emUso(),
@@ -30,11 +38,17 @@ public class LogsRamInsert {
                 fk_ram
         );
 
+// SQL LOCAL  --------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
         templateLocal.update(insert,
                 ram.disponivel(),
                 ram.emUso(),
                 LocalDateTime.now(),
-                fk_ram
+                fk_ram_local
         );
 
     }

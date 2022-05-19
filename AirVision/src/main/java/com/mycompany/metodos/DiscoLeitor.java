@@ -52,32 +52,50 @@ public class DiscoLeitor {
         maquinaLeitor maquinaleitor = new maquinaLeitor();
 
         Disco disco = getDisco(index);
+
+        // INSTANCIANDO CONNECTION, É ONDE TEM TODOS OS CAMPOS DE CONFIGURAÇÃO DA CONEXÃO COM OS BANCOS DE DADOS.
         Connection config = new Connection();
+
+        // 🎲 SCRIPTS SQL 🎲
+        String insert = "INSERT INTO disco ( nome, modelo, fk_maquina) VALUES ( ?,?,?);";
+        String select = "SELECT * from maquina where hostname = ? and fk_aeroporto = ?";
+
+// SQL SERVER  ------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
+
+        // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO AZURE
+        // EFETUANDO O SCRIPT SELECT NO Template(ObjetoSQL Azure), isto está em Connection...
+        List<Maquina> maquinas = template.query(select, new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
+
+// SQL LOCAL  --------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
         JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
 
-        String insert = "INSERT INTO disco ( nome, modelo, fk_maquina) VALUES ( ?,?,?);";
-
-        List<Maquina> maquinas = template.query("SELECT * from maquina where hostname = ? and fk_aeroporto = ?", new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
+        // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO LOCAL
+        // EFETUANDO O SCRIPT SELECT NO TemplateLocal(ObjetoSQL Local), isto está em Connection...
+        List<Maquina> maquinasLocal = templateLocal.query(select, new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
 
         for (Maquina maquina1 : maquinas) {
             System.out.println("maquinas: " + maquina1);
         }
 
+// SQL SERVER  ------------------
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Azure)...
         template.update(insert,
                 disco.getNome(),
                 disco.getModelo(),
                 maquinas.get(0).getId_maquina()
-        //                disco.getBytesDeLeitura(),
-        //                disco.getBytesDeEscritas(),
-        //                disco.getTamanhoAtualDaFila(),
-        //                disco.getTempoDeTransferencia()
         );
 
+// SQL LOCAL  --------------------
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
         templateLocal.update(insert,
                 disco.getNome(),
                 disco.getModelo(),
-                maquinas.get(0).getId_maquina()
+                maquinasLocal.get(0).getId_maquina()
         );
 
     }

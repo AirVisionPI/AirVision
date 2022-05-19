@@ -54,14 +54,24 @@ public class CpuLeitor {
 
     public void insertCpu(Integer fk_aeroporto) {
         maquinaLeitor maquinaleitor = new maquinaLeitor();
+
+        // INSTANCIANDO CONNECTION, É ONDE TEM TODOS OS CAMPOS DE CONFIGURAÇÃO DA CONEXÃO COM OS BANCOS DE DADOS.
         Connection config = new Connection();
+
+        // 🎲 SCRIPTS SQL 🎲
+        String insert = "INSERT INTO cpu ( nome_processador, identificador, fabricante, fk_maquina ) VALUES (?,?,?,?);";
+        String select = "SELECT * from maquina where hostname = ? and fk_aeroporto = ?";
+
+// SQL SERVER  ------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
 
-        String insert = "INSERT INTO cpu ( nome_processador, identificador,fabricante, fk_maquina ) VALUES (?,?,?,?);";
+        // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO AZURE
+        // EFETUANDO O SCRIPT SELECT NO Template(ObjetoSQL Azure), isto está em Connection...
+        List<Maquina> maquinas = template.query(select, new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
 
-        List<Maquina> maquinas = template.query("SELECT * from maquina where hostname = ? and fk_aeroporto = ?", new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
-
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Azure)...
         template.update(insert,
                 cpu.getNome(),
                 cpu.getIdentificador(),
@@ -69,12 +79,23 @@ public class CpuLeitor {
                 maquinas.get(0).getId_maquina()
         );
 
+// SQL LOCAL  --------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO LOCAL
+        // EFETUANDO O SCRIPT SELECT NO TemplateLocal(ObjetoSQL Local), isto está em Connection...
+        List<Maquina> maquinasLocal = templateLocal.query(select, new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
+
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
         templateLocal.update(insert,
                 cpu.getNome(),
                 cpu.getIdentificador(),
                 cpu.getFabricante(),
-                maquinas.get(0).getId_maquina()
+                maquinasLocal.get(0).getId_maquina()
         );
+
     }
 
     public List<Cpu> selectCpu() {

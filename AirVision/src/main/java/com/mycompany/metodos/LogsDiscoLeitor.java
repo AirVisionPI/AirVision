@@ -27,13 +27,20 @@ public class LogsDiscoLeitor {
         this.disco = looca.getGrupoDeDiscos().getDiscos().get(0);
     }
 
-    public void insertLogDisco(Integer fk_disco) {
+    public void insertLogDisco(Integer fk_disco, Integer fk_disco_local) {
 
+        // INSTANCIANDO CONNECTION, É ONDE TEM TODOS OS CAMPOS DE CONFIGURAÇÃO DA CONEXÃO COM OS BANCOS DE DADOS.
         Connection config = new Connection();
-        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        // 🎲 SCRIPTS SQL 🎲
         String insert = "INSERT INTO logs_disco ( disco_leitura, disco_escrita, tamanho_atual_fila, data_hora, fk_disco) VALUES ( ?,?,?,?,?);";
 
+// SQL SERVER  ------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
+
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Azure)...
         template.update(insert,
                 disco.getBytesDeLeitura(),
                 disco.getBytesDeEscritas(),
@@ -41,12 +48,19 @@ public class LogsDiscoLeitor {
                 LocalDateTime.now(),
                 fk_disco
         );
+
+// SQL LOCAL  --------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
         templateLocal.update(insert,
                 disco.getBytesDeLeitura(),
                 disco.getBytesDeEscritas(),
                 disco.getTamanhoAtualDaFila(),
                 LocalDateTime.now(),
-                fk_disco
+                fk_disco_local
         );
 
     }

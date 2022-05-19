@@ -14,24 +14,38 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class LogsCpuLeitor {
 
-    public void insertLogCpu(Integer fk_cpu) {
+    public void insertLogCpu(Integer fk_cpu, Integer fk_cpu_local) {
 
         CpuLeitor cpu = new CpuLeitor();
-        Connection config = new Connection();
-        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
 
+        // INSTANCIANDO CONNECTION, É ONDE TEM TODOS OS CAMPOS DE CONFIGURAÇÃO DA CONEXÃO COM OS BANCOS DE DADOS.
+        Connection config = new Connection();
+
+        // 🎲 SCRIPTS SQL 🎲
         String insert = "INSERT INTO logs_cpu (em_uso, data_hora, fk_cpu) VALUES ( ?,?,?);";
 
+// SQL SERVER  ------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
+
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Azure)...
         template.update(insert,
                 cpu.emUso(),
                 LocalDateTime.now(),
                 fk_cpu
         );
+
+// SQL LOCAL  --------------------
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
         templateLocal.update(insert,
                 cpu.emUso(),
                 LocalDateTime.now(),
-                fk_cpu
+                fk_cpu_local
         );
 
     }
