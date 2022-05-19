@@ -18,6 +18,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @author jsantos
  */
 public class LogsDiscoLeitor {
+
     private Looca looca;
     private Disco disco;
 
@@ -25,22 +26,29 @@ public class LogsDiscoLeitor {
         this.looca = new Looca();
         this.disco = looca.getGrupoDeDiscos().getDiscos().get(0);
     }
-    
-    public void insertLogDisco(Integer fk_disco){
-        
-         Connection config = new Connection();
+
+    public void insertLogDisco(Integer fk_disco) {
+
+        Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        
-        
-        template.update("INSERT INTO logs_disco ( disco_leitura, disco_escrita, tamanho_atual_fila, data_hora, fk_disco) VALUES ( ?,?,?,?,?);",
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+        String insert = "INSERT INTO logs_disco ( disco_leitura, disco_escrita, tamanho_atual_fila, data_hora, fk_disco) VALUES ( ?,?,?,?,?);";
+
+        template.update(insert,
                 disco.getBytesDeLeitura(),
                 disco.getBytesDeEscritas(),
                 disco.getTamanhoAtualDaFila(),
                 LocalDateTime.now(),
                 fk_disco
         );
-        
+        templateLocal.update(insert,
+                disco.getBytesDeLeitura(),
+                disco.getBytesDeEscritas(),
+                disco.getTamanhoAtualDaFila(),
+                LocalDateTime.now(),
+                fk_disco
+        );
+
     }
-    
-    
+
 }

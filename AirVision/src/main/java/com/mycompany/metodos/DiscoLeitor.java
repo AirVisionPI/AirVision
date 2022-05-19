@@ -13,8 +13,6 @@ import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-
-
 /**
  *
  * @author jsantos
@@ -24,66 +22,73 @@ public class DiscoLeitor {
     private Looca looca;
     private DiscosGroup disco;
     private Maquina maquina;
-    
+
     public DiscoLeitor() {
         this.looca = new Looca();
         this.disco = looca.getGrupoDeDiscos();
     }
 
-    public List<Disco> listaDiscos(){
+    public List<Disco> listaDiscos() {
         return disco.getDiscos();
     }
 
-    public Integer qtdDiscos(){
+    public Integer qtdDiscos() {
         return disco.getQuantidadeDeDiscos();
     }
 
-    public Integer qtdVolume(){
+    public Integer qtdVolume() {
         return disco.getQuantidadeDeVolumes();
     }
 
-    public Long tamanhoTotal(){
-       return disco.getTamanhoTotal();
+    public Long tamanhoTotal() {
+        return disco.getTamanhoTotal();
     }
 
-    public Disco getDisco(Integer index){
+    public Disco getDisco(Integer index) {
         return disco.getDiscos().get(index);
     }
 
-    public void insertDiscoLeitor(Integer index, Integer fk_aeroporto){
+    public void insertDiscoLeitor(Integer index, Integer fk_aeroporto) {
         maquinaLeitor maquinaleitor = new maquinaLeitor();
-        
+
         Disco disco = getDisco(index);
         Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        String insert = "INSERT INTO disco ( nome, modelo, fk_maquina) VALUES ( ?,?,?);";
+
         List<Maquina> maquinas = template.query("SELECT * from maquina where hostname = ? and fk_aeroporto = ?", new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
-        
+
         for (Maquina maquina1 : maquinas) {
             System.out.println("maquinas: " + maquina1);
         }
-        
-        template.update("INSERT INTO disco ( nome, modelo, fk_maquina) VALUES ( ?,?,?);",
+
+        template.update(insert,
                 disco.getNome(),
                 disco.getModelo(),
                 maquinas.get(0).getId_maquina()
-                
-//                disco.getBytesDeLeitura(),
-//                disco.getBytesDeEscritas(),
-//                disco.getTamanhoAtualDaFila(),
-//                disco.getTempoDeTransferencia()
+        //                disco.getBytesDeLeitura(),
+        //                disco.getBytesDeEscritas(),
+        //                disco.getTamanhoAtualDaFila(),
+        //                disco.getTempoDeTransferencia()
         );
 
+        templateLocal.update(insert,
+                disco.getNome(),
+                disco.getModelo(),
+                maquinas.get(0).getId_maquina()
+        );
 
     }
-    
-    public List<com.mycompany.airvision.Disco> selectDiscos(){
-        
+
+    public List<com.mycompany.airvision.Disco> selectDiscos() {
+
         Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
         String select = "select * from Disco";
 
-        return template.query(select,new BeanPropertyRowMapper(com.mycompany.airvision.Disco.class));
+        return template.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Disco.class));
 
     }
 }

@@ -13,20 +13,27 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @author jsantos
  */
 public class LogsCpuLeitor {
-    
-            public void insertLogCpu(Integer fk_cpu){
-            
-            CpuLeitor cpu = new CpuLeitor();  
-         Connection config = new Connection();
+
+    public void insertLogCpu(Integer fk_cpu) {
+
+        CpuLeitor cpu = new CpuLeitor();
+        Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        
-        
-        template.update("INSERT INTO logs_cpu (em_uso, data_hora, fk_cpu) VALUES ( ?,?,?);",
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        String insert = "INSERT INTO logs_cpu (em_uso, data_hora, fk_cpu) VALUES ( ?,?,?);";
+
+        template.update(insert,
                 cpu.emUso(),
                 LocalDateTime.now(),
                 fk_cpu
-        );  
-        
+        );
+        templateLocal.update(insert,
+                cpu.emUso(),
+                LocalDateTime.now(),
+                fk_cpu
+        );
+
     }
-    
+
 }

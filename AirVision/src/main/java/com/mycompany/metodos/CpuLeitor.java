@@ -18,7 +18,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
  * @author jsantos
  */
 public class CpuLeitor {
-    
+
 //    id_logs_cpu INT PRIMARY KEY AUTO_INCREMENT,
 //    em_uso VARCHAR(3),
 //    data_hora DATETIME,
@@ -32,50 +32,58 @@ public class CpuLeitor {
         this.cpu = looca.getProcessador();
     }
 
-    public Double emUso(){
+    public Double emUso() {
         return cpu.getUso();
     }
 
-    public Processador info(){
+    public Processador info() {
         return cpu;
     }
-    
-    public String identificador(){
+
+    public String identificador() {
         return cpu.getIdentificador();
     }
-    
-    public String nomeProcessador(){
+
+    public String nomeProcessador() {
         return cpu.getNome();
     }
-    
-    public String frabricante(){
+
+    public String frabricante() {
         return cpu.getFabricante();
     }
 
-    
-    
-   public void insertCpu(Integer fk_aeroporto){
+    public void insertCpu(Integer fk_aeroporto) {
         maquinaLeitor maquinaleitor = new maquinaLeitor();
         Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+        String insert = "INSERT INTO cpu ( nome_processador, identificador,fabricante, fk_maquina ) VALUES (?,?,?,?);";
+
         List<Maquina> maquinas = template.query("SELECT * from maquina where hostname = ? and fk_aeroporto = ?", new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
-        
-        template.update("INSERT INTO cpu ( nome_processador, identificador,fabricante, fk_maquina ) VALUES (?,?,?,?);",
+
+        template.update(insert,
                 cpu.getNome(),
                 cpu.getIdentificador(),
                 cpu.getFabricante(),
                 maquinas.get(0).getId_maquina()
-                
-        );       
+        );
+
+        templateLocal.update(insert,
+                cpu.getNome(),
+                cpu.getIdentificador(),
+                cpu.getFabricante(),
+                maquinas.get(0).getId_maquina()
+        );
     }
-    
-   public List<Cpu> selectCpu(){
-       
+
+    public List<Cpu> selectCpu() {
+
         Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
         String select = "select * from cpu";
 
-        return template.query(select,new BeanPropertyRowMapper(Cpu.class));
-   }
-    
+        return template.query(select, new BeanPropertyRowMapper(Cpu.class));
+    }
+
 }

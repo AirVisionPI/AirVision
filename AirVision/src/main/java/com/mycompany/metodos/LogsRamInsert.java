@@ -14,23 +14,29 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @author jsantos
  */
 public class LogsRamInsert {
-        
-    
-        public void insertLogRam(Integer fk_ram){
-            
-            ramLeitor ram = new ramLeitor();  
-         Connection config = new Connection();
+
+    public void insertLogRam(Integer fk_ram) {
+
+        ramLeitor ram = new ramLeitor();
+        Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        
-        
-        template.update("INSERT INTO logs_memoria (ram_disponivel, ram_uso, data_hora, fk_memoria) VALUES ( ?,?,?,?);",
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+        String insert = "INSERT INTO logs_memoria (ram_disponivel, ram_uso, data_hora, fk_memoria) VALUES ( ?,?,?,?);";
+
+        template.update(insert,
                 ram.disponivel(),
                 ram.emUso(),
                 LocalDateTime.now(),
                 fk_ram
-        );  
-        
+        );
+
+        templateLocal.update(insert,
+                ram.disponivel(),
+                ram.emUso(),
+                LocalDateTime.now(),
+                fk_ram
+        );
+
     }
-    
-    
+
 }

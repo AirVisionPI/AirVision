@@ -17,49 +17,53 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
  * @author jsantos
  */
 public class ramLeitor {
-    
-    private Looca looca;
 
+    private Looca looca;
 
     public ramLeitor() {
         this.looca = new Looca();
     }
 
-
-    public Long total(){
+    public Long total() {
         return looca.getMemoria().getTotal();
     }
 
-    public Long disponivel(){
+    public Long disponivel() {
         return looca.getMemoria().getDisponivel();
     }
 
-    public Long emUso(){
+    public Long emUso() {
         return looca.getMemoria().getEmUso();
     }
-    
-    public void insertRam(Integer fk_aeroporto){
+
+    public void insertRam(Integer fk_aeroporto) {
         maquinaLeitor maquinaleitor = new maquinaLeitor();
         Connection config = new Connection();
         JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        
+        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+        String insert = "INSERT INTO memoria ( total, fk_maquina) VALUES ( ?,?);";
+
         List<Maquina> maquinas = template.query("SELECT * from maquina where hostname = ? and fk_aeroporto = ?", new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
-        
-        
-              template.update("INSERT INTO memoria ( total, fk_maquina) VALUES ( ?,?);",
+
+        template.update(insert,
                 total(),
                 maquinas.get(0).getId_maquina()
-        ); 
+        );
+
+        templateLocal.update(insert,
+                total(),
+                maquinas.get(0).getId_maquina()
+        );
     }
-    
-    public List<memoria> selectRam(){
-       Connection config = new Connection();
-       JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-       
-       String select = "Select * from Ram;";
-               
-       return template.query(select, new BeanPropertyRowMapper(memoria.class));
-             
+
+    public List<memoria> selectRam() {
+        Connection config = new Connection();
+        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
+
+        String select = "Select * from Ram;";
+
+        return template.query(select, new BeanPropertyRowMapper(memoria.class));
+
     }
-    
+
 }
