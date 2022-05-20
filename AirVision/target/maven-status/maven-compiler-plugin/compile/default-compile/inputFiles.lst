@@ -1,21 +1,22 @@
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\airvision\Maquina.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\airvision\LogsCpu.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\database\Connection.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\airvision\LogsDisco.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\metodos\maquinaLeitor.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\metodos\LogsDiscoLeitor.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\telas\TelaLogin.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\airvision\Disco.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\airvision\memoria.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\airvision\LogsRam.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\airvision\Usuario.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\metodos\LogsRamInsert.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\airvision\Cpu.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\metodos\ramLeitor.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\telas\TelaCadastro.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\metodos\DiscoLeitor.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\metodos\CpuLeitor.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\metodos\LogsCpuLeitor.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\telas\TelaPrincipal.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\metodos\App.java
-C:\Users\agavazzi\Faculdade Documentos\Repositórios\AirVision\AirVision\src\main\java\com\mycompany\metodos\MetodoInsert.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\metodos\ramLeitor.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\log\LogRecorder.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\metodos\MetodoInsert.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\telas\TelaLogin.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\airvision\Cpu.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\airvision\Disco.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\metodos\CpuLeitor.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\airvision\LogsRam.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\airvision\memoria.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\metodos\LogsCpuLeitor.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\telas\TelaPrincipal.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\database\Connection.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\airvision\Usuario.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\airvision\LogsCpu.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\metodos\LogsDiscoLeitor.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\metodos\DiscoLeitor.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\metodos\LogsRamInsert.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\airvision\LogsDisco.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\airvision\Maquina.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\metodos\App.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\com\mycompany\metodos\maquinaLeitor.java
+C:\Users\jpiza\Downloads\pi\AirVision\AirVision\src\main\java\telas\TelaCadastro.java

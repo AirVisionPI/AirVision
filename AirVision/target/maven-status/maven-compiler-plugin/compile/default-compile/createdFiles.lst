@@ -8,6 +8,7 @@ com\mycompany\airvision\memoria.class
 telas\TelaCadastro$5.class
 telas\TelaPrincipal$2.class
 telas\TelaCadastro$4.class
+log\LogRecorder.class
 telas\TelaLogin$3.class
 com\mycompany\airvision\Maquina.class
 telas\TelaPrincipal.class
