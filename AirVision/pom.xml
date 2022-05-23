@@ -11,7 +11,7 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
     
-<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -45,7 +45,7 @@
             <artifactId>looca-api</artifactId>
             <version>1.0.3</version>
         </dependency>
-                <!-- dependências do spring jdbc -->
+        <!-- dependências do spring jdbc -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
@@ -68,10 +68,21 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.29</version>
         </dependency>
+        <!-- Para se utilizar JSON -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20201115</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
             <version>7.2.2.jre8</version>
-       </dependency>
+        </dependency>
     </dependencies>
 </project>

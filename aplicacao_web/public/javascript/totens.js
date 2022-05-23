@@ -177,9 +177,9 @@ function atualizarPainel() {
     }
   );
 
-  document
-    .querySelectorAll(".chart")
-    .forEach((td) =>
-      td.addEventListener("mouseover", () => console.log("HOVERR"))
-    );
+  // document
+  //   .querySelectorAll(".chart")
+  //   .forEach((td) =>
+  //     td.addEventListener("mouseover", () => console.log("HOVERR"))
+  //   );
 }

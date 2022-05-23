@@ -31,3 +31,4 @@ com\mycompany\airvision\LogsDisco.class
 com\mycompany\airvision\LogsCpu.class
 com\mycompany\metodos\ramLeitor.class
 com\mycompany\airvision\Cpu.class
+com\mycompany\services\Slack.class
