@@ -54,122 +54,13 @@
           <canvas class="line-chart-2"></canvas>
         </div>
 
-        <div class="card">
-          <canvas class="line-chart-3"></canvas>
-        </div>
-        <div class="card">
-          <canvas class="line-chart-4"></canvas>
-
-        </div>
+       
 
 
         <!--=======================================================================================================================-->
         <!--------------------------------------------------Detales Dos Totens------------------------------------------------------->
         <!--=======================================================================================================================-->
 
-        <!-- <div class="details"> -->
-        <!-- <div class="recentOrders">
-            <div class="cardHeader ">
-              <h2>Totens</h2>
-            </div> -->
-
-        <!-- <table>
-              <thead>
-                <tr>
-                  <td>Id</td>
-                  <td>Nome Totem</td>
-                  <td>% CPU</td>
-                  <td>% RAM</td>
-                  <td>% DISCO</td>
-                  <td>Status</td>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td>01</td>
-                  <td>Totem_A</td>
-
-                  <td>15%
-                    <div class="tooltip">📈
-                      <span class="tooltiptext">
-                      </span>
-                    </div>
-                  </td>
-
-                  <td>15%
-                    <div class="tooltip">📈
-                      <span class="tooltiptext">
-                      </span>
-                    </div>
-                  </td>
-
-                  <td>15%
-                    <div class="tooltip">📈
-                      <span class="tooltiptext">
-                      </span>
-                    </div>
-                  </td>
-
-                  <td><span class="status peding">offline</td></span></td>
-                </tr>
-
-                <tr>
-                  <td>02</td>
-                  <td>Totem_B</td>
-                  <td>20%</td>
-                  <td>20%</td>
-                  <td>20%</td>
-                  <td><span class="status peding">offline</td></span></td>
-                </tr>
-
-                <tr>
-                  <td>03</td>
-                  <td>Totem_C</td>
-                  <td>30%</td>
-                  <td>30%</td>
-                  <td>30%</td>
-                  <td><span class="status return">offline</td></span></td>
-                </tr>
-                <tr>
-                  <td>04</td>
-                  <td>Totem_D</td>
-                  <td>100%</td>
-                  <td>100%</td>
-                  <td>100%</td>
-                  <td><span class="status delivered">online</td></span></td>
-                </tr>
-
-                <tr>
-                  <td>05</td>
-                  <td>Totem_E</td>
-                  <td>100%</td>
-                  <td>100%</td>
-                  <td>100%</td>
-                  <td><span class="status delivered">online</td></span></td>
-                </tr>
-
-                <tr>
-                  <td>06</td>
-                  <td>Totem_F</td>
-                  <td>100%</td>
-                  <td>100%</td>
-                  <td>100%</td>
-                  <td><span class="status delivered">online</td></span></td>
-                </tr>
-                <tr>
-                  <td>07</td>
-                  <td>Totem_G</td>
-                  <td>100%</td>
-                  <td>100%</td>
-                  <td>100%</td>
-                  <td><span class="status delivered">online</td></span></td>
-                </tr>
-              </tbody>
-            </table> -->
-        <!-- </div> -->
-
-        <!-- </div> -->
 
       </div>
       <div id="modal-promocao" class="modal-container">
@@ -284,33 +175,67 @@
 
 
       <script>
+
         var ctx_1 = document.getElementsByClassName("line-chart-1");
 
         var chartGraph = new Chart(ctx_1, {
-          type: 'line',
+          type: 'bar',
           data: {
             labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado", "Domingo"],
-            datasets: [{
-              label: "Média de uso dos totens",
-              data: [20, 40, 35, 60, 80, 90, 98],
+            datasets:[
+              
+            //  [ {
+            //   label:"% esperada de uso(RAM)",
+            //   data: [40, 40, 35, 45, 70, 50, 98],
+            //   borderColor: "rgba(255,255,0)",
+            //   borderWidth: 3,
+            //   type: "line"
+            // },
+               
+             {
+              label: "% de maquinas que atingiram pico durante a semana",
+
+
+              // Cada dado que vem relaciona uma posição especifica do select //
+              // 100 é a posição 0 do select do banco,
+              // 2 é a posição 1 do select do banco,
+              // 98 é a posição 2 do select do banco,
+              // 90 é a posição 3 do select do banco,
+              // 80 é a posição 4 do select do banco,
+              
+
+              data: [35, 40, 35, 60, 80, 90, 98],
               borderWidth: 1.5,
-              borderColor: '0',
-              backgroundColor: "#3A75B480"
-            }]
+              backgroundColor: ['#3A75B480',
+                '#759eca',
+                '#22466c',
+                '#172e48',
+                '#759eca',
+                '#22466c',
+                '#172e48',
+                '#3A75B480'
+
+              ]
+            },
+           ]
           },
         });
 
         var ctx_2 = document.getElementsByClassName("line-chart-2");
 
         var chartGraph = new Chart(ctx_2, {
+          
           type: 'bar',
           data: {
             labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado", "Domingo"],
-            datasets: [{
+            datasets:
+             [ 
+               
+             {
               label: "Média de memoria utilizada nos totens semanalmente (RAM)",
-              data: [30, 40, 35, 60, 80, 90, 98],
+                            data: [38, 40, 35, 60, 80, 90, 98],
+
               borderWidth: 1.5,
-              borderColor: 'black',
               backgroundColor: ['#3A75B480',
                 '#759eca',
                 '#22466c',
@@ -321,53 +246,20 @@
                 '#3A75B480'
 
               ]
-            }]
+            },
+            {
+              label:"Dias que ultrapassaram a RAM esperada",
+              data: [25, 35, 45, 30, 75, 50, 100],
+              borderColor: "red",
+              borderWidth: 3,
+              type: "line"
+            },
+           ]
           },
+          
         });
 
-        var ctx_3 = document.getElementsByClassName("line-chart-3");
-
-        var chartGraph = new Chart(ctx_3, {
-          type: 'bar',
-          data: {
-            labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado", "Domingo"],
-            datasets: [{
-              label: "Média do uso do disco do totem semanalmente ",
-              data: [20, 40, 35, 45, 70, 50, 98],
-              borderWidth: 1.5,
-              borderColor: 'black',
-              backgroundColor: ['#3A75B480',
-                '#759eca',
-                '#22466c',
-                '#172e48',
-                '#759eca',
-                '#22466c',
-                '#172e48',
-                '#3A75B480'
-
-              ]
-            }]
-          },
-
-        });
-
-        var ctx_4 = document.getElementsByClassName("line-chart-4");
-
-        var chartGraph = new Chart(ctx_4, {
-          type: 'line',
-          data: {
-            labels: ["OFFLINE", "ONLINE"],
-            datasets: [{
-              label: 'Media dos totens ativos',
-              data: [35, 65],
-              backgroundColor: [
-                '#3A75B480',
-              ],
-              hoverOffset: 4
-            }]
-          },
-        });
-
+        
       </script>
 </body>
 
