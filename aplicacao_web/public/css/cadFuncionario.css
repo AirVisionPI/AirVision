@@ -15,6 +15,10 @@
   margin-bottom: 6vh;
 }
 
+.navigation ul li:hover {
+  background: #03a9f4;
+}
+
 .paragrafo {
   font-size: 1.4vw;
   font-weight: 100;
