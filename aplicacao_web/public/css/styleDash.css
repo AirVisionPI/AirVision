@@ -50,7 +50,7 @@ body {
 }
 
 .navigation ul li:hover {
-  background: linear-gradient(to right, #3a75b4, #61a3e9);
+  background: #03a9f4;
 }
 
 .navigation ul li:nth-child(1) {
@@ -859,5 +859,5 @@ section.active {
 
 /* Target cria a referência do elemento clicado */
 section:target {
-  z-index: 2
+  z-index: 2;
 }
