@@ -10,6 +10,8 @@ import com.github.britooo.looca.api.group.processador.Processador;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.mycompany.airvision.Cpu;
 import com.mycompany.airvision.Maquina;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
@@ -33,7 +35,8 @@ public class CpuLeitor {
     }
 
     public Double emUso() {
-        return cpu.getUso();
+        BigDecimal ramPorcentagem = new BigDecimal(cpu.getUso()).setScale(2, RoundingMode.UP);
+        return ramPorcentagem.doubleValue();
     }
 
     public Processador info() {

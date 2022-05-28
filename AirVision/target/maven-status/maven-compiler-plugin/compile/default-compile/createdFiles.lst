@@ -26,7 +26,10 @@ com\mycompany\airvision\Usuario.class
 com\mycompany\database\Connection.class
 com\mycompany\metodos\LogsCpuLeitor.class
 com\mycompany\metodos\LogsRamInsert.class
+com\mycompany\metodos\Utils.class
 telas\TelaCadastro$3.class
+appteste.class
+telas\TelaLogin$4.class
 com\mycompany\airvision\LogsDisco.class
 com\mycompany\airvision\LogsCpu.class
 com\mycompany\metodos\ramLeitor.class
