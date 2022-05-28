@@ -4,7 +4,6 @@
  */
 package com.mycompany.metodos;
 
-import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.database.Connection;
 import java.time.LocalDateTime;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,7 +22,7 @@ public class LogsRamInsert {
         Connection config = new Connection();
 
         // 🎲 SCRIPTS SQL 🎲
-        String insert = "INSERT INTO logs_memoria (ram_disponivel, ram_uso, data_hora, fk_memoria) VALUES ( ?,?,?,?);";
+        String insert = "INSERT INTO logs_memoria (ram_disponivel, ram_uso, data_hora, fk_memoria, ram_porcentagem) VALUES ( ?,?,?,?,?);";
 
 // SQL SERVER  ------------------
         // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
@@ -35,7 +34,8 @@ public class LogsRamInsert {
                 ram.disponivel(),
                 ram.emUso(),
                 LocalDateTime.now(),
-                fk_ram
+                fk_ram,
+                ram.ramPorcentagemDeUso()
         );
 
 // SQL LOCAL  --------------------
@@ -48,7 +48,8 @@ public class LogsRamInsert {
                 ram.disponivel(),
                 ram.emUso(),
                 LocalDateTime.now(),
-                fk_ram_local
+                fk_ram_local,
+                ram.ramPorcentagemDeUso()
         );
 
     }

@@ -5,12 +5,6 @@
 package com.mycompany.metodos;
 
 import com.github.britooo.looca.api.core.Looca;
-import com.github.britooo.looca.api.group.discos.DiscosGroup;
-import com.github.britooo.looca.api.group.discos.Volume;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import telas.TelaLogin;
 
 // ESSES IMPORTS PARA LOGIN
@@ -19,23 +13,12 @@ import com.mycompany.database.Connection;
 import com.mycompany.airvision.Usuario;
 import java.util.List;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import telas.TelaPrincipal;
 
 // ESSES IMPORTS PARA INSERIR
 import com.mycompany.metodos.MetodoInsert;
-import com.sun.java.accessibility.util.EventID;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.SpringLayout;
-import javax.swing.Timer;
-import java.io.InputStreamReader;
-import java.io.File;
-import java.io.BufferedReader;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
+import com.mycompany.metodos.Utils;
 import oshi.SystemInfo;
 
 /**
@@ -43,52 +26,6 @@ import oshi.SystemInfo;
  * @author jsantos
  */
 public class App {
-
-    public static void clear() {
-        try {
-            new ProcessBuilder("clear").inheritIO().start().waitFor();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void sleep(Integer second, String message) {
-        try {
-            for (int i = second; i > 0; i--) {
-                clear();
-                if (message.length() >= 1) {
-                    System.out.println("\n-----------------------> " + message);
-                }
-                System.out.println("\n======================= Aguarde: " + i + "... ========================");
-                Thread.sleep(1000);
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    public static void sleepSecond(Integer second) {
-        try {
-            for (int i = second; i > 0; i--) {
-                System.out.println("\n======================= Aguarde: " + i + "... ========================");
-                Thread.sleep(1000);
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    public static Double converterByteToGigabyte(Double valorByte) {
-        Double convertido1 = valorByte / 1024;
-        Double convertido2 = convertido1 / 1024;
-        Double convertido3 = convertido2 / 1024;
-
-        return convertido3;
-    }
-
-    public static Double converterMillisecondsToSeconds(Double milliseconds) {
-        Double seconds = (milliseconds / 1000) % 60;
-
-        return seconds;
-    }
 
     public static void painelDeControle(
             String nome,
@@ -107,8 +44,6 @@ public class App {
             Double disco
     ) {
         // OBJETO PARA FORMATAR DOUBLE
-        DecimalFormat formatador = new DecimalFormat("#,##0.00");
-        formatador.setRoundingMode(RoundingMode.DOWN);
 
         System.out.println(String.format(""
                 + "\n|=================================================================|"
@@ -123,16 +58,16 @@ public class App {
                 + "\n   Fabricante: %s"
                 + "\n"
                 + "\n   Tamanho do volume     | Utilizado         | Disponivel          "
-                + "\n         %s GB             %s GB           %s GB                   "
+                + "\n         %.2f GB             %.2f GB           %.2f GB                   "
                 + "\n"
                 + "\n   Tamanho da ram        | Utilizada         | Disponivel          "
-                + "\n         %s GB             %s GB            %s GB                  "
+                + "\n         %.2f GB             %.2f GB            %.2f GB                  "
                 + "\n"
                 + "\n|-----------------------------------------------------------------|"
                 + "\n|--------------          MONITORAMENTO          ------------------|"
-                + "\n                           CPU: %s%%"
-                + "\n                           RAM: %s%%"
-                + "\n          Tempo/resposta Disco: %s Segundos"
+                + "\n                           CPU: %.2f%%"
+                + "\n                           RAM: %.2f%%"
+                + "\n          Tempo/resposta Disco: %.2f Segundos"
                 + "\n"
                 + "\n|--------------              OUTROS             ------------------|"
                 + "\n"
@@ -143,15 +78,15 @@ public class App {
                 hostname,
                 processador,
                 fabricanteProcessador,
-                formatador.format(tamanhoDoVolume),
-                formatador.format(volumeUtilizado),
-                formatador.format(volumeDisponivel),
-                formatador.format(tamanhoDaRam),
-                formatador.format(ramUtilizado),
-                formatador.format(ramDisponivel),
-                formatador.format(cpu),
-                formatador.format(ram),
-                formatador.format(disco),
+                tamanhoDoVolume,
+                volumeUtilizado,
+                volumeDisponivel,
+                tamanhoDaRam,
+                ramUtilizado,
+                ramDisponivel,
+                cpu,
+                ram,
+                disco,
                 quantidadeRegistrado
         ));
     }
@@ -163,7 +98,7 @@ public class App {
         List<Usuario> cadastroAdvancedUse;
         if (Arrays.stream(args).anyMatch("CLI"::equals)) {
             do {
-                clear();
+                Utils.clear();
                 System.out.println("\n==============================================================");
                 System.out.println("                 EFETUAR LOGIN AIRVISION                      ");
                 System.out.println("                    Exit ===> CTRL + C                        ");
@@ -181,7 +116,7 @@ public class App {
 
                 if (!cadastroAdvancedUse.isEmpty()) {
                     String nomeUser = cadastroAdvancedUse.get(0).getNome_usuario();
-                    clear();
+                    Utils.clear();
 
                     try {
                         System.out.println("\n|====  Seja Bem-Vindo " + nomeUser + "  ====|\n...");
@@ -190,13 +125,11 @@ public class App {
                         Integer fk_aeroporto = cadastroAdvancedUse.get(0).getFk_aeroporto();
 
                         MetodoInsert inserir = new MetodoInsert();
-                        LogsCpuLeitor logsCpu = new LogsCpuLeitor();
-                        LogsDiscoLeitor logsDisco = new LogsDiscoLeitor();
-                        LogsRamInsert logsRam = new LogsRamInsert();
                         SystemInfo si = new SystemInfo();
-
                         // LOOCA
-                        Looca looca = new Looca();
+                        CpuLeitor cpuLendo = new CpuLeitor();
+                        DiscoLeitor discoLendo = new DiscoLeitor();
+                        ramLeitor ramLendo = new ramLeitor();
 
                         inserir.insertMaquina(fk_aeroporto);
                         inserir.insertBanco(fk_aeroporto);
@@ -207,23 +140,24 @@ public class App {
 
                         while (true) {
                             // ATRIBUTOS
-                            String processador = looca.getProcessador().getNome();
-                            String fabricanteProcessador = looca.getProcessador().getFabricante();
-                            Double tamanhoDoVolume = converterByteToGigabyte((double) looca.getGrupoDeDiscos().getTamanhoTotal());
-                            Double volumeDisponivel = converterByteToGigabyte((double) looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel());
-                            Double volumeUtilizado = tamanhoDoVolume - volumeDisponivel;
-                            Double tamanhoDaRam = converterByteToGigabyte((double) looca.getMemoria().getTotal());
-                            Double ramUtilizado = converterByteToGigabyte((double) looca.getMemoria().getEmUso());
-                            Double ramDisponivel = tamanhoDaRam - ramUtilizado;
-                            Double cpu = looca.getProcessador().getUso();
-                            Double ram = ramUtilizado * 100 / tamanhoDaRam;
-                            Double disco = converterMillisecondsToSeconds((double) looca.getGrupoDeDiscos().getDiscos().get(0).getTempoDeTransferencia());
+
+                            String processador = cpuLendo.nomeProcessador();
+                            String fabricanteProcessador = cpuLendo.frabricante();
+                            Double tamanhoDoVolume = discoLendo.tamanhoTotalDoDisco();
+                            Double volumeDisponivel = discoLendo.volumeDisponivelDoDisco();
+                            Double volumeUtilizado = discoLendo.volumeUtilizadoDoDisco();
+                            Double tamanhoDaRam = ramLendo.total();
+                            Double ramUtilizado = ramLendo.emUso();
+                            Double ramDisponivel = ramLendo.disponivel();
+                            Double cpu = cpuLendo.emUso();
+                            Double ram = ramLendo.ramPorcentagemDeUso();
+                            Double disco = discoLendo.taxaDeTransferenciaDisco();
 
                             // METODO PARA INSERIR NO AZURE
                             inserir.insertLogBanco(fk_aeroporto);
 
                             // METODO LIMPAR TERMINAL
-                            clear();
+                            Utils.clear();
 
                             // CHAMANDO PAINEL DE CONTROLE
                             painelDeControle(nomeUser,
@@ -251,7 +185,7 @@ public class App {
                         System.out.println("Error: " + e.getMessage());
                     }
                 } else {
-                    sleep(2, "Usuario ou Senha Invalidos");
+                    Utils.sleep(2, "Usuario ou Senha Invalidos");
                 }
             } while (cadastroAdvancedUse.isEmpty());
         } else {
@@ -272,87 +206,10 @@ public class App {
                         + "\n"
                         + "==============================================================\n"
                 );
-                sleepSecond(10);
+                Utils.sleepSecond(10);
                 String[] argCli = {"CLI"};
                 main(argCli);
             }
         }
-
-//            System.out.println(cpu.info());
-//
-//        int i = 5;
-//        do {
-//            cpu.insertCpu();
-//            ram.insertRam();
-//            disco.insertDiscoLeitor(0);
-//            
-//            System.out.println(cpu);
-//            System.out.println(ram);
-//            System.out.println(disco);
-//        } while (i < 10);
-//        template.execute("DROP TABLE IF EXISTS Disco");
-//        String criacaoTabelaPokemon = "CREATE TABLE Disco ("
-//                + "idDisco INT PRIMARY KEY AUTO_INCREMENT,"
-//                + "fkMaquina Varchar(45)," 
-//                + "nome Varchar(45),"
-//                + "modelo Varchar(45)"
-//                + "tamanho Varchar(45)"
-//                + "qtdLeitura Varchar(45)"
-//                + "bytesLeitura Varchar(45)"
-//                + "qtdEscritas Varchar(45)"
-//                + "tipo Varchar(45)"
-//                + "montagem Varchar(45)"
-//                + "dataDeRegistro datetime"
-//                + ")";
-//        
-//        String insert = "INSERT INTO Disco VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
-//        String insertNaTabela = "INSERT INTO pokemon(nome) VALUES (" +
-//                "'riolu'" +
-//                ")";
-//
-//        Integer fkMaquina = 1;
-//        template.execute(criacaoTabelaPokemon);
-//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-//        DiscosGroup grupo = looca.getGrupoDeDiscos();
-//        List<Disco> discos = grupo.getDiscos();
-//        List<Volume> volumes = grupo.getVolumes();
-//        
-//        template.update(insert, null, );
-//
-//
-//        List<Pokemon> listaPokemon1 = template.query("select * from pokemon", new BeanPropertyRowMapper<>(Pokemon.class));
-//        
-//        for (int i = 0; i < listaPokemon1.size(); i++) {
-//            System.out.println(listaPokemon1.get(i).getNome());
-//        }
-//        for (Pokemon pokemon : listaPokemon1) {
-//            System.out.println(pokemon.getNome());
-//        }
-//        
-//        System.out.println(listaPokemon1);
-//        
-//          Conexao conexao = new Conexao();
-//        JdbcTemplate con = new JdbcTemplate(conexao.getDataSource());
-//        Disco disco = new Disco();
-//        
-//        con.execute("DROP TABLE IF EXISTS Logs");
-//        StringBuilder create = new StringBuilder();
-//        
-//        create.append("CREATE TABLE Logs (");
-//        create.append("idAluno int,");
-//        create.append("idMaquina int,");
-//        create.append("momento datetime default current_timestamp,");
-//        create.append("temperatura float,");
-//        create.append("consumoMemoria bigint(20),");
-//        create.append("consumoCPU bigint(20),");
-//        create.append("consumoDisco bigint(20),");
-//        create.append("tempoEmAtividade Varchar(100),");
-//        create.append("Inicializado MEDIUMTEXT");
-//        create.append(");");
-//        
-//        con.update(create.toString());
-//        
-//        Logs logs = new Logs();
-//        logs.capturarDadosDaMaquina();
     }
 }

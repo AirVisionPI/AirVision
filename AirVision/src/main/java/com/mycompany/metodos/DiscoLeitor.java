@@ -9,6 +9,8 @@ import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscosGroup;
 import com.github.britooo.looca.api.group.discos.Disco;
 import com.mycompany.airvision.Maquina;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,7 +23,6 @@ public class DiscoLeitor {
 
     private Looca looca;
     private DiscosGroup disco;
-    private Maquina maquina;
 
     public DiscoLeitor() {
         this.looca = new Looca();
@@ -42,6 +43,31 @@ public class DiscoLeitor {
 
     public Long tamanhoTotal() {
         return disco.getTamanhoTotal();
+    }
+
+    public Double tamanhoTotalDoDisco() {
+        Double volumeConvert = Utils.converterByteToGigabyte((double) looca.getGrupoDeDiscos().getTamanhoTotal());
+        BigDecimal tamanhoDoVolume = new BigDecimal(volumeConvert).setScale(2, RoundingMode.UP);
+        return tamanhoDoVolume.doubleValue();
+    }
+
+
+    public Double volumeDisponivelDoDisco() {
+        Double volumeConvert = Utils.converterByteToGigabyte((double) looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel());
+        BigDecimal volumeDisponivel = new BigDecimal(volumeConvert).setScale(2, RoundingMode.UP);
+        return volumeDisponivel.doubleValue();
+    }
+    
+    public Double volumeUtilizadoDoDisco() {
+        Double volumeConvert = tamanhoTotalDoDisco() - volumeDisponivelDoDisco();
+        BigDecimal volumeUtilizado = new BigDecimal(volumeConvert).setScale(2, RoundingMode.UP);
+        return volumeUtilizado.doubleValue();
+    }
+
+    public Double taxaDeTransferenciaDisco() {
+        Double timeConvert = Utils.converterMillisecondsToSeconds((double) looca.getGrupoDeDiscos().getDiscos().get(0).getTempoDeTransferencia());
+        BigDecimal timeSeconds = new BigDecimal(timeConvert).setScale(2, RoundingMode.UP);
+        return timeSeconds.doubleValue();
     }
 
     public Disco getDisco(Integer index) {

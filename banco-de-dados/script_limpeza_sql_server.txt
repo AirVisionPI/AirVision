@@ -1,0 +1,63 @@
+-- APAGANDO OS DADOS DE TODAS AS TABELAS
+-- Limpar companhia_aerea
+DELETE FROM [dbo].[companhia_aerea]
+GO;
+-- Limpar usuarios
+DELETE FROM [dbo].[usuario]
+GO;
+-- Limpar maquina
+DELETE FROM [dbo].[maquina]
+GO;
+-- Limpar cpu
+DELETE FROM [dbo].[cpu]
+GO;
+-- Limpar logs_cpu
+DELETE FROM [dbo].[logs_cpu]
+GO;
+-- Limpar memoria
+DELETE FROM [dbo].[memoria]
+GO;
+-- Limpar logs_memoria
+DELETE FROM [dbo].[logs_memoria]
+GO;
+-- Limpar disco
+DELETE FROM [dbo].[disco]
+GO;
+-- Limpar logs_disco
+DELETE FROM [dbo].[logs_disco]
+GO;
+-- Limpar status_maquina
+DELETE FROM [dbo].[status_maquina]
+GO;
+
+-- ARRUMANDO AS FOREIGN KEY
+-- Ajuste da Foreign Key - companhia_aerea
+DBCC CHECKIDENT('companhia_aerea', RESEED, 0)
+GO;
+-- Ajuste da Foreign Key - usuario
+DBCC CHECKIDENT('usuario', RESEED, 0)
+GO;
+-- Ajuste da Foreign Key - maquina
+DBCC CHECKIDENT('maquina', RESEED, 0)
+GO;
+-- Ajuste da Foreign Key - cpu
+DBCC CHECKIDENT('cpu', RESEED, 0)
+GO;
+-- Ajuste da Foreign Key - logs_cpu
+DBCC CHECKIDENT('logs_cpu', RESEED, 0)
+GO;
+-- Ajuste da Foreign Key - disco
+DBCC CHECKIDENT('disco', RESEED, 0)
+GO;
+-- Ajuste da Foreign Key - logs_disco
+DBCC CHECKIDENT('logs_disco', RESEED, 0)
+GO;
+-- Ajuste da Foreign Key - memoria
+DBCC CHECKIDENT('memoria', RESEED, 0)
+GO;
+-- Ajuste da Foreign Key - logs_memoria
+DBCC CHECKIDENT('logs_memoria', RESEED, 0)
+GO;
+-- Ajuste da Foreign Key - status_maquina
+DBCC CHECKIDENT('status_maquina', RESEED, 0)
+GO;

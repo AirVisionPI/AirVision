@@ -5,11 +5,8 @@
 package com.mycompany.metodos;
 
 import com.github.britooo.looca.api.core.Looca;
-import com.github.britooo.looca.api.group.discos.DiscosGroup;
 import com.github.britooo.looca.api.group.discos.Disco;
-import com.mycompany.airvision.Maquina;
 import com.mycompany.database.Connection;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -29,11 +26,13 @@ public class LogsDiscoLeitor {
 
     public void insertLogDisco(Integer fk_disco, Integer fk_disco_local) {
 
+        DiscoLeitor discoLendoInsert = new DiscoLeitor();
+
         // INSTANCIANDO CONNECTION, É ONDE TEM TODOS OS CAMPOS DE CONFIGURAÇÃO DA CONEXÃO COM OS BANCOS DE DADOS.
         Connection config = new Connection();
 
         // 🎲 SCRIPTS SQL 🎲
-        String insert = "INSERT INTO logs_disco ( disco_leitura, disco_escrita, tamanho_atual_fila, data_hora, fk_disco) VALUES ( ?,?,?,?,?);";
+        String insert = "INSERT INTO logs_disco (tamanho_do_volume, volume_utilizado, volume_disponivel, data_hora, fk_disco, time_res_seconds) VALUES (?,?,?,?,?,?);";
 
 // SQL SERVER  ------------------
         // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
@@ -42,11 +41,12 @@ public class LogsDiscoLeitor {
 
         // EFETUANDO O SCRIPT NO ObjetoSQL(Azure)...
         template.update(insert,
-                disco.getBytesDeLeitura(),
-                disco.getBytesDeEscritas(),
-                disco.getTamanhoAtualDaFila(),
+                discoLendoInsert.tamanhoTotalDoDisco(),
+                discoLendoInsert.volumeUtilizadoDoDisco(),
+                discoLendoInsert.volumeDisponivelDoDisco(),
                 LocalDateTime.now(),
-                fk_disco
+                fk_disco,
+                discoLendoInsert.taxaDeTransferenciaDisco()
         );
 
 // SQL LOCAL  --------------------
@@ -56,11 +56,12 @@ public class LogsDiscoLeitor {
 
         // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
         templateLocal.update(insert,
-                disco.getBytesDeLeitura(),
-                disco.getBytesDeEscritas(),
-                disco.getTamanhoAtualDaFila(),
+                discoLendoInsert.tamanhoTotalDoDisco(),
+                discoLendoInsert.volumeUtilizadoDoDisco(),
+                discoLendoInsert.volumeDisponivelDoDisco(),
                 LocalDateTime.now(),
-                fk_disco_local
+                fk_disco,
+                discoLendoInsert.taxaDeTransferenciaDisco()
         );
 
     }

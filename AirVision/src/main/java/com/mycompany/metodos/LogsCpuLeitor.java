@@ -23,7 +23,7 @@ public class LogsCpuLeitor {
 
         // 🎲 SCRIPTS SQL 🎲
         String insert = "INSERT INTO logs_cpu (em_uso, data_hora, fk_cpu) VALUES ( ?,?,?);";
-
+        
 // SQL SERVER  ------------------
         // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
         // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...

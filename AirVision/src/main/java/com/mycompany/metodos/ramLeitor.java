@@ -10,6 +10,8 @@ import com.mycompany.airvision.Maquina;
 import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.mycompany.airvision.memoria;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 /**
@@ -24,16 +26,28 @@ public class ramLeitor {
         this.looca = new Looca();
     }
 
-    public Long total() {
-        return looca.getMemoria().getTotal();
+    public Double total() {
+        Double ramConvert = Utils.converterByteToGigabyte((double) looca.getMemoria().getTotal());
+        BigDecimal tamanhoDaRam = new BigDecimal(ramConvert).setScale(2, RoundingMode.UP);
+        return tamanhoDaRam.doubleValue();
     }
 
-    public Long disponivel() {
-        return looca.getMemoria().getDisponivel();
+    public Double emUso() {
+        Double ramConvert = Utils.converterByteToGigabyte((double) looca.getMemoria().getEmUso());
+        BigDecimal ramUtilizado = new BigDecimal(ramConvert).setScale(2, RoundingMode.UP);
+        return ramUtilizado.doubleValue();
     }
 
-    public Long emUso() {
-        return looca.getMemoria().getEmUso();
+    public Double disponivel() {
+        Double ramConvert = (double) total() - emUso();
+        BigDecimal ramDisponivel = new BigDecimal(ramConvert).setScale(2, RoundingMode.UP);
+        return ramDisponivel.doubleValue();
+    }
+
+    public Double ramPorcentagemDeUso() {
+        Double ramConvert = (double) emUso() * 100 / total();
+        BigDecimal ramPorcentagem = new BigDecimal(ramConvert).setScale(2, RoundingMode.UP);
+        return ramPorcentagem.doubleValue();
     }
 
     public void insertRam(Integer fk_aeroporto) {
