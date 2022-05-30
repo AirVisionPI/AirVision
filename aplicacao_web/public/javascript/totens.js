@@ -28,7 +28,7 @@ function requestLogs() {
 // =========================================
 function atualizarPainel(resposta) {
   resposta
-    .sort((a, b) => new Date(b.dataLogs) - new Date(a.dataLogs))
+    // .sort((a, b) => new Date(b.dataLogs) - new Date(a.dataLogs))
     .forEach(
       (
         {
@@ -59,8 +59,40 @@ function atualizarPainel(resposta) {
           statusClass = "status delivered";
         }
 
+        var corCpuPorcentagem = "";
+        var corRamPorcentagem = "";
+        var corDiscoPorcentagem = "";
+
+        // CPU ALERTA COR
+        if (cpuPorcentagem < 30) {
+          corCpuPorcentagem = "#00FF7F";
+        } else if (cpuPorcentagem < 60) {
+          corCpuPorcentagem = "#FF8C00";
+        } else {
+          corCpuPorcentagem = "#FF0000";
+        }
+
+        // RAM ALERTA COR
+        if (ramPorcentagem < 40) {
+          corRamPorcentagem = "#00FF7F";
+          emojiCpu = "‹"
+        } else if (ramPorcentagem < 70) {
+          corRamPorcentagem = "#FF8C00";
+        } else {
+          corRamPorcentagem = "#FF0000";
+        }
+
+        // DISCO ALERTA COR
+        if (discoTimeRes < 40) {
+          corDiscoPorcentagem = "#00FF7F";
+        } else if (discoTimeRes < 80) {
+          corDiscoPorcentagem = "#FF8C00";
+        } else {
+          corDiscoPorcentagem = "#FF0000";
+        }
+
         tbody_painel.innerHTML += `
-          <tr onclick="exibirPainelDeControle()" id="maquina_${idMaquina}">
+          <tr onclick="exibirPainelDeControle()">
           <!--NOME DO TOTEM--->
            <td class="chart" id="nome_totem_${index}">${hostMaquina}</td>
     
@@ -68,13 +100,13 @@ function atualizarPainel(resposta) {
            <td class="myChart" id="id_totem_${index}">${idMaquina}</td>
           
           <!--CPU DO TOTEM--->
-           <td class="chart" id="cpu_id_totem_${index}">${cpuPorcentagem}</td>
+           <td class="chart" style="color: ${corCpuPorcentagem}" id="cpu_id_totem_${index}">${cpuPorcentagem}${emojiCpu}</td>
     
           <!--RAM DO TOTEM--->
-            <td class="chart" id="ram_id_totem_${index}">${ramPorcentagem}</td> 
+            <td class="chart" style="color: ${corRamPorcentagem}" id="ram_id_totem_${index}">${ramPorcentagem}${emojiRam}</td> 
     
           <!--DISCO DO TOTEM--->
-            <td class="chart" id="disco_totem_${index}">${discoTimeRes}</td>
+            <td class="chart" style="color: ${corDiscoPorcentagem}" id="disco_totem_${index}">${discoTimeRes}${emojiDisco}</td>
     
           <!--STATUS DO TOTEM--->
             <td class="chart" id="status_totem_${index}"><span class="${statusClass}">${statusTotem}</td></span></td>
