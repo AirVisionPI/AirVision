@@ -66,16 +66,6 @@ function atualizarPainel(resposta) {
 
         // CPU ALERTA COR
         if (cpuPorcentagem < 30) {
-<<<<<<< HEAD
-          corCpuPorcentagem = "#00FF7F";
-          emojiCpu = "";
-        } else if (cpuPorcentagem < 60) {
-          corCpuPorcentagem = "#FF8C00";
-          emojiCpu = "";
-        } else {
-          corCpuPorcentagem = "#FF0000";
-          emojiCpu = "";
-=======
           corCpuPorcentagem = "#3CB371";
           emojiCpu = "✅";
         } else if (cpuPorcentagem < 60) {
@@ -84,21 +74,10 @@ function atualizarPainel(resposta) {
         } else {
           corCpuPorcentagem = "#FF0000";
           emojiCpu = "❗";
->>>>>>> 52f7894b0a5c4e4e6eece53c411ed69169836984
         }
 
         // RAM ALERTA COR
         if (ramPorcentagem < 40) {
-<<<<<<< HEAD
-          corRamPorcentagem = "#00FF7F";
-          emojiRam = "";
-        } else if (ramPorcentagem < 70) {
-          corRamPorcentagem = "#FF8C00";
-          emojiRam = "";
-        } else {
-          corRamPorcentagem = "#FF0000";
-          emojiRam = "";
-=======
           corRamPorcentagem = "#3CB371";
           emojiCpu = "✅";
         } else if (ramPorcentagem < 70) {
@@ -107,21 +86,10 @@ function atualizarPainel(resposta) {
         } else {
           corRamPorcentagem = "#FF0000";
           emojiCpu = "❗";
->>>>>>> 52f7894b0a5c4e4e6eece53c411ed69169836984
         }
 
         // DISCO ALERTA COR
         if (discoTimeRes < 40) {
-<<<<<<< HEAD
-          corDiscoPorcentagem = "#00FF7F";
-          emojiDisco = "";
-        } else if (discoTimeRes < 80) {
-          corDiscoPorcentagem = "#FF8C00";
-          emojiDisco = "";
-        } else {
-          corDiscoPorcentagem = "#FF0000";
-          emojiDisco = "";
-=======
           corDiscoPorcentagem = "#3CB371";
           emojiCpu = "✅";
         } else if (discoTimeRes < 80) {
@@ -130,7 +98,6 @@ function atualizarPainel(resposta) {
         } else {
           corDiscoPorcentagem = "#FF0000";
           emojiCpu = "❗";
->>>>>>> 52f7894b0a5c4e4e6eece53c411ed69169836984
         }
 
         tbody_painel.innerHTML += `
