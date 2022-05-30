@@ -82,6 +82,7 @@ public class MetodoInsert {
     }
 
     private void getComponentes() throws IOException {
+        
         slackNotify();
         String selectMaquina = "select * from maquina where fk_aeroporto = ? and hostname = ?";
         maquinas = template.query(selectMaquina, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, maquina.getHostName());

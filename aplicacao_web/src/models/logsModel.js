@@ -33,6 +33,11 @@ function buscarLogs(fk_maquina) {
                   OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;`;
               
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  try {
+    
+  } catch (error) {
+    
+  }
   return database.executar(instrucaoSql);
 }
 

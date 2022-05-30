@@ -1,3 +1,9 @@
+function updateAeroporto() {
+  option_local.style.display = "block";
+  option_local.label = `${sessionStorage.razaoAeroporto}`;
+  option_local.value = `${sessionStorage.idAeroporto}`;
+}
+
 function atualizarSideBar() {
   // console.log(window.location.href.split("/").at(-1).split(".")[0]);
 
@@ -48,7 +54,7 @@ function atualizarSideBar() {
     `;
 
   if (sessionStorage.cargo === "gestor") {
-    opcao_visaoGeral.style.display = "block";
+    opcao_visaoGeral.style.display = "none";
     opcao_monitoramento.style.display = "block";
     opcao_funcAtivos.style.display = "block";
     opcao_cadastroFuncionario.style.display = "none";
@@ -56,10 +62,13 @@ function atualizarSideBar() {
     // opcao_configuracoes.style.display = "none";
     opcao_sair.style.display = "block";
     btnAdmin.style.display = "none";
+    // option_local.style.display = "block";
+    // option_local.label = `${sessionStorage.razaoAeroporto}`;
+    // option_local.value = `${sessionStorage.idAeroporto}`;
   }
 
   if (sessionStorage.cargo === "admin") {
-    opcao_visaoGeral.style.display = "block";
+    opcao_visaoGeral.style.display = "none";
     opcao_monitoramento.style.display = "block";
     opcao_funcAtivos.style.display = "block";
     opcao_cadastroFuncionario.style.display = "block";
@@ -69,9 +78,9 @@ function atualizarSideBar() {
     btnAdmin.style.display = "block";
 
     // APARECER NO CADASTRO DE FUNCIONARIO, O SESSION STORAGE PUXANDO O AEROPORTO DE TRABALHO
-    option_local.style.display = "block";
-    option_local.label = `${sessionStorage.razaoAeroporto}`;
-    option_local.value = `${sessionStorage.idAeroporto}`;
+    // option_local.style.display = "block";
+    // option_local.label = `${sessionStorage.razaoAeroporto}`;
+    // option_local.value = `${sessionStorage.idAeroporto}`;
   }
 
   if (sessionStorage.cargo === "tecnico") {
@@ -83,6 +92,9 @@ function atualizarSideBar() {
     // opcao_configuracoes.style.display = "none";
     opcao_sair.style.display = "block";
     btnAdmin.style.display = "none";
+    // option_local.style.display = "block";
+    // option_local.label = `${sessionStorage.razaoAeroporto}`;
+    // option_local.value = `${sessionStorage.idAeroporto}`;
   }
 
   document

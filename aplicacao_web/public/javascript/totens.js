@@ -16,10 +16,12 @@ function requestLogs() {
         });
       } else {
         console.error("Nenhum dado encontrado ou erro na API");
+        requestLogs();
       }
     })
     .catch(function (error) {
       console.error(`Erro na obtenção dos dados: ${error.message}`);
+      requestLogs();
     });
 }
 
@@ -51,7 +53,7 @@ function atualizarPainel(resposta) {
         console.log(segundos);
 
         var statusTotem;
-        if (segundos > 20) {
+        if (segundos > 35) {
           statusTotem = "Offline";
           statusClass = "status return";
         } else {
@@ -63,9 +65,11 @@ function atualizarPainel(resposta) {
         var corRamPorcentagem = "";
         var corDiscoPorcentagem = "";
         var emojiCpu = "";
+        var emojiRam = "";
+        var emojiDisco = "";
 
         // CPU ALERTA COR
-        if (cpuPorcentagem < 30) {
+        if (cpuPorcentagem < 20) {
           corCpuPorcentagem = "#3CB371";
           emojiCpu = "✅";
         } else if (cpuPorcentagem < 60) {
@@ -79,25 +83,25 @@ function atualizarPainel(resposta) {
         // RAM ALERTA COR
         if (ramPorcentagem < 40) {
           corRamPorcentagem = "#3CB371";
-          emojiCpu = "✅";
+          emojiRam = "✅";
         } else if (ramPorcentagem < 70) {
           corRamPorcentagem = "#FFD700";
-          emojiCpu = "🟡";
+          emojiRam = "🟡";
         } else {
           corRamPorcentagem = "#FF0000";
-          emojiCpu = "❗";
+          emojiRam = "❗";
         }
 
         // DISCO ALERTA COR
         if (discoTimeRes < 40) {
           corDiscoPorcentagem = "#3CB371";
-          emojiCpu = "✅";
+          emojiDisco = "✅";
         } else if (discoTimeRes < 80) {
           corDiscoPorcentagem = "#FFD700";
-          emojiCpu = "🟡";
+          emojiDisco = "🟡";
         } else {
           corDiscoPorcentagem = "#FF0000";
-          emojiCpu = "❗";
+          emojiDisco = "❗";
         }
 
         tbody_painel.innerHTML += `
@@ -124,5 +128,5 @@ function atualizarPainel(resposta) {
       }
     );
 
-  setTimeout(() => requestLogs(), 2000);
+  setTimeout(() => requestLogs(), 5000);
 }

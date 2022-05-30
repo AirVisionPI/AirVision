@@ -19,6 +19,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 // ESSES IMPORTS PARA INSERIR
 import com.mycompany.metodos.MetodoInsert;
 import com.mycompany.metodos.Utils;
+import java.io.File;
 import java.io.IOException;
 import oshi.SystemInfo;
 
@@ -217,6 +218,16 @@ public class App {
                 String[] argCli = {"CLI"};
                 main(argCli);
             }
+        }
+        try {
+            File LogRecordFile = new File("User.txt");
+            if (LogRecordFile.createNewFile()) {
+                System.out.println("File created: " + LogRecordFile.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
         }
     }
 }

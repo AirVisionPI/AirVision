@@ -21,7 +21,7 @@ function requestMaquina(idMaquina) {
             resposta[0].discoDisponivel,
           ];
           chartGraphVOLUME.update();
-          setTimeout(() => requestMaquina(idMaquina), 2000);
+          setTimeout(() => requestMaquina(idMaquina), 10000);
         });
       } else {
         console.error("Nenhum dado encontrado ou erro na API");

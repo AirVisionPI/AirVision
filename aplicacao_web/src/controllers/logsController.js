@@ -5,20 +5,25 @@ function buscarLogs(req, res) {
 
   console.log(`Buscando LOGS AQUI É A CONTROLER`);
 
-  logsModel.buscarMaquinas(fk_aeroporto).then(async (maquinas) => {
-    const todosOsLogs = await Promise.all(
-      maquinas.map(async (maquina) => {
-        const logs = await logsModel.buscarLogs(maquina.id_maquina);
-        return logs[0];
-      })
-    );
+  logsModel
+    .buscarMaquinas(fk_aeroporto)
+    .then(async (maquinas) => {
+      const todosOsLogs = await Promise.all(
+        maquinas.map(async (maquina) => {
+          const logs = await logsModel.buscarLogs(maquina.id_maquina);
+          return logs[0];
+        })
+      );
 
-    if (todosOsLogs.length > 0) {
-      res.status(200).json(todosOsLogs);
-    } else {
-      res.status(204).send("Nenhum resultado encontrado!");
-    }
-  });
+      if (todosOsLogs.length > 0) {
+        res.status(200).json(todosOsLogs);
+      } else {
+        res.status(204).send("Nenhum resultado encontrado!");
+      }
+    })
+    .catch(function (error) {
+      console.error(`Erro na Controller BUSCAR MAQUINAS: ${error.message}`);
+    });
 }
 
 async function buscarLogsPainel(req, res) {
