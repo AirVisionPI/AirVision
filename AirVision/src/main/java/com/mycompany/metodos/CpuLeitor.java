@@ -10,6 +10,7 @@ import com.github.britooo.looca.api.group.processador.Processador;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.mycompany.airvision.Cpu;
 import com.mycompany.airvision.Maquina;
+import com.mycompany.database.SlackConnection;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
@@ -98,7 +99,13 @@ public class CpuLeitor {
                 cpu.getFabricante(),
                 maquinasLocal.get(0).getId_maquina()
         );
-
+        
+//                if (emUso() > 75) {
+//                    SlackConnection.sendMessageToSlack("Sr.(a) " + usuario.getNome()
+//                    + ", sua máquina está com consumo de CPU acima de 75%"
+//                    + ", nosso Script de correção será ativado automáticamente");
+//
+//    }
     }
 
     public List<Cpu> selectCpu() {

@@ -7,9 +7,11 @@ package com.mycompany.metodos;
 import com.mycompany.database.Connection;
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.airvision.Maquina;
+import com.mycompany.airvision.Usuario;
 import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.mycompany.airvision.memoria;
+import com.mycompany.database.SlackConnection;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -89,6 +91,12 @@ public class ramLeitor {
                 total(),
                 maquinasLocal.get(0).getId_maquina()
         );
+
+//        if (ramPorcentagemDeUso() > 75) {
+//            SlackConnection.sendMessageToSlack("sua máquina está com consumo de Memória acima de 70%"
+//         );
+//        }
+
     }
 
     public List<memoria> selectRam() {
