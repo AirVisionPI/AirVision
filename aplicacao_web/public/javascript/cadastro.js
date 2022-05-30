@@ -159,7 +159,6 @@ function btnCadastrarFunc() {
 
       if (resposta.ok) {
         window.alert("Cadastro do Funcionário realizado com Sucesso!");
-        window.location = "./Dashboard/cadastroFuncionario.html";
       } else {
         throw "Houve um erro ao tentar realizar o cadastro!";
       }

@@ -8,6 +8,9 @@
   <title>DashBoard</title>
   <link rel="shortcut icon" href="../assets/icons/AirVisionIcon3.webp" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="../css/styleDash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data.js"
+    type="text/javascript"></script>
   <script type="text/javascript" src="../javascript/totens.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
   <script type="text/javascript" src="../javascript/carregarSideBar.js"></script>
@@ -15,7 +18,7 @@
 
 </head>
 
-<body onload='atualizarPainel(), atualizarSideBar()'>
+<body onload='requestLogs(), atualizarSideBar()'>
   <!--=======================================================================================================================-->
   <!----------------------------------------------------------NavBar----------------------------------------------------------->
   <!--=======================================================================================================================-->
@@ -73,12 +76,12 @@
             <table id="table_totens">
               <thead id="thead_painel">
                 <tr>
-                  <td>Nome Totem</td>
-                  <td class="td_painel">ID</td>
-                  <td class="td_painel">% CPU</td>
-                  <td class="td_painel">% RAM</td>
-                  <td class="td_painel">% DISCO</td>
-                  <td class="td_painel">Status</td>
+                  <td id="nome_table">Nome Totem</td>
+                  <td class="td_painel" id="id_table">ID</td>
+                  <td class="td_painel" id="cpu_table">% CPU</td>
+                  <td class="td_painel" id="ram_table">% RAM</td>
+                  <td class="td_painel" id="disco_table">% DISCO</td>
+                  <td class="td_painel" id="status_table">Status</td>
                 </tr>
               </thead>
 
@@ -101,7 +104,7 @@
           <div id="containerDoPainel" class="container_painel">
             <!-- NOME DO TOTEM E FECHAR PAINEL -->
             <div class="cabecario_painel">
-              <h3>Totem A</h3>
+              <h3 id="nome_do_totem_painel_de_controle">Totem A</h3>
               <h2 onclick="esconderPainelDeControle()" style="cursor: pointer;">X</h2>
             </div>
 

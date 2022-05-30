@@ -8,13 +8,14 @@
   <title>DashBoard</title>
   <link rel="shortcut icon" href="../assets/icons/AirVisionIcon3.webp" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="../css/styleFuncAtivos.css">
+  <script type="text/javascript" src="../javascript/funcionarios.js"></script>
   <script type="text/javascript" src="../javascript/carregarSideBar.js"></script>
   <script src="https://kit.fontawesome.com/e01f426084.js" crossorigin="anonymous"></script>
 
 
 </head>
 
-<body onload='atualizarSideBar()'>
+<body onload='requestEmployes(),atualizarSideBar()'>
   <!--=======================================================================================================================-->
   <!----------------------------------------------------------NavBar----------------------------------------------------------->
   <!--=======================================================================================================================-->
@@ -42,163 +43,137 @@
           <img class="imgUser" src="./imgDash/icons/profile-user.png">
         </div>
       </div>
-      
 
-        <!--=======================================================================================================================-->
-        <!--------------------------------------------------Detales Dos Totens------------------------------------------------------->
-        <!--=======================================================================================================================-->
 
-        <div class="details">
-          <div class="recentOrders">
-            <div class="cardHeader ">
-              <h2>Funcionarios Ativos</h2>
-            </div>
+      <!--=======================================================================================================================-->
+      <!--------------------------------------------------Detales Dos Totens------------------------------------------------------->
+      <!--=======================================================================================================================-->
 
-            <table>
-              <thead>
-                <tr>
-                  <td>Id</td>
-                  <td>Nome Funcionario</td>
-                  <td>Email</td>
-                  <td>Senha</td>
-                  <td>Cargo Funcionario</td>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr class="tr">
-                  <td>01</td>
-                  <td>Allan Lima</td>
-                  <td>Allan.lima@gmail.com</td>
-                  <td>123  <i class="fa-solid fa-eye"></i></td>
-                  <td>Gestor</td>
-
-                </tr>
-
-                <tr class="tr">
-                  <td>02</td>
-                  <td>Jhonathan </td>
-                  <td>Jhon.Silva@gmail.com</td>
-                  <td>***  <i class="fa-solid fa-eye-slash"></i></td>
-                  <td>Tecnico</td>
-
-                </tr>
-
-                <tr class="tr">
-                  <td>03</td>
-                  <td>Vitor</td>
-                  <td>Vitor.Cosmo@gmail.com</td>
-                  <td>***  <i class="fa-solid fa-eye-slash"></i></td>
-                  <td>Gestor</td>
-
-                </tr>
-             
-              </tbody>
-
-            </table>
+      <div class="details">
+        <div class="recentOrders">
+          <div class="cardHeader ">
+            <h2>Funcionarios Ativos</h2>
           </div>
 
+          <table>
+            <thead>
+              <tr>
+                <td>Id</td>
+                <td>Nome Funcionario</td>
+                <td>Email</td>
+                <td>Senha</td>
+                <td>Cargo Funcionario</td>
+              </tr>
+            </thead>
+
+            <tbody id="tbody_painelfunc">
+              <!-- AQUI VAI SER INSERIDO OS FUNCIONARIOS DO BANCO DE DADOS -->
+            </tbody>
+
+          </table>
         </div>
 
       </div>
 
-     <div id="modal-promocao" class="modal-container">
-        <div class="modal">
-          <button class="fechar">X</button>
-          <h3>Bem Vindo <span id="nomeModal"></span></h3>
+    </div>
 
-          <br>
-          <form class="formModal">
-            <img class="imgUserModal" src="./imgDash/icons/profile-user.png">
+    <div id="modal-promocao" class="modal-container">
+      <div class="modal">
+        <button class="fechar">X</button>
+        <h3>Bem Vindo <span id="nomeModal"></span></h3>
 
-            <h4>Tipo de Acesso <br> <span id="acessoModal"></span></h4>
+        <br>
+        <form class="formModal">
+          <img class="imgUserModal" src="./imgDash/icons/profile-user.png">
+
+          <h4>Tipo de Acesso <br> <span id="acessoModal"></span></h4>
 
 
-          </form>
-          <h5 class="ipt_modal"></h5>
+        </form>
+        <h5 class="ipt_modal"></h5>
 
-          <button class="btnMonitoramento" id="btnAdmin" onclick="btnAtualizarDados()">Opções Avançadas</button> <br><br>
+        <button class="btnMonitoramento" id="btnAdmin" onclick="btnAtualizarDados()">Opções Avançadas</button> <br><br>
 
-          <div class="divDados">
+        <div class="divDados">
 
-            <div class="atualizarDados" id="atualizarDados" style="display: none">
+          <div class="atualizarDados" id="atualizarDados" style="display: none">
 
-              <h4>Mudar nome:</h4> <input class="ipt_modal" placeholder="Novo nome">
-              <h4>Atualizar Funcionario:</h4> <input class="ipt_modal" placeholder="Promover/Demitir funcionario">
-              <h4>Adicionar Aeroporto:</h4> <input class="ipt_modal" placeholder="Novo nome do aeroporto">
-
-            </div>
-
-            <div class="atualizarDadosDois" id="atualizarDadosDois" style="display: none">
-
-              <h4>Atualizar email:</h4> <input class="ipt_modal" placeholder="Novo email">
-              <h4>Nova Senha:</h4> <input class="ipt_modal" placeholder="Nova Senha">
-              <h4>Confirmação da Senha:</h4> <input class="ipt_modal" placeholder="Confirme a senha">
-
-              <button class="btnMonitoramento" onclick="Enviar()"> Enviar</button>
-            </div>
+            <h4>Mudar nome:</h4> <input class="ipt_modal" placeholder="Novo nome">
+            <h4>Atualizar Funcionario:</h4> <input class="ipt_modal" placeholder="Promover/Demitir funcionario">
+            <h4>Adicionar Aeroporto:</h4> <input class="ipt_modal" placeholder="Novo nome do aeroporto">
 
           </div>
 
+          <div class="atualizarDadosDois" id="atualizarDadosDois" style="display: none">
+
+            <h4>Atualizar email:</h4> <input class="ipt_modal" placeholder="Novo email">
+            <h4>Nova Senha:</h4> <input class="ipt_modal" placeholder="Nova Senha">
+            <h4>Confirmação da Senha:</h4> <input class="ipt_modal" placeholder="Confirme a senha">
+
+            <button class="btnMonitoramento" onclick="Enviar()"> Enviar</button>
+          </div>
 
         </div>
+
+
       </div>
+    </div>
 
     <div id="modal-promocao_msg" class="modal-container-msg">
-        <div class="modal">
-          <button class="fechar">X</button>
-          <h3>Envie uma mensagem</h3>
-          <br>
-          <form>
-            <input class="ipt_modal" type="text" placeholder="Mensagem para outro Funcionario"> <br>
-            <input class="ipt_modal" type="email" placeholder="Email do Funcionario">
+      <div class="modal">
+        <button class="fechar">X</button>
+        <h3>Envie uma mensagem</h3>
+        <br>
+        <form>
+          <input class="ipt_modal" type="text" placeholder="Mensagem para outro Funcionario"> <br>
+          <input class="ipt_modal" type="email" placeholder="Email do Funcionario">
 
-            
-            <select class="selectCargo" name="cargo">
-              <option name="cargo" value="">Funcionario</option>
-              <option value="gestor">Gestor</option>
-              <option value="tecnico">Tecnico</option>
-            </select>
-            <button class="btnMonitoramento">Enviar</button>
-            <h5 class="ipt_modal"></h5>
 
-          </form>
-        </div>
+          <select class="selectCargo" name="cargo">
+            <option name="cargo" value="">Funcionario</option>
+            <option value="gestor">Gestor</option>
+            <option value="tecnico">Tecnico</option>
+          </select>
+          <button class="btnMonitoramento">Enviar</button>
+          <h5 class="ipt_modal"></h5>
+
+        </form>
       </div>
+    </div>
 
     <script>
       function iniciaModal(modalID) {
-          const modal = document.getElementById(modalID);
-          if (modal) {
-            modal.classList.add("mostrar");
-            modal.addEventListener("click", (e) => {
-              if (e.target.id == modalID || e.target.className == "fechar") {
-                modal.classList.remove("mostrar");
-              }
-            })
-          }
-          nomeModal.innerHTML = `${sessionStorage.nome}`;
-          acessoModal.innerHTML = `${sessionStorage.cargo}`;
+        const modal = document.getElementById(modalID);
+        if (modal) {
+          modal.classList.add("mostrar");
+          modal.addEventListener("click", (e) => {
+            if (e.target.id == modalID || e.target.className == "fechar") {
+              modal.classList.remove("mostrar");
+            }
+          })
         }
+        nomeModal.innerHTML = `${sessionStorage.nome}`;
+        acessoModal.innerHTML = `${sessionStorage.cargo}`;
+      }
 
-        const logo = document.querySelector(".imgUser");
-        logo.addEventListener("click", () => iniciaModal("modal-promocao"));
+      const logo = document.querySelector(".imgUser");
+      logo.addEventListener("click", () => iniciaModal("modal-promocao"));
 
-        const logoDois = document.querySelector(".msgUser");
-        logoDois.addEventListener("click", () => iniciaModal("modal-promocao_msg"));
+      const logoDois = document.querySelector(".msgUser");
+      logoDois.addEventListener("click", () => iniciaModal("modal-promocao_msg"));
 
-        function btnAtualizarDados() {
+      function btnAtualizarDados() {
 
-          atualizarDados.style.display = "block";
-          atualizarDadosDois.style.display = "block";
+        atualizarDados.style.display = "block";
+        atualizarDadosDois.style.display = "block";
 
 
-        }
+      }
 
-        function Enviar() {
-          atualizarDados.style.display = "none";
-          atualizarDadosDois.style.display = "none";
-        }
+      function Enviar() {
+        atualizarDados.style.display = "none";
+        atualizarDadosDois.style.display = "none";
+      }
 
     </script>
     <script>
