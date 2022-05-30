@@ -1,29 +1,42 @@
 let statusPainel = false;
 
-// function requestMaquina() {
-//   var id_maquina = document.getElementById()
+function requestMaquina(idMaquina) {
+  fetch(`/logs/painel/${idMaquina}`)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos PAINEL: ${JSON.stringify(resposta)}`);
+          chartGraphCPU.data.datasets[0].data.shift();
+          chartGraphCPU.data.datasets[0].data.push(resposta[0].cpuPorcentagem);
+          chartGraphCPU.update();
+          chartGraphRAM.data.datasets[0].data.shift();
+          chartGraphRAM.data.datasets[0].data.push(resposta[0].ramPorcentagem);
+          chartGraphRAM.update();
+          chartGraphDISCO.data.datasets[0].data.shift();
+          chartGraphDISCO.data.datasets[0].data.push(resposta[0].discoTimeRes);
+          chartGraphDISCO.update();
+          chartGraphVOLUME.data.datasets[0].data = [];
+          chartGraphVOLUME.data.datasets[0].data = [
+            resposta[0].discoUso,
+            resposta[0].discoDisponivel,
+          ];
+          chartGraphVOLUME.update();
+          setTimeout(() => requestMaquina(idMaquina), 2000);
+        });
+      } else {
+        console.error("Nenhum dado encontrado ou erro na API");
+      }
+    })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados: ${error.message}`);
+    });
+}
 
-//   fetch(`/logs/table/${fk_aeroporto}`)
-//     .then(function (response) {
-//       if (response.ok) {
-//         response.json().then(function (resposta) {
-//           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-//           tbody_painel.innerHTML = "";
-//           atualizarPainel(resposta);
-//         });
-//       } else {
-//         console.error("Nenhum dado encontrado ou erro na API");
-//       }
-//     })
-//     .catch(function (error) {
-//       console.error(`Erro na obtenção dos dados: ${error.message}`);
-//     });
-// }
-
-function exibirPainelDeControle() {
+function exibirPainelDeControle(idMaquina) {
   painelDeControle.style.width = "300%";
   containerDoPainel.style.display = "block";
   statusPainel = true;
+  requestMaquina(idMaquina);
   esconderTabelaLogsTotem();
 }
 

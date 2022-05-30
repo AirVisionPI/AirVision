@@ -10,7 +10,6 @@ telas\TelaPrincipal$2.class
 telas\TelaCadastro$4.class
 telas\TelaLogin$3.class
 com\mycompany\airvision\Maquina.class
-.netbeans_automatic_build
 telas\TelaPrincipal.class
 com\mycompany\metodos\App.class
 com\mycompany\database\SlackConnection.class

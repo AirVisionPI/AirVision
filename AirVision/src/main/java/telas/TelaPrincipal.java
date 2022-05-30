@@ -12,6 +12,7 @@ import com.mycompany.metodos.Utils;
 import com.mycompany.metodos.ramLeitor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
@@ -393,8 +394,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         ActionListener acao = (ActionEvent executar) -> {
 
-            // INSEERÇAO
-            inserir.insertLogBanco();
+            try {
+                // INSEERÇAO
+                inserir.insertLogBanco();
+            } catch (IOException ex) {
+                System.out.println("DEU ERRO NA INSERÇÃO DE LOGS TELAPRINCIPAL COM TRY CATCH");
+                ex.getMessage();
+            }
 
             Double ramLido = ramLendo.ramPorcentagemDeUso();
             Double cpuLido = cpuLendo.emUso();

@@ -28,7 +28,7 @@ function requestLogs() {
 // =========================================
 function atualizarPainel(resposta) {
   resposta
-    // .sort((a, b) => new Date(b.dataLogs) - new Date(a.dataLogs))
+    .sort((a, b) => new Date(b.dataLogs) - new Date(a.dataLogs))
     .forEach(
       (
         {
@@ -62,37 +62,46 @@ function atualizarPainel(resposta) {
         var corCpuPorcentagem = "";
         var corRamPorcentagem = "";
         var corDiscoPorcentagem = "";
+        var emojiCpu = "";
 
         // CPU ALERTA COR
         if (cpuPorcentagem < 30) {
           corCpuPorcentagem = "#00FF7F";
+          emojiCpu = "";
         } else if (cpuPorcentagem < 60) {
           corCpuPorcentagem = "#FF8C00";
+          emojiCpu = "";
         } else {
           corCpuPorcentagem = "#FF0000";
+          emojiCpu = "";
         }
 
         // RAM ALERTA COR
         if (ramPorcentagem < 40) {
           corRamPorcentagem = "#00FF7F";
-          emojiCpu = "‹"
+          emojiRam = "";
         } else if (ramPorcentagem < 70) {
           corRamPorcentagem = "#FF8C00";
+          emojiRam = "";
         } else {
           corRamPorcentagem = "#FF0000";
+          emojiRam = "";
         }
 
         // DISCO ALERTA COR
         if (discoTimeRes < 40) {
           corDiscoPorcentagem = "#00FF7F";
+          emojiDisco = "";
         } else if (discoTimeRes < 80) {
           corDiscoPorcentagem = "#FF8C00";
+          emojiDisco = "";
         } else {
           corDiscoPorcentagem = "#FF0000";
+          emojiDisco = "";
         }
 
         tbody_painel.innerHTML += `
-          <tr onclick="exibirPainelDeControle()">
+          <tr onclick="exibirPainelDeControle(${idMaquina})">
           <!--NOME DO TOTEM--->
            <td class="chart" id="nome_totem_${index}">${hostMaquina}</td>
     

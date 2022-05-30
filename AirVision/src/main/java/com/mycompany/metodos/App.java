@@ -19,6 +19,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 // ESSES IMPORTS PARA INSERIR
 import com.mycompany.metodos.MetodoInsert;
 import com.mycompany.metodos.Utils;
+import java.io.IOException;
 import oshi.SystemInfo;
 
 /**
@@ -154,7 +155,13 @@ public class App {
                             Double disco = discoLendo.taxaDeTransferenciaDisco();
 
                             // METODO PARA INSERIR NO AZURE
-                            inserir.insertLogBanco();
+                            try {
+                                // INSEERÇAO
+                                inserir.insertLogBanco();
+                            } catch (IOException ex) {
+                                System.out.println("DEU ERRO NA INSERÇÃO DE LOGS APP(CLI) COM TRY CATCH");
+                                ex.getMessage();
+                            }
 
                             // METODO LIMPAR TERMINAL
                             Utils.clear();

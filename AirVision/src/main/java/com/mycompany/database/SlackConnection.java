@@ -8,35 +8,28 @@ import com.github.seratch.jslack.Slack;
 import com.github.seratch.jslack.api.webhook.Payload;
 import com.github.seratch.jslack.api.webhook.WebhookResponse;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author JoaoS
  */
 public class SlackConnection {
-    
+
     private static String webHookUrl = "https://hooks.slack.com/services/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";
     private static String oAuthToken = "xoxb-3578969611223-3593580541779-ji5TRHj6QRmwdCS1rKpyxXPD";
     private static String channelPost = "automationdemochannel";
-    
-  public static void sendMessageToSlack(String message) throws IOException{
-      
-      try{
-          
-           StringBuilder msgbuilder = new StringBuilder();
-      msgbuilder.append(message);
-      
-      Payload payload = Payload.builder().channel(channelPost).text(msgbuilder.toString()).build();
-      
-      WebhookResponse res = Slack.getInstance().send(webHookUrl, payload);
-          
-      }catch(Exception e){
-          e.printStackTrace();
-      }
-          
-      
-     
-      
-  }
+
+    public static void sendMessageToSlack(String message) throws IOException {
+        try {
+            StringBuilder msgbuilder = new StringBuilder();
+            msgbuilder.append(message);
+            Payload payload = Payload.builder().channel(channelPost).text(msgbuilder.toString()).build();;
+            WebhookResponse wbResp = Slack.getInstance().send(webHookUrl, payload);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
 }

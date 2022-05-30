@@ -308,44 +308,44 @@
         }</script>
 
       <script>
-        var ctx_1 = document.getElementsByClassName("line-chart-1");
-        var ctx_2 = document.getElementsByClassName("line-chart-2");
-        var ctx_3 = document.getElementsByClassName("line-chart-3");
+        var ctx_1 = document.getElementsByClassName("line-chart-1"); // CPU
+        var ctx_2 = document.getElementsByClassName("line-chart-2"); // RAM
+        var ctx_3 = document.getElementsByClassName("line-chart-3"); // DISCO
         var ctx_4 = document.getElementsByClassName("line-chart-4");
         var ctx_5 = document.getElementsByClassName("line-chart-5");
-        var chartGraph = new Chart(ctx_1, {
+        var chartGraphCPU = new Chart(ctx_1, {
           type: 'line',
           data: {
             labels: ["40/s", "30/s", "20/s", "10/s"],
             datasets: [{
               label: "CPU %",
-              data: [23, 44, 23, 27],
+              data: [0, 0, 0, 0],
               borderWidth: 1.5,
               borderColor: '0',
               backgroundColor: "green"
             }]
           },
         });
-        var chartGraph = new Chart(ctx_2, {
+        var chartGraphRAM = new Chart(ctx_2, {
           type: 'line',
           data: {
             labels: ["40/s", "30/s", "20/s", "10/s"],
             datasets: [{
               label: "RAM %",
-              data: [19, 44, 28, 70],
+              data: [0, 0, 0, 0],
               borderWidth: 1.5,
               borderColor: '0',
               backgroundColor: "blue"
             }]
           },
         });
-        var chartGraph = new Chart(ctx_3, {
+        var chartGraphDISCO = new Chart(ctx_3, {
           type: 'line',
           data: {
             labels: ["40/s", "30/s", "20/s", "10/s"],
             datasets: [{
               label: "DISCO %",
-              data: [16, 24, 26, 60],
+              data: [0, 0, 0, 0],
               borderWidth: 1.5,
               borderColor: '0',
               backgroundColor: "yellow"
@@ -365,16 +365,16 @@
             }]
           },
         });
-        var chartGraph = new Chart(ctx_5, {
-          type: 'line',
+        var chartGraphVOLUME = new Chart(ctx_5, {
+          type: 'pie',
           data: {
-            labels: ["%CPU", "%Maquina", "Memoria", "Disco"],
+            labels: ["Uso","Disponivel"],
             datasets: [{
               label: "DISCO %",
-              data: [16, 24, 26, 60],
+              data: [100, 200],
               borderWidth: 1.5,
               borderColor: '0',
-              backgroundColor: "yellow"
+              backgroundColor: ["blue","gray"]
             }]
           },
         });

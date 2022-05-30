@@ -12,6 +12,8 @@ import com.mycompany.airvision.Disco;
 import com.mycompany.airvision.Maquina;
 import com.mycompany.airvision.memoria;
 import com.mycompany.airvision.Cpu;
+import java.io.IOException;
+import com.mycompany.database.SlackConnection;
 import java.security.spec.ECField;
 
 /**
@@ -36,6 +38,9 @@ public class MetodoInsert {
     private List<memoria> ramLocal;
     private List<Cpu> cpu;
     private List<Cpu> cpuLocal;
+    private CpuLeitor cpuLendo;
+    private ramLeitor ramLendo;
+    private DiscoLeitor discoLendo;
 
     public MetodoInsert(Integer fk_aeroporto) {
         this.config = new Connection();
@@ -46,9 +51,38 @@ public class MetodoInsert {
         this.logsRam = new LogsRamInsert();
         this.logsCpu = new LogsCpuLeitor();
         this.logsDisco = new LogsDiscoLeitor();
+        this.cpuLendo = new CpuLeitor();
+        this.ramLendo = new ramLeitor();
+        this.discoLendo = new DiscoLeitor();
+
     }
 
-    private void getComponentes() {
+    public void slackNotify() throws IOException {
+        Double cpuPorcentagemSlack = cpuLendo.emUso();
+        if (cpuPorcentagemSlack > 74) {
+            SlackConnection.sendMessageToSlack(
+                    "Sua máquina está com consumo de CPU acima de 75%\n"
+                    + "Esté foi o registro coletado: " + cpuPorcentagemSlack + "%\n"
+                    + "nosso Script de correção será ativado automáticamente\n");
+        }
+        Double ramPorcentagemSlack = ramLendo.ramPorcentagemDeUso();
+        if (ramPorcentagemSlack > 74) {
+            SlackConnection.sendMessageToSlack(
+                    "Sua máquina está com consumo de RAM acima de 75%\n"
+                    + "Esté foi o registro coletado: " + ramPorcentagemSlack + "%\n"
+                    + "nosso Script de correção será ativado automáticamente\n");
+        }
+        Double discoTimeResSlack = discoLendo.taxaDeTransferenciaDisco();
+        if (discoTimeResSlack > 60) {
+            SlackConnection.sendMessageToSlack(
+                    "Sua máquina está com consumo de DISCO acima do normal!\n"
+                    + "Esté foi o registro coletado: " + discoTimeResSlack + "Segundos\n"
+                    + "nosso Script de correção será ativado automáticamente\n");
+        }
+    }
+
+    private void getComponentes() throws IOException {
+        slackNotify();
         String selectMaquina = "select * from maquina where fk_aeroporto = ? and hostname = ?";
         maquinas = template.query(selectMaquina, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, maquina.getHostName());
         try {
@@ -86,7 +120,7 @@ public class MetodoInsert {
         }
     }
 
-    public void insertLogBanco() {
+    public void insertLogBanco() throws IOException {
         getComponentes();
         try {
             logsDisco.insertLogDisco(disco.get(0).getId_disco(), discoLocal.get(0).getId_disco());
