@@ -65,30 +65,38 @@ function atualizarPainel(resposta) {
 
         // CPU ALERTA COR
         if (cpuPorcentagem < 30) {
-          corCpuPorcentagem = "#00FF7F";
+          corCpuPorcentagem = "#3CB371";
+          emojiCpu = "✅";
         } else if (cpuPorcentagem < 60) {
-          corCpuPorcentagem = "#FF8C00";
+          corCpuPorcentagem = "#FFD700";
+          emojiCpu = "🟡";
         } else {
           corCpuPorcentagem = "#FF0000";
+          emojiCpu = "❗";
         }
 
         // RAM ALERTA COR
         if (ramPorcentagem < 40) {
-          corRamPorcentagem = "#00FF7F";
-          emojiCpu = "‹"
+          corRamPorcentagem = "#3CB371";
+          emojiCpu = "✅";
         } else if (ramPorcentagem < 70) {
-          corRamPorcentagem = "#FF8C00";
+          corRamPorcentagem = "#FFD700";
+          emojiCpu = "🟡";
         } else {
           corRamPorcentagem = "#FF0000";
+          emojiCpu = "❗";
         }
 
         // DISCO ALERTA COR
         if (discoTimeRes < 40) {
-          corDiscoPorcentagem = "#00FF7F";
+          corDiscoPorcentagem = "#3CB371";
+          emojiCpu = "✅";
         } else if (discoTimeRes < 80) {
-          corDiscoPorcentagem = "#FF8C00";
+          corDiscoPorcentagem = "#FFD700";
+          emojiCpu = "🟡";
         } else {
           corDiscoPorcentagem = "#FF0000";
+          emojiCpu = "❗";
         }
 
         tbody_painel.innerHTML += `
