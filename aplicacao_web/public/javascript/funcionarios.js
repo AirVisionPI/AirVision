@@ -6,21 +6,38 @@
 
 function requestEmployes() {
   var fk_aeroporto = sessionStorage.idAeroporto;
-
-  fetch(`/funcionarios/table/${fk_aeroporto}`)
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resposta) {
-          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          atualizarPainelFuncionarios(resposta);
-        });
-      } else {
-        console.error("Nenhum dado encontrado ou erro na API");
-      }
-    })
-    .catch(function (error) {
-      console.error(`Erro na obtenção dos dados: ${error.message}`);
-    });
+  if (sessionStorage.cargo === "admin") {
+    fetch(`/funcionarios/table/${fk_aeroporto}`)
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            atualizarPainelFuncionarios(resposta);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados: ${error.message}`);
+      });
+  }
+  if (sessionStorage.cargo === "gestor") {
+    fetch(`/funcionarios/table/gestor/${fk_aeroporto}`)
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            atualizarPainelFuncionarios(resposta);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados: ${error.message}`);
+      });
+  }
 }
 
 // =========================================
