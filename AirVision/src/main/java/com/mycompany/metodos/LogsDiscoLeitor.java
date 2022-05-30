@@ -32,7 +32,7 @@ public class LogsDiscoLeitor {
         Connection config = new Connection();
 
         // 🎲 SCRIPTS SQL 🎲
-        String insert = "INSERT INTO logs_disco (tamanho_do_volume, volume_utilizado, volume_disponivel, data_hora, fk_disco, time_res_seconds) VALUES (?,?,?,?,?,?);";
+        String insert = "INSERT INTO logs_disco (tamanho_do_volume, volume_utilizado, volume_disponivel, fk_disco, time_res_seconds) VALUES (?,?,?,?,?);";
 
 // SQL SERVER  ------------------
         // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
@@ -44,25 +44,28 @@ public class LogsDiscoLeitor {
                 discoLendoInsert.tamanhoTotalDoDisco(),
                 discoLendoInsert.volumeUtilizadoDoDisco(),
                 discoLendoInsert.volumeDisponivelDoDisco(),
-                LocalDateTime.now(),
                 fk_disco,
                 discoLendoInsert.taxaDeTransferenciaDisco()
         );
 
 // SQL LOCAL  --------------------
-        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
-        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+        try {
+            // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+            // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+            JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
 
-        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
-        templateLocal.update(insert,
-                discoLendoInsert.tamanhoTotalDoDisco(),
-                discoLendoInsert.volumeUtilizadoDoDisco(),
-                discoLendoInsert.volumeDisponivelDoDisco(),
-                LocalDateTime.now(),
-                fk_disco,
-                discoLendoInsert.taxaDeTransferenciaDisco()
-        );
+            // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
+            templateLocal.update(insert,
+                    discoLendoInsert.tamanhoTotalDoDisco(),
+                    discoLendoInsert.volumeUtilizadoDoDisco(),
+                    discoLendoInsert.volumeDisponivelDoDisco(),
+                    fk_disco_local,
+                    discoLendoInsert.taxaDeTransferenciaDisco()
+            );
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR LOGS DISCO EM LOGSDISCOLEITOR");
+            System.out.println(e.getMessage());
+        }
 
     }
 

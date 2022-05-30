@@ -10,7 +10,6 @@ import com.github.britooo.looca.api.group.processador.Processador;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.mycompany.airvision.Cpu;
 import com.mycompany.airvision.Maquina;
-import com.mycompany.database.SlackConnection;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
@@ -86,26 +85,25 @@ public class CpuLeitor {
 // SQL LOCAL  --------------------
         // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
         // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+        try {
+            JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
 
-        // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO LOCAL
-        // EFETUANDO O SCRIPT SELECT NO TemplateLocal(ObjetoSQL Local), isto está em Connection...
-        List<Maquina> maquinasLocal = templateLocal.query(select, new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
+            // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO LOCAL
+            // EFETUANDO O SCRIPT SELECT NO TemplateLocal(ObjetoSQL Local), isto está em Connection...
+            List<Maquina> maquinasLocal = templateLocal.query(select, new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
 
-        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
-        templateLocal.update(insert,
-                cpu.getNome(),
-                cpu.getIdentificador(),
-                cpu.getFabricante(),
-                maquinasLocal.get(0).getId_maquina()
-        );
-        
-//                if (emUso() > 75) {
-//                    SlackConnection.sendMessageToSlack("Sr.(a) " + usuario.getNome()
-//                    + ", sua máquina está com consumo de CPU acima de 75%"
-//                    + ", nosso Script de correção será ativado automáticamente");
-//
-//    }
+            // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
+            templateLocal.update(insert,
+                    cpu.getNome(),
+                    cpu.getIdentificador(),
+                    cpu.getFabricante(),
+                    maquinasLocal.get(0).getId_maquina()
+            );
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR COMPONENTE CPU EM CPULEITOR");
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public List<Cpu> selectCpu() {

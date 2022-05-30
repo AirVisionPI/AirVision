@@ -374,7 +374,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 //    }
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        MetodoInsert inserir = new MetodoInsert();
+        MetodoInsert inserir = new MetodoInsert(fk_aeroporto);
 
         // OS FORMATADORES
         DecimalFormat formatador = new DecimalFormat("#,##0.00");
@@ -386,15 +386,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         DiscoLeitor discoLendo = new DiscoLeitor();
         ramLeitor ramLendo = new ramLeitor();
 
-        inserir.insertMaquina(fk_aeroporto);
-        inserir.insertBanco(fk_aeroporto);
+        inserir.insertMaquina(fk_aeroporto); //PERGUNTANDO SE EXISTE...... SE EXISTE BLZ.. PASSA RETO.. SE NÃO INSERE...
+        inserir.insertBanco(fk_aeroporto); //PASSA RETO.. INSERE...
 
         nomeUser.setText(nomeDoUsuario);
 
         ActionListener acao = (ActionEvent executar) -> {
 
             // INSEERÇAO
-            inserir.insertLogBanco(fk_aeroporto);
+            inserir.insertLogBanco();
 
             Double ramLido = ramLendo.ramPorcentagemDeUso();
             Double cpuLido = cpuLendo.emUso();

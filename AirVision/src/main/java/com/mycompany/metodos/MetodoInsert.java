@@ -12,6 +12,7 @@ import com.mycompany.airvision.Disco;
 import com.mycompany.airvision.Maquina;
 import com.mycompany.airvision.memoria;
 import com.mycompany.airvision.Cpu;
+import java.security.spec.ECField;
 
 /**
  *
@@ -19,39 +20,102 @@ import com.mycompany.airvision.Cpu;
  */
 public class MetodoInsert {
 
-    public void insertLogBanco(Integer fk_aeroporto) {
+    private Connection config;
+    private Integer fk_aeroporto;
+    private JdbcTemplate template;
+    private JdbcTemplate templateLocal;
+    private maquinaLeitor maquina;
+    private LogsCpuLeitor logsCpu;
+    private LogsDiscoLeitor logsDisco;
+    private LogsRamInsert logsRam;
+    private List<Maquina> maquinas;
+    private List<Maquina> maquinasLocal;
+    private List<Disco> disco;
+    private List<Disco> discoLocal;
+    private List<memoria> ram;
+    private List<memoria> ramLocal;
+    private List<Cpu> cpu;
+    private List<Cpu> cpuLocal;
 
-        maquinaLeitor maquina = new maquinaLeitor();
-        Connection config = new Connection();
-        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+    public MetodoInsert(Integer fk_aeroporto) {
+        this.config = new Connection();
+        this.fk_aeroporto = fk_aeroporto;
+        this.template = new JdbcTemplate(config.getDataSource());
+        this.templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+        this.maquina = new maquinaLeitor();
+        this.logsRam = new LogsRamInsert();
+        this.logsCpu = new LogsCpuLeitor();
+        this.logsDisco = new LogsDiscoLeitor();
+    }
 
-        String select = "select * from maquina where fk_aeroporto = ? and hostname = ?";
-        List<Maquina> maquinas = template.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, maquina.getHostName());
-        List<Maquina> maquinasLocal = templateLocal.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, maquina.getHostName());
+    private void getComponentes() {
+        String selectMaquina = "select * from maquina where fk_aeroporto = ? and hostname = ?";
+        maquinas = template.query(selectMaquina, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, maquina.getHostName());
+        try {
+            maquinasLocal = templateLocal.query(selectMaquina, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, maquina.getHostName());
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO LISTAR MAQUINAS PARA DAR SELECT NOS COMPONENTES PARA INSERIR LOGS NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
 
-        LogsDiscoLeitor logsDisco = new LogsDiscoLeitor();
-        select = "select * from disco where fk_maquina = ?";
-        List<Disco> disco = template.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Disco.class), maquinas.get(0).getId_maquina());
-        List<Disco> discoLocal = templateLocal.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Disco.class), maquinasLocal.get(0).getId_maquina());
-        logsDisco.insertLogDisco(disco.get(0).getId_disco(), discoLocal.get(0).getId_disco());
+        String selectDisco = "SELECT * FROM disco WHERE fk_maquina = ?";
+        disco = template.query(selectDisco, new BeanPropertyRowMapper(com.mycompany.airvision.Disco.class), maquinas.get(0).getId_maquina());
+        try {
+            discoLocal = templateLocal.query(selectDisco, new BeanPropertyRowMapper(com.mycompany.airvision.Disco.class), maquinasLocal.get(0).getId_maquina());
+        } catch (Exception e) {
+            System.out.println("DEU ERRO NO SELECT LOGS DISCO NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
 
-        LogsRamInsert logsRam = new LogsRamInsert();
-        select = "select * from memoria where fk_maquina = ?";
-        List<memoria> ram = template.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.memoria.class), maquinas.get(0).getId_maquina());
-        List<memoria> ramLocal = templateLocal.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.memoria.class), maquinasLocal.get(0).getId_maquina());
-        logsRam.insertLogRam(ram.get(0).getIdMemoria(),ramLocal.get(0).getIdMemoria());
+        String selectMemoria = "SELECT * FROM memoria WHERE fk_maquina = ?";
+        ram = template.query(selectMemoria, new BeanPropertyRowMapper(com.mycompany.airvision.memoria.class), maquinas.get(0).getId_maquina());
+        try {
+            ramLocal = templateLocal.query(selectMemoria, new BeanPropertyRowMapper(com.mycompany.airvision.memoria.class), maquinasLocal.get(0).getId_maquina());
+        } catch (Exception e) {
+            System.out.println("DEU ERRO NO SELECT LOGS MEMORIA NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
 
-        LogsCpuLeitor logsCpu = new LogsCpuLeitor();
-        select = "select * from cpu where fk_maquina = ?";
-        List<Cpu> cpu = template.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Cpu.class), maquinas.get(0).getId_maquina());
-        List<Cpu> cpuLocal = templateLocal.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Cpu.class), maquinasLocal.get(0).getId_maquina());
-        logsCpu.insertLogCpu(cpu.get(0).getId_cpu(), cpuLocal.get(0).getId_cpu());
+        String selectCpu = "SELECT * FROM cpu WHERE fk_maquina = ?";
+        cpu = template.query(selectCpu, new BeanPropertyRowMapper(com.mycompany.airvision.Cpu.class), maquinas.get(0).getId_maquina());
+        try {
+            cpuLocal = templateLocal.query(selectCpu, new BeanPropertyRowMapper(com.mycompany.airvision.Cpu.class), maquinasLocal.get(0).getId_maquina());
+        } catch (Exception e) {
+            System.out.println("DEU ERRO NO SELECT LOGS CPU NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void insertLogBanco() {
+        getComponentes();
+        try {
+            logsDisco.insertLogDisco(disco.get(0).getId_disco(), discoLocal.get(0).getId_disco());
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR DISCO NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
+        try {
+            logsRam.insertLogRam(ram.get(0).getIdMemoria(), ramLocal.get(0).getIdMemoria());
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR RAM NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
+        try {
+            logsCpu.insertLogCpu(cpu.get(0).getId_cpu(), cpuLocal.get(0).getId_cpu());
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR CPU NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
     }
 
     public void insertMaquina(Integer fk_maquina) {
         maquinaLeitor maquina = new maquinaLeitor();
-        maquina.insertMaquina(fk_maquina);
+        try {
+            maquina.insertMaquina(fk_maquina);
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR MAQUINA NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
     }
 
     public void insertBanco(Integer fk_aeroporto) {
@@ -60,9 +124,24 @@ public class MetodoInsert {
         ramLeitor ram = new ramLeitor();
         CpuLeitor cpu = new CpuLeitor();
 
-        disco.insertDiscoLeitor(0, fk_aeroporto);
-        cpu.insertCpu(fk_aeroporto);
-        ram.insertRam(fk_aeroporto);
+        try {
+            disco.insertDiscoLeitor(0, fk_aeroporto);
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR DISCO NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
+        try {
+            cpu.insertCpu(fk_aeroporto);
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR CPU NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
+        try {
+            ram.insertRam(fk_aeroporto);
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR RAM NO METODOINSERT");
+            System.out.println(e.getMessage());
+        }
 
         System.out.println(cpu);
         System.out.println(ram);

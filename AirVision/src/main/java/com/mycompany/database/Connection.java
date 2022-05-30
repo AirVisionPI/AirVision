@@ -20,7 +20,7 @@ public class Connection {
         // CONFIGURAÇÕES BANCO DE DADOS AZURE
         dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSource.setUrl("jdbc:sqlserver://srv-airvision.database.windows.net:1433;database=bd-airvision;user=admin-airvision@srv-airvision;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+        dataSource.setUrl("jdbc:sqlserver://srv-airvision.database.windows.net:1433;database=bd-airvision2;user=admin-airvision@srv-airvision;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
         dataSource.setUsername("admin-airvision");
         dataSource.setPassword("2ads@grupo3");
 

@@ -51,13 +51,12 @@ public class DiscoLeitor {
         return tamanhoDoVolume.doubleValue();
     }
 
-
     public Double volumeDisponivelDoDisco() {
         Double volumeConvert = Utils.converterByteToGigabyte((double) looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel());
         BigDecimal volumeDisponivel = new BigDecimal(volumeConvert).setScale(2, RoundingMode.UP);
         return volumeDisponivel.doubleValue();
     }
-    
+
     public Double volumeUtilizadoDoDisco() {
         Double volumeConvert = tamanhoTotalDoDisco() - volumeDisponivelDoDisco();
         BigDecimal volumeUtilizado = new BigDecimal(volumeConvert).setScale(2, RoundingMode.UP);
@@ -94,20 +93,6 @@ public class DiscoLeitor {
         // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO AZURE
         // EFETUANDO O SCRIPT SELECT NO Template(ObjetoSQL Azure), isto está em Connection...
         List<Maquina> maquinas = template.query(select, new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
-
-// SQL LOCAL  --------------------
-        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
-        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
-
-        // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO LOCAL
-        // EFETUANDO O SCRIPT SELECT NO TemplateLocal(ObjetoSQL Local), isto está em Connection...
-        List<Maquina> maquinasLocal = templateLocal.query(select, new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
-
-        for (Maquina maquina1 : maquinas) {
-            System.out.println("maquinas: " + maquina1);
-        }
-
 // SQL SERVER  ------------------
         // EFETUANDO O SCRIPT NO ObjetoSQL(Azure)...
         template.update(insert,
@@ -117,12 +102,29 @@ public class DiscoLeitor {
         );
 
 // SQL LOCAL  --------------------
-        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
-        templateLocal.update(insert,
-                disco.getNome(),
-                disco.getModelo(),
-                maquinasLocal.get(0).getId_maquina()
-        );
+        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+        try {
+            JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+
+            // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO LOCAL
+            // EFETUANDO O SCRIPT SELECT NO TemplateLocal(ObjetoSQL Local), isto está em Connection...
+            List<Maquina> maquinasLocal = templateLocal.query(select, new BeanPropertyRowMapper<>(Maquina.class), maquinaleitor.getHostName(), fk_aeroporto);
+
+            for (Maquina maquina1 : maquinas) {
+                System.out.println("maquinas: " + maquina1);
+            }
+// SQL LOCAL  --------------------
+            // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
+            templateLocal.update(insert,
+                    disco.getNome(),
+                    disco.getModelo(),
+                    maquinasLocal.get(0).getId_maquina()
+            );
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR COMPONENTE DISCO EM DISCOLEITOR");
+            System.out.println(e.getMessage());
+        }
 
     }
 

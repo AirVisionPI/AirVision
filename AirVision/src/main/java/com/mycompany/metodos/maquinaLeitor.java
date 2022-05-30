@@ -66,20 +66,25 @@ public class maquinaLeitor {
 // SQL LOCAL  --------------------
         // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
         // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+        try {
+            JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
 
-        // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO LOCAL
-        // EFETUANDO O SCRIPT SELECT NO TemplateLocal(ObjetoSQL Local), isto está em Connection...
-        List<com.mycompany.airvision.Maquina> maquinasLocal;
-        maquinasLocal = templateLocal.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, getHostName());;;;
+            // INSTANCIANDO LISTA E SEU CONTEÚDO=SELECT DO BANCO LOCAL
+            // EFETUANDO O SCRIPT SELECT NO TemplateLocal(ObjetoSQL Local), isto está em Connection...
+            List<com.mycompany.airvision.Maquina> maquinasLocal;
+            maquinasLocal = templateLocal.query(select, new BeanPropertyRowMapper(com.mycompany.airvision.Maquina.class), fk_aeroporto, getHostName());;;;
 
-        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
-        if (maquinasLocal.isEmpty()) {
-            templateLocal.update("INSERT INTO maquina ( hostname, sistema_operacional, fk_aeroporto) VALUES (?,?,?);",
-                    getHostName(),
-                    getSistema(),
-                    fk_aeroporto
-            );
+            // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
+            if (maquinasLocal.isEmpty()) {
+                templateLocal.update("INSERT INTO maquina ( hostname, sistema_operacional, fk_aeroporto) VALUES (?,?,?);",
+                        getHostName(),
+                        getSistema(),
+                        fk_aeroporto
+                );
+            }
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR MAQUINA EM MAQUINALEITOR");
+            System.out.println(e.getMessage());
         }
 
     }

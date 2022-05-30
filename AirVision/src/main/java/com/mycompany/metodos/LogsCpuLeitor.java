@@ -22,8 +22,8 @@ public class LogsCpuLeitor {
         Connection config = new Connection();
 
         // 🎲 SCRIPTS SQL 🎲
-        String insert = "INSERT INTO logs_cpu (em_uso, data_hora, fk_cpu) VALUES ( ?,?,?);";
-        
+        String insert = "INSERT INTO logs_cpu (em_uso, fk_cpu) VALUES ( ?,?);";
+
 // SQL SERVER  ------------------
         // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
         // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
@@ -32,21 +32,26 @@ public class LogsCpuLeitor {
         // EFETUANDO O SCRIPT NO ObjetoSQL(Azure)...
         template.update(insert,
                 cpu.emUso(),
-                LocalDateTime.now(),
+
                 fk_cpu
         );
 
 // SQL LOCAL  --------------------
-        // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
-        // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
-        JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
+        try {
+            // INSTANCIANDO O JDBCTemplate! (Faz Funcionar Select's Insert's Update's Delete's)
+            // O que define se vai ser Local ou Server é o tipo de configuração retornada em getDataSource...
+            JdbcTemplate templateLocal = new JdbcTemplate(config.getDataSourceLocal());
 
-        // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
-        templateLocal.update(insert,
-                cpu.emUso(),
-                LocalDateTime.now(),
-                fk_cpu_local
-        );
+            // EFETUANDO O SCRIPT NO ObjetoSQL(Local)...
+            templateLocal.update(insert,
+                    cpu.emUso(),
+
+                    fk_cpu_local
+            );
+        } catch (Exception e) {
+            System.out.println("DEU ERRO AO INSERIR LOGS CPU EM LOGSCPULEITOR");
+            System.out.println(e.getMessage());
+        }
 
     }
 

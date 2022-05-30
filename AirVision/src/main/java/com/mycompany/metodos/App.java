@@ -124,7 +124,7 @@ public class App {
 
                         Integer fk_aeroporto = cadastroAdvancedUse.get(0).getFk_aeroporto();
 
-                        MetodoInsert inserir = new MetodoInsert();
+                        MetodoInsert inserir = new MetodoInsert(fk_aeroporto);
                         SystemInfo si = new SystemInfo();
                         // LOOCA
                         CpuLeitor cpuLendo = new CpuLeitor();
@@ -154,7 +154,7 @@ public class App {
                             Double disco = discoLendo.taxaDeTransferenciaDisco();
 
                             // METODO PARA INSERIR NO AZURE
-                            inserir.insertLogBanco(fk_aeroporto);
+                            inserir.insertLogBanco();
 
                             // METODO LIMPAR TERMINAL
                             Utils.clear();
