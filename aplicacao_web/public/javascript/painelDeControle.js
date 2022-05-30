@@ -1,24 +1,24 @@
 let statusPainel = false;
 
-function requestMaquina() {
-  var id_maquina = document.getElementById()
+// function requestMaquina() {
+//   var id_maquina = document.getElementById()
 
-  fetch(`/logs/table/${fk_aeroporto}`)
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resposta) {
-          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          tbody_painel.innerHTML = "";
-          atualizarPainel(resposta);
-        });
-      } else {
-        console.error("Nenhum dado encontrado ou erro na API");
-      }
-    })
-    .catch(function (error) {
-      console.error(`Erro na obtenção dos dados: ${error.message}`);
-    });
-}
+//   fetch(`/logs/table/${fk_aeroporto}`)
+//     .then(function (response) {
+//       if (response.ok) {
+//         response.json().then(function (resposta) {
+//           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+//           tbody_painel.innerHTML = "";
+//           atualizarPainel(resposta);
+//         });
+//       } else {
+//         console.error("Nenhum dado encontrado ou erro na API");
+//       }
+//     })
+//     .catch(function (error) {
+//       console.error(`Erro na obtenção dos dados: ${error.message}`);
+//     });
+// }
 
 function exibirPainelDeControle() {
   painelDeControle.style.width = "300%";
