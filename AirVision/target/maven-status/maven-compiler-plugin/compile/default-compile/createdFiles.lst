@@ -1,5 +1,6 @@
 com\mycompany\airvision\LogsRam.class
 telas\TelaLogin$1.class
+com\mycompany\log\LogRecorder.class
 telas\TelaCadastro$7.class
 telas\TelaCadastro.class
 com\mycompany\metodos\LogsDiscoLeitor.class
@@ -10,7 +11,6 @@ telas\TelaPrincipal$2.class
 telas\TelaCadastro$4.class
 telas\TelaLogin$3.class
 com\mycompany\airvision\Maquina.class
-.netbeans_automatic_build
 telas\TelaPrincipal.class
 com\mycompany\metodos\App.class
 com\mycompany\database\SlackConnection.class
@@ -20,6 +20,7 @@ com\mycompany\metodos\CpuLeitor.class
 com\mycompany\metodos\maquinaLeitor.class
 com\mycompany\metodos\MetodoInsert.class
 telas\TelaPrincipal$1.class
+com\mycompany\services\ComponentesServices.class
 telas\TelaLogin.class
 com\mycompany\metodos\DiscoLeitor.class
 telas\TelaCadastro$1.class
