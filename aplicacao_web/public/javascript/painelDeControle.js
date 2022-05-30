@@ -6,6 +6,7 @@ function requestMaquina(idMaquina) {
       if (response.ok) {
         response.json().then(function (resposta) {
           console.log(`Dados recebidos PAINEL: ${JSON.stringify(resposta)}`);
+          nome_do_totem_painel_de_controle.innerHTML = resposta[0].hostMaquina;
           chartGraphCPU.data.datasets[0].data.shift();
           chartGraphCPU.data.datasets[0].data.push(resposta[0].cpuPorcentagem);
           chartGraphCPU.update();
@@ -21,7 +22,7 @@ function requestMaquina(idMaquina) {
             resposta[0].discoDisponivel,
           ];
           chartGraphVOLUME.update();
-          setTimeout(() => requestMaquina(idMaquina), 10000);
+          setTimeout(() => requestMaquina(idMaquina), 12345);
         });
       } else {
         console.error("Nenhum dado encontrado ou erro na API");

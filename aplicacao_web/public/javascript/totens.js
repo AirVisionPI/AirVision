@@ -53,7 +53,7 @@ function atualizarPainel(resposta) {
         console.log(segundos);
 
         var statusTotem;
-        if (segundos > 35) {
+        if (segundos > 25) {
           statusTotem = "Offline";
           statusClass = "status return";
         } else {
@@ -128,5 +128,5 @@ function atualizarPainel(resposta) {
       }
     );
 
-  setTimeout(() => requestLogs(), 5000);
+  setTimeout(() => requestLogs(), 4000);
 }
