@@ -5,7 +5,9 @@
 // AQUI VAI FAZER FETCH DO BANCO MEU AMIGO..
 
 function requestEmployes() {
+
   var fk_aeroporto = sessionStorage.idAeroporto;
+
   if (sessionStorage.cargo === "admin") {
     fetch(`/funcionarios/table/${fk_aeroporto}`)
       .then(function (response) {
@@ -22,6 +24,7 @@ function requestEmployes() {
         console.error(`Erro na obtenção dos dados: ${error.message}`);
       });
   }
+
   if (sessionStorage.cargo === "gestor") {
     fetch(`/funcionarios/table/gestor/${fk_aeroporto}`)
       .then(function (response) {
@@ -38,6 +41,7 @@ function requestEmployes() {
         console.error(`Erro na obtenção dos dados: ${error.message}`);
       });
   }
+
 }
 
 // =========================================
@@ -46,16 +50,10 @@ function requestEmployes() {
 function atualizarPainelFuncionarios(resposta) {
   resposta.forEach(
     (
-      { id_usuario, nome_usuario, email_usuario, senha_usuario, cargo_usuario },
+      { id_usuario, nome_usuario, email_usuario, cargo_usuario },
       index
     ) => {
-      var statusClassVerSenha = "fa-solid fa-eye-slash";
 
-      var verSenha = false;
-
-      if (verSenha == true) {
-        statusClassVerSenha = "fa-solid fa-eye";
-      }
       tbody_painelfunc.innerHTML += `
        <tr class="tr">
        <!--NOME DO TOTEM--->
@@ -68,13 +66,11 @@ function atualizarPainelFuncionarios(resposta) {
        <td id="email_usuario_func_${index}">${email_usuario}</td>
 
        <!--NOME DO TOTEM--->
-       <td id="senha_usuario_func_${index}">${senha_usuario} <i class="fa-solid fa-eye-slash"></i></td>
-
-       <!--NOME DO TOTEM--->
        <td id="cargo_usuario_func_${index}">${cargo_usuario}</td>
        </tr>
       `;
     }
+    
   );
 
   // document
