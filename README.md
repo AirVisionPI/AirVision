@@ -20,46 +20,7 @@ AirVision surgiu tendo em vista os problemas que os passageiros passam todos os 
 Nosso principal desafio é manter a máquina funcionando perfeitamente, para evitar que um passageiro perca sua viagem, antecipar possíveis problemas para entregar com excelencia e qualidade.
 </p>
 
-
 #
-
-### Desenvolvido até o momento:
-<ol>
-  <li>Início
-    <ul>
-      <li>Navbar</li>
-      <li>Banner</li>
-      <li>Footer</li>
-    </ul>
-  </li>
-  <li>Sobre</li>
-  <li>Suporte</li>
-  <li>Inovação</li>  
-  <li>Acesso(Login/Cadastro)</li>
-</ol>
-
-#
-
-### Início
-
-
-
-#### Navbar (Header)
-
-
-
-
-#### Footer
-
-
-
-#
-
-### Login
-
-
-
-# 
 
 ### Desenvolvido por:
 - @joaoavictor (joao.asantos@bandtec.com.br)
